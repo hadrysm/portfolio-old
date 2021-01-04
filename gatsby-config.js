@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
@@ -30,6 +32,19 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        components: path.join(__dirname, 'src/components'),
+        templates: path.join(__dirname, 'src/templates'),
+        pages: path.join(__dirname, 'src/pages'),
+        assets: path.join(__dirname, 'src/assets'),
+        helpers: path.join(__dirname, 'src/helpers'),
+        providers: path.join(__dirname, 'src/providers'),
+        animations: path.join(__dirname, 'src/animations'),
+        hooks: path.join(__dirname, 'src/hooks'),
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
