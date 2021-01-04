@@ -21,7 +21,7 @@ export const theme = {
   font: {
     family: {
       primary: `'Montserrat', sans-serif`,
-      secondary: `'Istok Web', sans-serif`,
+      secondary: `'Catamaran', sans-serif`,
     },
     weight: {},
     size: {
