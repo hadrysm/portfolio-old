@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from 'templates/Layout/Layout'
-import ThemeProvider from 'providers/ThemeProvider/ThemeProvider'
+import ThemeProvider from 'providers/ThemeProvider/ThemeProvider';
+import { NavigationStateProvider } from 'providers/NavigationStateProvider/NavigationStateProvider';
+
+import Layout from 'templates/Layout/Layout';
 
 export const wrapPageElement = ({ element, props }) => (
-  <ThemeProvider>
-    <Layout {...props}>{element}</Layout>
-  </ThemeProvider>
-)
+  <NavigationStateProvider>
+    <ThemeProvider>
+      <Layout {...props}>{element}</Layout>
+    </ThemeProvider>
+  </NavigationStateProvider>
+);

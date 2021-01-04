@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { normalize } from 'styled-normalize'
+import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 const GlobalStyled = createGlobalStyle`
   ${normalize}
@@ -19,7 +19,8 @@ html {
 body {
   font-size: 1.6rem;
   font-family: ${({ theme }) => theme.font.family.primary};
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.primary};
+  text-rendering: optimizeLegibility;
 }
 
 ul {
@@ -41,6 +42,6 @@ a {
 }
 
  
-`
+`;
 
-export default GlobalStyled
+export default GlobalStyled;
