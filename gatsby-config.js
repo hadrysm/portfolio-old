@@ -10,6 +10,9 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
+      resolve: `gatsby-plugin-styled-components`,
+    },
+    {
       resolve: '@danbruegge/gatsby-plugin-stylelint',
       options: { files: ['**/*.{js,jsx}'] },
     },
