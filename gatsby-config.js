@@ -13,12 +13,6 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/templates/Layout/Layout.js`),
-      },
-    },
-    {
       resolve: '@danbruegge/gatsby-plugin-stylelint',
       options: { files: ['**/*.{js,jsx}'] },
     },
