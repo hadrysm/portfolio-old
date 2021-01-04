@@ -1,7 +1,13 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  const { setWebpackConfig } = actions
 
-// You can delete this file if you're not using it
+  if (stage.startsWith('develop')) {
+    setWebpackConfig({
+      resolve: {
+        alias: {
+          'react-dom': '@hot-loader/react-dom',
+        },
+      },
+    })
+  }
+}
