@@ -9,8 +9,14 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
+    `gatsby-plugin-styled-components`,
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/templates/Layout/Layout.js`),
+      },
     },
     {
       resolve: '@danbruegge/gatsby-plugin-stylelint',
@@ -20,11 +26,9 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
