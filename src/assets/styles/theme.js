@@ -17,6 +17,8 @@ export const theme = {
     primary: '#FCBF49',
     secpondary: '#3C404D',
     tertiary: '#E63946',
+    grey: ' #BCBCBC',
+    grey100: ' #9C9C9C',
   },
   font: {
     family: {

@@ -56,7 +56,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "svgr": "svgr < svgr/Headline.svg > src/components/SVG/SvgHeadline.js --svgo-config svgr/svgo.json --replace-attr-values #434149=currentColor"
+    "svgr": "svgr < svgr/new.svg > src/components/SVG/new.js --svgo-config svgr/svgo.json --replace-attr-values #434149=currentColor"
   },
   "repository": {
     "type": "git",
