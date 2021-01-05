@@ -5,6 +5,20 @@ import { motion } from 'framer-motion';
 
 import { Wrapper, Text } from './ScrollDown.style';
 
+const scrollVariants = {
+  hidden: {
+    y: 200,
+    rotate: -90,
+  },
+  visible: {
+    y: 0,
+    transition: {
+      duration: 1,
+      ease: 'easeInOut',
+    },
+  },
+};
+
 const arrowVariants = {
   animate: {
     x: [-5, -15],
@@ -17,7 +31,7 @@ const arrowVariants = {
 };
 
 const ScrollDown = ({ top = 85, left = 35 }) => (
-  <Wrapper top={top} left={left}>
+  <Wrapper top={top} left={left} variants={scrollVariants} initial="hidden" animate="visible">
     <motion.span variants={arrowVariants} animate="animate">
       <ArrowIcon />
     </motion.span>
