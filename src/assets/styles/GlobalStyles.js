@@ -19,7 +19,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: ${({ theme }) => theme.font.family.primary};
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.background};
   text-rendering: optimizeLegibility;
 }
 
@@ -40,8 +40,6 @@ a {
 .no-scroll {
   overflow: hidden;
 }
-
- 
 `;
 
 export default GlobalStyled;

@@ -5,7 +5,7 @@ const breakpoints = {
   desktop: 1150,
   bigDesktop: 1440,
   huge: 1700,
-}
+};
 
 export const theme = {
   colors: {
@@ -23,7 +23,10 @@ export const theme = {
       primary: `'Montserrat', sans-serif`,
       secondary: `'Catamaran', sans-serif`,
     },
-    weight: {},
+    weight: {
+      regular: 400,
+      bold: 700,
+    },
     size: {
       headers: {
         xs: '2rem',
@@ -50,9 +53,9 @@ export const theme = {
   },
 
   mq: Object.keys(breakpoints).reduce((acc, breakpoint) => {
-    acc[breakpoint] = `@media (min-width: ${breakpoints[breakpoint]}px)`
+    acc[breakpoint] = `@media (min-width: ${breakpoints[breakpoint]}px)`;
 
-    return acc
+    return acc;
   }, {}),
 
   zIndex: {
@@ -68,4 +71,4 @@ export const theme = {
     level10: '10000',
     level11: '11000',
   },
-}
+};

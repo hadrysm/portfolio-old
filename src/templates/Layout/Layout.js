@@ -1,16 +1,14 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-import Logo from 'components/atoms/Logo/Logo';
-import Burger from 'components/atoms/Burger/Burger';
+
+import Header from 'components/organisms/Header/Header';
+
+import { Main } from './Layout.style';
 
 const Layout = ({ children }) => (
   <>
-    <header>
-      <Logo />
-      <Burger />
-    </header>
-    {children}
+    <Header />
+    <Main>{children}</Main>
   </>
 );
 
