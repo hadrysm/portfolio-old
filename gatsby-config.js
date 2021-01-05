@@ -55,7 +55,7 @@ module.exports = {
           google: [
             {
               family: 'Catamaran',
-              variants: ['300', '400', '500', '700'],
+              variants: ['300', '400', '600', '700'],
               subsets: ['latin-ext'],
             },
             {

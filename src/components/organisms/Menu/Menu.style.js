@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   height: 100%;
   width: 90%;
   max-width: 25rem;
-  background-color: pink;
+  background-color: white;
   z-index: ${({ theme }) => theme.zIndex.level7};
 `;
 

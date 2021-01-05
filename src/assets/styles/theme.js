@@ -15,8 +15,8 @@ export const theme = {
     main: '#434149',
     text: '#434149',
     primary: '#FCBF49',
-    secpondary: '#3C404D',
-    tertiary: '#E63946',
+    secondary: '#E63946',
+    tertiary: '#3C404D',
     grey: ' #BCBCBC',
     grey100: ' #9C9C9C',
   },
@@ -27,6 +27,7 @@ export const theme = {
     },
     weight: {
       regular: 400,
+      semiBold: 600,
       bold: 700,
     },
     size: {
