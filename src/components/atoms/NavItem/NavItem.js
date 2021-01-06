@@ -1,23 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
-import { StyledLink, Li, Mask, Text } from './NavItem.style';
+import { Li, Mask, Text } from './NavItem.style';
 
 const maskVariants = {
   hidden: {
-    scale: 0,
+    y: '-100%',
   },
-  hover: {
-    scale: 1,
+  visible: {
+    y: 0,
+    transition: {
+      duration: 0.7,
+    },
   },
 };
 
 const NavItem = ({ label = 'link', path = '/', colorContext }) => (
-  <Li whileHover="hover" initial="hidden">
-    <StyledLink to={path} activeClassName="active">
-      <Text>{label}</Text>
-      <Mask className="mask" colorContext={colorContext} variants={maskVariants} />
-    </StyledLink>
+  <Li>
+    <Link to={path} activeClassName="active">
+      <Text colorContext={colorContext}>{label}</Text>
+      <Mask variants={maskVariants} initial="hidden" animate="visible" />
+    </Link>
   </Li>
 );
 
