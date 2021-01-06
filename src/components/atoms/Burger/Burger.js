@@ -8,6 +8,7 @@ import {
 import { BurgerButton, Wrapper, Line } from './Burger.styles';
 
 const transition = { duration: 0.4, ease: [0.6, 0.01, -0.05, 0.9] };
+
 // const transition = { duration: 0.4, ease: [0.7, 0, 0.3, 1] }
 
 const firstLine = {

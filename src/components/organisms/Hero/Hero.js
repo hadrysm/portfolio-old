@@ -5,8 +5,7 @@ import ScrollDown from 'components/atoms/ScrollDown/ScrollDown';
 
 import { Container, Wrapper, InnerWrapper, Mask, Title, SubTitle } from './Hero.style';
 
-const transition = { duration: 1.3, ease: [0.7, 0, 0.3, 1] };
-// const transition2 = { duration: 1.3, ease: [0.6, 0.01, -0.05, 0.9] };
+const transition = { duration: 0.8, ease: [0.6, 0.01, -0.05, 0.9] };
 
 const heroVariants = {
   hidden: {

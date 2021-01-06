@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const List = styled.ul`
   display: flex;
   align-items: center;
 `;
 
-export const Item = styled.li`
+export const Item = styled(motion.li)`
   margin-right: 0.5rem;
   padding: 0 1rem;
   text-transform: uppercase;

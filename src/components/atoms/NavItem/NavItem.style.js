@@ -4,13 +4,9 @@ import { motion } from 'framer-motion';
 
 const ACTIVE_CLASS_NAME = '.active';
 
-export const StyledLink = styled(Link)`
-  /* &${ACTIVE_CLASS_NAME} .mask {
-    transform: scale(1);
-  } */
-`;
+export const StyledLink = styled(Link)``;
 
-export const Li = styled(motion.li)`
+export const Li = styled.li`
   position: relative;
   margin-bottom: 1rem;
   overflow: hidden;
@@ -48,7 +44,7 @@ export const Text = styled.span`
     transition: transform 400ms cubic-bezier(1, 0, 0, 1) 0ms;
   }
 
-  ${Link}${ACTIVE_CLASS_NAME} &::before {
+  ${StyledLink}${ACTIVE_CLASS_NAME} &::before {
     transform: scale(1);
   }
 

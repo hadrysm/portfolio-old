@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -11,6 +12,6 @@ export const Wrapper = styled.div`
   z-index: ${({ theme }) => theme.zIndex.level7};
 `;
 
-export const InnerWrapper = styled.div`
+export const Nav = styled(motion.nav)`
   padding: 4rem 2rem;
 `;
