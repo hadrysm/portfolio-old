@@ -19,7 +19,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: ${({ theme }) => theme.font.family.primary};
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.background};
   text-rendering: optimizeLegibility;
 }
 

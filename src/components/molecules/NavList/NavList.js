@@ -9,19 +9,19 @@ const links = [
     id: 1,
     label: 'Home',
     path: '/',
-    colorContext: 'primary',
+    colorContext: 'yellow',
   },
   {
     id: 2,
     label: 'Projects',
     path: '/projects',
-    colorContext: 'secondary',
+    colorContext: 'red',
   },
   {
     id: 3,
     label: 'Blog',
     path: '/blog',
-    colorContext: 'tertiary',
+    colorContext: 'grey400',
   },
 ];
 

@@ -2,18 +2,23 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 
+import { usePageThemeColorsState } from 'providers/PageThemeColorsProvider/PageThemeColorsProvider';
 import GlobalStyled from 'assets/styles/GlobalStyles';
 import { theme } from 'assets/styles/theme';
 
-const TProvider = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyled />
-    {children}
-  </ThemeProvider>
-);
+const SCThemeProvider = ({ children }) => {
+  const pageTheme = usePageThemeColorsState();
 
-TProvider.propTypes = {
+  return (
+    <ThemeProvider theme={{ ...theme, ...pageTheme }}>
+      <GlobalStyled />
+      {children}
+    </ThemeProvider>
+  );
+};
+
+SCThemeProvider.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
 
-export default TProvider;
+export { SCThemeProvider };

@@ -11,6 +11,6 @@ export const Item = styled(motion.li)`
   padding: 0 1rem;
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.font.family.secondary};
-  color: ${({ theme, active }) => (active ? theme.colors.text : theme.colors.grey)};
+  color: ${({ theme, active }) => (active ? theme.text : theme.grey)};
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `;

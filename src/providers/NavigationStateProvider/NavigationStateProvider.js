@@ -1,11 +1,11 @@
 import React, { createContext, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-const NavigationStateContext = createContext(false);
-const NavigationDispatchContext = createContext(() => {});
+const NavigationStateContext = createContext();
+const NavigationDispatchContext = createContext();
 
 const NavigationStateProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <NavigationStateContext.Provider value={isOpen}>

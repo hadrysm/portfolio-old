@@ -8,7 +8,7 @@ export const Wrapper = styled(motion.div)`
   height: 100%;
   width: 70%;
   max-width: ${({ theme }) => theme.layout.maxContainerWidth};
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.white};
   z-index: ${({ theme }) => theme.zIndex.level7};
 `;
 

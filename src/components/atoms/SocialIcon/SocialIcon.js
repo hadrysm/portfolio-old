@@ -13,7 +13,7 @@ const socialVariants = {
     x: 0,
     transition: {
       ...transition,
-      delay: 1.2,
+      // delay: 0.7,
     },
   },
   closed: {
@@ -25,7 +25,7 @@ const socialVariants = {
   },
 };
 
-const SocialIcon = ({ icon: Icon, href = '/' }) => (
+const SocialIcon = ({ icon: Icon, href }) => (
   <Wrapper variants={socialVariants}>
     <CTA isHyperLink href={href}>
       <Icon />
@@ -35,7 +35,7 @@ const SocialIcon = ({ icon: Icon, href = '/' }) => (
 
 SocialIcon.propTypes = {
   icon: PropTypes.elementType.isRequired,
-  href: PropTypes.string,
+  href: PropTypes.string.isRequired,
 };
 
 export default SocialIcon;

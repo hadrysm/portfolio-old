@@ -7,19 +7,28 @@ const breakpoints = {
   huge: 1700,
 };
 
-export const theme = {
-  colors: {
-    background: '#F8F8F8',
-    white: '#FFFFFF',
-    black: '#000000',
-    main: '#434149',
-    text: '#434149',
-    primary: '#FCBF49',
-    secondary: '#E63946',
-    tertiary: '#3C404D',
-    grey: ' #BCBCBC',
-    grey100: ' #9C9C9C',
+const colors = {
+  background: '#F8F8F8',
+  white: '#FFFFFF',
+  black: '#000000',
+  main: '#434149',
+  text: '#323136',
+  yellow: '#FCBF49',
+  red: '#E63946',
+  grey: ' #BCBCBC',
+  grey100: ' #9C9C9C',
+  grey400: '#3C404D',
+};
+
+export const pageTheme = {
+  home: {
+    primary: colors.yellow,
+    secondary: colors.grey400,
   },
+};
+
+export const theme = {
+  ...colors,
   font: {
     family: {
       primary: `'Montserrat', sans-serif`,

@@ -9,7 +9,7 @@ export const Wrapper = styled(motion.div)`
   justify-content: center;
   align-items: center;
   transform: rotate(-90deg);
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.white};
   font-size: ${({ theme }) => theme.font.size.body.xs};
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `;

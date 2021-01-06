@@ -7,7 +7,7 @@ import SocialList from 'components/molecules/SocialList/SocialList';
 import { useNavigationState } from 'providers/NavigationStateProvider/NavigationStateProvider';
 import { Wrapper, Nav } from './Menu.style';
 
-const transition = { duration: 0.8, ease: [0.6, 0.01, -0.05, 0.9] };
+const transition = { duration: 0.4, ease: [0.6, 0.01, -0.05, 0.9] };
 
 const sidebarVariants = {
   open: {
@@ -27,10 +27,10 @@ const sidebarVariants = {
 
 const parentVariants = {
   open: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.4, staggerDirection: -1 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.3, staggerDirection: -1 },
   },
   closed: {
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.1, delayChildren: -0.3 },
   },
 };
 

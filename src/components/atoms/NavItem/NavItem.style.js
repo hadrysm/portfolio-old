@@ -18,7 +18,7 @@ export const Mask = styled(motion.span)`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.white};
 `;
 
 export const Text = styled.span`
@@ -40,7 +40,7 @@ export const Text = styled.span`
     left: 0;
     width: 100%;
     height: 0.8rem;
-    background-color: ${({ theme, colorContext }) => theme.colors[colorContext]};
+    background-color: ${({ theme, colorContext }) => theme[colorContext]};
     opacity: 0.6;
     transform-origin: left;
     z-index: -1;

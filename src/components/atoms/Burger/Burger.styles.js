@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const BurgerButton = styled(motion.button)`
   width: 5rem;
   height: 5rem;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.white};
   border: none;
   border-radius: 50%;
   display: flex;
@@ -27,7 +27,7 @@ export const Line = styled(motion.span)`
   width: 2rem;
   height: 2px;
   margin-bottom: 2px;
-  background-color: ${({ theme }) => theme.colors.main};
+  background-color: ${({ theme }) => theme.main};
   border-radius: 2px;
   transform-origin: right;
 `;
