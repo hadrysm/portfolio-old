@@ -29,6 +29,10 @@ export const Text = styled.span`
   font-size: ${({ theme }) => theme.font.size.body.m};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
 
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.body.xxl};
+  }
+
   ::before {
     content: '';
     position: absolute;

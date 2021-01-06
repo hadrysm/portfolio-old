@@ -6,12 +6,12 @@ export const Wrapper = styled(motion.div)`
   top: 0;
   left: 0;
   height: 100%;
-  width: 90%;
-  max-width: 25rem;
-  background-color: white;
+  width: 70%;
+  max-width: ${({ theme }) => theme.layout.maxContainerWidth};
+  background-color: ${({ theme }) => theme.colors.white};
   z-index: ${({ theme }) => theme.zIndex.level7};
 `;
 
 export const Nav = styled(motion.nav)`
-  padding: 4rem 2rem;
+  padding: 4rem 20% 4rem 10%;
 `;
