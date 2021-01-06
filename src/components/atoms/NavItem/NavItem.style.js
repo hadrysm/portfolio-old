@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import CTA from 'components/atoms/CTA/CTA';
 import { motion } from 'framer-motion';
 
 const ACTIVE_CLASS_NAME = '.active';
 
-export const StyledLink = styled(Link)``;
+export const CTALink = styled(CTA)``;
 
 export const Li = styled.li`
   position: relative;
@@ -44,7 +44,7 @@ export const Text = styled.span`
     transition: transform 400ms cubic-bezier(1, 0, 0, 1) 0ms;
   }
 
-  ${StyledLink}${ACTIVE_CLASS_NAME} &::before {
+  ${CTALink}${ACTIVE_CLASS_NAME} &::before {
     transform: scale(1);
   }
 
