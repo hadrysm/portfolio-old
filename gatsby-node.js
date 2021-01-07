@@ -1,5 +1,5 @@
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  const { setWebpackConfig } = actions
+  const { setWebpackConfig } = actions;
 
   if (stage.startsWith('develop')) {
     setWebpackConfig({
@@ -8,6 +8,6 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
           'react-dom': '@hot-loader/react-dom',
         },
       },
-    })
+    });
   }
-}
+};

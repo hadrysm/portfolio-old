@@ -1,5 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from 'templates/Layout/Layout'
+import { SCThemeProvider } from 'providers/ThemeProvider/ThemeProvider';
+import { NavigationStateProvider } from 'providers/NavigationStateProvider/NavigationStateProvider';
+import { PageThemeColorsProvider } from 'providers/PageThemeColorsProvider/PageThemeColorsProvider';
 
-export const wrapPageElement = ({ element, props }) => <Layout {...props}>{element}</Layout>
+import Layout from 'templates/Layout/Layout';
+
+export const wrapPageElement = ({ element, props }) => <Layout {...props}>{element}</Layout>;
+
+export const wrapRootElement = ({ element }) => (
+  <PageThemeColorsProvider>
+    <NavigationStateProvider>
+      <SCThemeProvider>{element}</SCThemeProvider>
+    </NavigationStateProvider>
+  </PageThemeColorsProvider>
+);
