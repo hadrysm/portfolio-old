@@ -8,9 +8,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.h3`
-  margin-top: 3rem;
+  margin: 3rem 0;
   color: ${({ theme }) => theme.primary};
   font-size: ${({ theme }) => theme.font.size.headers.l};
+  font-family: ${({ theme }) => theme.font.family.primary};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   letter-spacing: 1px;
 
