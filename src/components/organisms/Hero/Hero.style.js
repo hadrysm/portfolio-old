@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   height: 100vh;
   position: relative;
-  background-color: ${({ theme }) => theme.primary};
+  /* background-color: ${({ theme }) => theme.primary}; */
   z-index: ${({ theme }) => theme.zIndex.level2};
 `;
 
