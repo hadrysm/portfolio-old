@@ -21,7 +21,7 @@ const PageThemeProvider = ({ children }) => {
 const usePageThemeState = () => {
   const pageColorsTheme = useContext(PageThemeContextState);
   if (pageColorsTheme === undefined) {
-    throw new Error('usePageColorsState must be used within a NavigationStateProvider');
+    throw new Error('usePageThemeState must be used within a PageThemeProvider');
   }
 
   return pageColorsTheme;
@@ -30,7 +30,7 @@ const usePageThemeState = () => {
 const usePageThemeDispatch = () => {
   const setPageTheme = useContext(PageThemeDispatchContext);
   if (setPageTheme === undefined) {
-    throw new Error('useNavigationDispatch must be used within a NavigationStateProvider');
+    throw new Error('usePageThemeDispatch must be used within a PageThemeProvider');
   }
 
   return setPageTheme;

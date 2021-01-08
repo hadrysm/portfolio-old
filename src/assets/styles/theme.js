@@ -29,6 +29,7 @@ export const pageTheme = {
 
 export const theme = {
   ...colors,
+  ...pageTheme.home,
   font: {
     family: {
       primary: `'Montserrat', sans-serif`,
