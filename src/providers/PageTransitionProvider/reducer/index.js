@@ -1,33 +1,23 @@
-import { SET_TRANSITION, RESET, SET_REDIRECT } from './types';
+import { ENTER_ANIMATION, EXIT_ANIMATION } from './types';
 
 // setAnimatedFinish
 
 const transitionInitialState = {
   // pageTransitionFinish: false,
   playTransition: true,
-  to: null,
-  canRedirect: false,
 };
 
-const transitionReducer = (state, { type, payload }) => {
+const transitionReducer = (state, { type }) => {
   switch (type) {
-    case SET_TRANSITION:
+    case EXIT_ANIMATION:
       return {
         ...state,
-        playTransition: payload.playTransition,
-        to: payload.to,
+        playTransition: false,
       };
 
-    case SET_REDIRECT:
+    case ENTER_ANIMATION:
       return {
         ...state,
-        canRedirect: payload.canRedirect,
-      };
-
-    case RESET:
-      return {
-        ...state,
-        canRedirect: false,
         playTransition: true,
       };
 

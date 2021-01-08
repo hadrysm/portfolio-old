@@ -1,30 +1,17 @@
-import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from 'gatsby';
 
 import { transitionReducer, transitionInitialState } from './reducer';
-import { SET_TRANSITION } from './reducer/types';
+import { EXIT_ANIMATION, ENTER_ANIMATION } from './reducer/types';
 
 const PageTransitionContextState = createContext();
 const PageTransitionDispatchContext = createContext();
 
-const PageTransitionProvider = ({ children, location: { pathName = '/' } }) => {
-  const [{ canRedirect, playTransition, to }, dispatch] = useReducer(transitionReducer, {
-    ...transitionInitialState,
-    to: pathName,
-  });
-
-  useEffect(() => {
-    if (canRedirect && !playTransition) {
-      navigate(to);
-    }
-    if (canRedirect) {
-      dispatch({ type: 'RESET' });
-    }
-  }, [canRedirect]);
+const PageTransitionProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(transitionReducer, transitionInitialState);
 
   return (
-    <PageTransitionContextState.Provider value={{ canRedirect, playTransition, to }}>
+    <PageTransitionContextState.Provider value={state}>
       <PageTransitionDispatchContext.Provider value={dispatch}>
         {children}
       </PageTransitionDispatchContext.Provider>
@@ -38,9 +25,9 @@ const usePageTransitionState = () => {
     throw new Error('usePageTransitionState must be used within a PageTransitionProvider');
   }
 
-  const { playTransition, canRedirect } = state;
+  const { playTransition } = state;
 
-  return { playTransition, canRedirect };
+  return { playTransition };
 };
 
 const usePageTransitionDispatch = () => {
@@ -49,29 +36,21 @@ const usePageTransitionDispatch = () => {
     throw new Error('usePageTransitionDispatch must be used within a PageTransitionProvider');
   }
 
-  const runPageTransition = (to, playTransition = false) =>
+  const exitAnimation = () =>
     dispatch({
-      type: SET_TRANSITION,
-      payload: {
-        to,
-        playTransition,
-      },
+      type: EXIT_ANIMATION,
     });
 
-  const setRedirect = canRedirect =>
+  const enterAnimation = () =>
     dispatch({
-      type: 'SET_REDIRECT',
-      payload: {
-        canRedirect,
-      },
+      type: ENTER_ANIMATION,
     });
 
-  return { runPageTransition, setRedirect };
+  return { exitAnimation, enterAnimation };
 };
 
 PageTransitionProvider.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-  location: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 export { PageTransitionProvider, usePageTransitionState, usePageTransitionDispatch };

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
+import TransitionLink from 'gatsby-plugin-transition-link';
 
-export const StyledLink = styled(Link)`
+export const Link = styled(TransitionLink)`
   display: flex;
   justify-content: center;
   align-items: center;
