@@ -5,6 +5,7 @@ import { ENTER_ANIMATION, EXIT_ANIMATION } from './types';
 const transitionInitialState = {
   // pageTransitionFinish: false,
   playTransition: true,
+  canScroll: true,
 };
 
 const transitionReducer = (state, { type }) => {
@@ -13,12 +14,14 @@ const transitionReducer = (state, { type }) => {
       return {
         ...state,
         playTransition: false,
+        canScroll: false,
       };
 
     case ENTER_ANIMATION:
       return {
         ...state,
         playTransition: true,
+        canScroll: true,
       };
 
     default:

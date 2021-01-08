@@ -47,10 +47,10 @@ const CTA = ({
       to={to}
       exit={{
         trigger: () => handleExit(),
-        length: 1.2,
+        length: 1.3,
       }}
       entry={{
-        delay: 1.2,
+        delay: 1.3,
         trigger: () => handleEnter(),
       }}
       {...props}

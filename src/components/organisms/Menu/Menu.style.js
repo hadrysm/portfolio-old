@@ -9,7 +9,10 @@ export const Wrapper = styled(motion.div)`
   width: 70%;
   max-width: ${({ theme }) => theme.layout.maxContainerWidth};
   background-color: ${({ theme }) => theme.white};
-  z-index: ${({ theme }) => theme.zIndex.level7};
+  visibility: ${({ isMenuOpen }) => (isMenuOpen ? 'visible' : 'hidden')};
+  z-index: ${({ theme }) => theme.zIndex.level9};
+  overflow: auto;
+  cursor: default;
 `;
 
 export const Nav = styled(motion.nav)`

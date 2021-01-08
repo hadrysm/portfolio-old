@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   height: 100vh;
   position: relative;
-  /* background-color: ${({ theme }) => theme.primary}; */
+  background-color: ${({ theme }) => theme.white};
   z-index: ${({ theme }) => theme.zIndex.level2};
 `;
 
@@ -30,7 +30,7 @@ export const Mask = styled(motion.span)`
   left: 50%;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.primary};
 `;
 
 export const Title = styled.h1`

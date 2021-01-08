@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 
 import { transitionReducer, transitionInitialState } from './reducer';
@@ -9,6 +9,14 @@ const PageTransitionDispatchContext = createContext();
 
 const PageTransitionProvider = ({ children }) => {
   const [state, dispatch] = useReducer(transitionReducer, transitionInitialState);
+
+  useEffect(() => {
+    if (state.canScroll) {
+      document.body.classList.remove('no-scroll');
+    } else {
+      document.body.classList.add('no-scroll');
+    }
+  }, [state.canScroll]);
 
   return (
     <PageTransitionContextState.Provider value={state}>
