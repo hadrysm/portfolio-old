@@ -12,6 +12,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sharp',
+    'gatsby-plugin-transition-link',
     {
       resolve: '@danbruegge/gatsby-plugin-stylelint',
       options: { files: ['**/*.{js,jsx}'] },

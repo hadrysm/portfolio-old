@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { usePageTransitionDispatch } from 'providers/PageTransitionProvider/PageTransitionProvider';
-import { StyledLink } from './CTA.style';
+import { usePageThemeDispatch } from 'providers/PageThemeProvider/PageThemeProvider';
+import { Link } from './CTA.style';
 
 const CTA = ({
   children = 'click me',
@@ -10,44 +11,52 @@ const CTA = ({
   href = '',
   isButton = false,
   isHyperLink = false,
+  pageTheme = {
+    primary: '#FCBF49',
+  },
   ...props
 }) => {
-  const { runPageTransition } = usePageTransitionDispatch();
+  const { exitAnimation, enterAnimation } = usePageTransitionDispatch();
+  const changeTheme = usePageThemeDispatch();
+
+  const handleExit = () => exitAnimation();
+
+  const handleEnter = () => {
+    enterAnimation();
+    changeTheme(pageTheme);
+  };
 
   if (isButton) {
     return (
-      <StyledLink as="button" type="button" isButton {...props}>
+      <Link as="button" type="button" isButton {...props}>
         {children}
-      </StyledLink>
+      </Link>
     );
   }
 
   if (isHyperLink) {
     return (
-      <StyledLink
-        as="a"
-        isHyperLink
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        {...props}
-      >
+      <Link as="a" isHyperLink href={href} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
-      </StyledLink>
+      </Link>
     );
   }
 
   return (
-    <StyledLink
+    <Link
       to={to}
-      onClick={e => {
-        e.preventDefault();
-        runPageTransition(to);
+      exit={{
+        trigger: () => handleExit(),
+        length: 1.2,
+      }}
+      entry={{
+        delay: 1.2,
+        trigger: () => handleEnter(),
       }}
       {...props}
     >
       {children}
-    </StyledLink>
+    </Link>
   );
 };
 
@@ -57,6 +66,7 @@ CTA.propTypes = {
   href: PropTypes.string,
   isButton: PropTypes.bool,
   isHyperLink: PropTypes.bool,
+  pageTheme: PropTypes.objectOf(PropTypes.string),
 };
 
 export default CTA;

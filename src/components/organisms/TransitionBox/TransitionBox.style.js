@@ -16,6 +16,7 @@ export const Box = styled(motion.div)`
   height: 100%;
   background-color: ${({ theme }) => theme.primary};
   transform-origin: bottom center;
+  transition: background-color 500ms cubic-bezier(0.5, 0, 0, 0.5);
 `;
 
 export const LogoWrapper = styled(motion.figure)`

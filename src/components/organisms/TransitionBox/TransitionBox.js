@@ -5,7 +5,6 @@ import Logo from 'components/atoms/Logo/Logo';
 
 import { usePageTransitionState } from 'providers/PageTransitionProvider/PageTransitionProvider';
 import { Wrapper, Box, LogoWrapper } from './TransitionBox.style';
-import { usePageTransitionDispatch } from '../../../providers/PageTransitionProvider/PageTransitionProvider';
 
 const transition = { ease: [0.6, 0.01, -0.05, 0.9] };
 // const transition = { ease: [1, 0, 0, 1] };
@@ -32,14 +31,14 @@ const childVariants = {
     scaleY: 1,
     transition: {
       ...transition,
-      duration: 1.1,
+      duration: 1,
     },
   },
   hidden: {
     scaleY: 0,
     transition: {
       ...transition,
-      duration: 1.1,
+      duration: 1,
     },
   },
 };
@@ -66,10 +65,7 @@ const childVariantLogo = {
 };
 
 const TransitionBox = () => {
-  const { playTransition, canRedirect } = usePageTransitionState();
-  const { setRedirect } = usePageTransitionDispatch();
-
-  const onAnimationComplete = () => setRedirect(!canRedirect);
+  const { playTransition } = usePageTransitionState();
 
   return (
     <AnimatePresence>
@@ -79,7 +75,7 @@ const TransitionBox = () => {
           initial="visible"
           animate="hidden"
           exit="visible"
-          onAnimationComplete={onAnimationComplete}
+          // onAnimationComplete={s => console.log(s)}
           aria-hidden
         >
           <Box variants={childVariants} />

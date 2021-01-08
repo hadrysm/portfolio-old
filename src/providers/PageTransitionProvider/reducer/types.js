@@ -1,3 +1,2 @@
-export const SET_TRANSITION = 'SET_TRANSITION';
-export const SET_REDIRECT = 'SET_REDIRECT';
-export const RESET = 'RESET';
+export const ENTER_ANIMATION = 'ENTER_ANIMATION';
+export const EXIT_ANIMATION = 'EXIT_ANIMATION';

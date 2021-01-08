@@ -33,7 +33,9 @@ const usePageThemeDispatch = () => {
     throw new Error('usePageThemeDispatch must be used within a PageThemeProvider');
   }
 
-  return setPageTheme;
+  const handleChangeTheme = ({ primary }) => setPageTheme({ primary });
+
+  return handleChangeTheme;
 };
 
 PageThemeProvider.propTypes = {

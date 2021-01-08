@@ -7,16 +7,14 @@ import { PageTransitionProvider } from 'providers/PageTransitionProvider/PageTra
 
 import Layout from 'templates/Layout/Layout';
 
-export const wrapPageElement = ({ element, props }) => (
-  <PageTransitionProvider {...props}>
-    <Layout {...props}>{element}</Layout>
-  </PageTransitionProvider>
-);
+export const wrapPageElement = ({ element, props }) => <Layout {...props}>{element}</Layout>;
 
 export const wrapRootElement = ({ element }) => (
   <PageThemeProvider>
     <NavigationStateProvider>
-      <SCThemeProvider>{element}</SCThemeProvider>
+      <PageTransitionProvider>
+        <SCThemeProvider>{element}</SCThemeProvider>
+      </PageTransitionProvider>
     </NavigationStateProvider>
   </PageThemeProvider>
 );
