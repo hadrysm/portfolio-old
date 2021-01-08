@@ -44,8 +44,14 @@ const useNavigationDispatch = () => {
 
   const toggleMenu = () => setMenuOpen(prevState => !prevState);
 
+  const closeMenu = () => setMenuOpen(false);
+
+  const openMenu = () => setMenuOpen(true);
+
   return {
     toggleMenu,
+    closeMenu,
+    openMenu,
   };
 };
 

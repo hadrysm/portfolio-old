@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import PageOverlay from 'components/atoms/PageOverlay/PageOverlay';
 import LangList from 'components/molecules/LangList/LangList';
 import NavList from 'components/molecules/NavList/NavList';
 import SocialList from 'components/molecules/SocialList/SocialList';
 
-import { useNavigationState } from 'providers/NavigationStateProvider/NavigationStateProvider';
+import {
+  useNavigationState,
+  useNavigationDispatch,
+} from 'providers/NavigationStateProvider/NavigationStateProvider';
+import { useClickOutside } from 'hooks/useClickOutside';
+
 import { Wrapper, Nav } from './Menu.style';
 
 const transition = { duration: 0.4, ease: [0.6, 0.01, -0.05, 0.9] };
@@ -35,20 +41,31 @@ const parentVariants = {
 };
 
 const Menu = () => {
+  const [visibilityCSS, setVisibilityCSS] = useState(false);
+
   const isMenuOpen = useNavigationState();
+  const { closeMenu } = useNavigationDispatch();
+  const ref = useClickOutside(closeMenu);
+
   return (
-    <Wrapper
-      variants={sidebarVariants}
-      initial={false}
-      animate={isMenuOpen ? 'open' : 'closed'}
-      transition={transition}
-    >
-      <Nav variants={parentVariants}>
-        <LangList />
-        <NavList />
-        <SocialList />
-      </Nav>
-    </Wrapper>
+    <PageOverlay isActive={visibilityCSS}>
+      <Wrapper
+        ref={ref}
+        variants={sidebarVariants}
+        initial={false}
+        animate={isMenuOpen ? 'open' : 'closed'}
+        transition={transition}
+        onAnimationStart={() => isMenuOpen && setVisibilityCSS(true)}
+        onAnimationComplete={() => !isMenuOpen && setVisibilityCSS(false)}
+        isMenuOpen={visibilityCSS}
+      >
+        <Nav variants={parentVariants}>
+          <LangList />
+          <NavList />
+          <SocialList />
+        </Nav>
+      </Wrapper>
+    </PageOverlay>
   );
 };
 
