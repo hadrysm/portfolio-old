@@ -8,7 +8,7 @@ const breakpoints = {
 };
 
 const colors = {
-  background: '#F8F8F8',
+  background: '#F9F9F9',
   white: '#FFFFFF',
   black: '#000000',
   main: '#434149',

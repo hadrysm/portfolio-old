@@ -4,5 +4,6 @@ import Image from 'gatsby-image';
 export const Img = styled(Image)`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  /* position: relative; */
 `;

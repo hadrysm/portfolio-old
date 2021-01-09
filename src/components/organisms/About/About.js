@@ -5,13 +5,13 @@ import Headline from 'components/atoms/Headline/Headline';
 import Image from 'components/atoms/Image/Image';
 import AboutMeText from 'components/molecules/AboutMeText/AboutMeText';
 
-import { Wrapper, InnerWrapper } from './About.style';
+import { Wrapper, InnerWrapper, ImgWrapper } from './About.style';
 
 const query = graphql`
   {
     file(name: { eq: "me" }) {
       childImageSharp {
-        fluid(maxWidth: 1200, maxHeight: 1600, quality: 90) {
+        fluid(maxWidth: 1000, quality: 90) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
@@ -33,7 +33,9 @@ const About = () => {
         <AboutMeText />
       </InnerWrapper>
       <InnerWrapper>
-        <Image fluid={fluid} />
+        <ImgWrapper>
+          <Image fluid={fluid} />
+        </ImgWrapper>
       </InnerWrapper>
     </Wrapper>
   );

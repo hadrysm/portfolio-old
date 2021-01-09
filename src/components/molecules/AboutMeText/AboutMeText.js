@@ -2,8 +2,10 @@ import React from 'react';
 
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 
+import { Wrapper } from './AboutMe.style';
+
 const AboutMeText = () => (
-  <>
+  <Wrapper>
     <Paragraph>
       Hi, my name is Mateusz Hadryś and I am Frontend Developer living in Opole.
     </Paragraph>
@@ -16,7 +18,7 @@ const AboutMeText = () => (
       technology so far.
     </Paragraph>
     <Paragraph>I am currently learning about Nextjs and improving myself in testing.</Paragraph>
-  </>
+  </Wrapper>
 );
 
 export default AboutMeText;
