@@ -6,7 +6,7 @@ import CTA from 'components/atoms/CTA/CTA';
 import { Wrapper } from './Logo.styles';
 
 const Logo = () => (
-  <CTA>
+  <CTA to="/" pageTheme={{ primary: '#FCBF49' }}>
     <Wrapper>
       <SvgLogo />
     </Wrapper>

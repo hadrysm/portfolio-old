@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Container = styled.div`
-  position: relative;
-`;
-
 export const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   background-color: ${({ theme }) => theme.white};
   z-index: ${({ theme }) => theme.zIndex.level2};
+  display: grid;
+  place-items: center;
 `;
 
 export const InnerWrapper = styled(motion.section)`
