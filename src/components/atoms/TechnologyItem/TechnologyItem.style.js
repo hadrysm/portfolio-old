@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Item = styled.li`
   margin-bottom: 1rem;
+  height: 5rem;
 
   ::first-letter {
     text-transform: uppercase;

@@ -22,11 +22,9 @@ export const Box = styled(motion.div)`
 
 export const LogoWrapper = styled(motion.figure)`
   position: fixed;
-  top: calc(50% - 2.5rem);
-  left: calc(50% - 2.5rem);
-  width: 5rem;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: calc(50% - 7.5rem);
+  left: calc(50% - 7.5rem);
+  width: 15rem;
+  height: 15rem;
+  transform-origin: center;
 `;
