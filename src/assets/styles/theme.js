@@ -15,8 +15,9 @@ const colors = {
   text: '#323136',
   yellow: '#FCBF49',
   red: '#E63946',
-  grey: ' #BCBCBC',
-  grey100: ' #9C9C9C',
+  grey: '#EEEEEE',
+  grey100: ' #BCBCBC',
+  grey200: ' #9C9C9C',
   grey400: '#3C404D',
   secondary: '#2F3037',
 };

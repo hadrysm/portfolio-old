@@ -45,7 +45,7 @@ const childVariants = {
 
 const childVariantLogo = {
   visible: {
-    scale: 2,
+    scale: 1,
     rotate: 0,
     transition: {
       ...transition,
@@ -80,7 +80,7 @@ const TransitionBox = () => {
         >
           <Box variants={childVariants} />
           <LogoWrapper variants={childVariantLogo}>
-            <Logo />
+            <Logo size="15rem" />
           </LogoWrapper>
         </Wrapper>
       )}
