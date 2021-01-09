@@ -29,7 +29,7 @@ const About = () => {
   return (
     <Wrapper>
       <InnerWrapper>
-        <Headline text="about me" />
+        <Headline text="about me" primary />
         <AboutMeText />
       </InnerWrapper>
       <InnerWrapper>

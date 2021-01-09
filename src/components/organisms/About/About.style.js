@@ -5,7 +5,7 @@ export const Wrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  margin: 10rem auto;
+  margin: 10rem auto 0;
 
   ${({ theme }) => theme.mq.tablet} {
     grid-template-columns: 1.2fr 1.4fr;

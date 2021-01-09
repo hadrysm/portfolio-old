@@ -18,7 +18,7 @@ const colors = {
   grey: ' #BCBCBC',
   grey100: ' #9C9C9C',
   grey400: '#3C404D',
-  secondary: '#3C404D',
+  secondary: '#2F3037',
 };
 
 export const pageTheme = {

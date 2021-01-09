@@ -5,8 +5,8 @@ import SvgHeadlineIcon from 'components/SVG/SvgHeadlineIcon';
 
 import { Wrapper, Text } from './Headline.style';
 
-const Headline = ({ text = 'your text' }) => (
-  <Wrapper>
+const Headline = ({ text = 'your text', primary = false }) => (
+  <Wrapper primary={primary}>
     <SvgHeadlineIcon />
     <Text>{text}</Text>
   </Wrapper>
@@ -14,6 +14,7 @@ const Headline = ({ text = 'your text' }) => (
 
 Headline.propTypes = {
   text: PropTypes.string,
+  primary: PropTypes.bool,
 };
 
 export default Headline;
