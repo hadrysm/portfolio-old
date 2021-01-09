@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem 0;
+  margin-bottom: 4rem;
   color: ${({ theme }) => theme.white};
 
   svg {
@@ -19,14 +20,18 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.h3`
-  margin: 3rem 0;
+  margin: 2rem 0;
   color: inherit;
-  font-size: ${({ theme }) => theme.font.size.headers.l};
+  font-size: ${({ theme }) => theme.font.size.headers.m};
   font-family: ${({ theme }) => theme.font.family.primary};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   letter-spacing: 1px;
 
   ::first-letter {
     text-transform: uppercase;
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.headers.l};
   }
 `;

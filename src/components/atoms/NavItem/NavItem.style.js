@@ -44,8 +44,9 @@ export const Text = styled.span`
     opacity: 0.6;
     transform-origin: left;
     z-index: -1;
+    will-change: transform;
     transform: scaleX(0);
-    transition: transform 400ms cubic-bezier(1, 0, 0, 1) 0ms;
+    transition: transform 400ms cubic-bezier(0.5, 0, 0, 0.5) 0ms;
   }
 
   ${CTALink}${ACTIVE_CLASS_NAME} &::before {

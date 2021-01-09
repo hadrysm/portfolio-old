@@ -7,6 +7,10 @@ const Paragraph = styled.p`
   font-weight: ${({ theme }) => theme.font.weight.regular};
   font-size: ${({ theme }) => theme.font.size.body.s};
   letter-spacing: 0.5px;
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.body.m};
+  }
 `;
 
 export default Paragraph;
