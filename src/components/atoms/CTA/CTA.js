@@ -9,6 +9,7 @@ const CTA = ({
   children = 'click me',
   to = '/',
   href = '',
+  type = 'button',
   isButton = false,
   isHyperLink = false,
   pageTheme = {
@@ -28,7 +29,7 @@ const CTA = ({
 
   if (isButton) {
     return (
-      <Link as="button" type="button" isButton {...props}>
+      <Link as="button" type={type} isButton {...props}>
         {children}
       </Link>
     );
@@ -65,6 +66,7 @@ CTA.propTypes = {
   to: PropTypes.string,
   href: PropTypes.string,
   isButton: PropTypes.bool,
+  type: PropTypes.string,
   isHyperLink: PropTypes.bool,
   pageTheme: PropTypes.objectOf(PropTypes.string),
 };

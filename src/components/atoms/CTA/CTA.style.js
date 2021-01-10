@@ -28,7 +28,7 @@ export const Link = styled(TransitionLink)`
         width: 100%;
         height: 100%;
         top: 0;
-        left: calc(100% - 60px);
+        left: calc(100% - 30%);
         background-color: ${({ theme }) => theme.primary};
         z-index: -1;
         will-change: transform;
@@ -36,7 +36,7 @@ export const Link = styled(TransitionLink)`
       }
 
       :hover ::before {
-        transform: translateX(calc(-100% + 60px));
+        transform: translateX(calc(-100% + 30%));
       }
 
       ${({ secondary }) =>

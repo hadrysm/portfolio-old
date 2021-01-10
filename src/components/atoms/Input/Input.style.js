@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 
 export const StyledInput = styled.input`
   width: 100%;
-  padding: 1rem 2rem 1rem 3rem;
+  padding: 1rem 2rem 1rem 2rem;
   background-color: ${({ theme }) => theme.grey};
   font-weight: ${({ theme }) => theme.font.weight.regular};
   border-radius: 0.5rem;
