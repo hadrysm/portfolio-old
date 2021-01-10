@@ -13,14 +13,14 @@ const parentVariants = {
   visible: {
     transition: {
       ...transition,
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
       staggerDirection: -1,
     },
   },
   hidden: {
     transition: {
       ...transition,
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
       staggerDirection: -1,
     },
   },
@@ -50,7 +50,7 @@ const childVariantLogo = {
     transition: {
       ...transition,
       duration: 0.5,
-      delay: 0.3,
+      delay: 0.8,
     },
   },
   hidden: {
