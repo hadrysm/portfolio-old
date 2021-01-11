@@ -18,3 +18,19 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
+// query HomeQuery($locale: String!) {
+//   datoCmsHomePage(locale: {eq: $locale}) {
+//     heroTitle
+//     heroSubtitle
+//     aboutImage {
+//       url
+//     }
+//     aboutContent {
+//       ... on DatoCmsParagraph {
+//         originalId
+//         paragraphContent
+//       }
+//     }
+//   }
+// }

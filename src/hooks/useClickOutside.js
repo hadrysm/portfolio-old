@@ -4,7 +4,7 @@ export const useClickOutside = callback => {
   const ref = useRef(null);
 
   if (callback === undefined) {
-    throw new Error('useClickOutside need close callback');
+    throw new Error('useClickOutside => callback is required');
   }
 
   const handleClick = e => {

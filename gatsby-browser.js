@@ -13,10 +13,10 @@ export const wrapPageElement = ({ element, props }) => (
   </NavigationStateProvider>
 );
 
-export const wrapRootElement = cos => (
+export const wrapRootElement = ({ element }) => (
   <PageThemeProvider>
     <PageTransitionProvider>
-      <SCThemeProvider>{cos.element}</SCThemeProvider>
+      <SCThemeProvider>{element}</SCThemeProvider>
     </PageTransitionProvider>
   </PageThemeProvider>
 );
