@@ -5,7 +5,7 @@ const NavigationStateContext = createContext();
 const NavigationDispatchContext = createContext();
 
 const NavigationStateProvider = ({ children, location }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     setIsOpen(false);

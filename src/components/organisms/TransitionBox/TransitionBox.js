@@ -75,7 +75,6 @@ const TransitionBox = () => {
           initial="visible"
           animate="hidden"
           exit="visible"
-          // onAnimationComplete={s => console.log(s)}
           aria-hidden
         >
           <Box variants={childVariants} />

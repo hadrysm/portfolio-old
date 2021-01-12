@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { useLocaleState } from 'providers/LocaleProvider/LocaleProvider';
+import locales from '../../../../config/locales';
+
 import { List, Item } from './LangList.style';
 
 // add links and lang change handler
@@ -23,13 +26,18 @@ const langVariants = {
   },
 };
 
-const LangList = () => (
-  <List>
-    <Item variants={langVariants}>pl</Item>
-    <Item variants={langVariants} active>
-      eng
-    </Item>
-  </List>
-);
+const LangList = () => {
+  const { activeLocale } = useLocaleState();
+
+  return (
+    <List>
+      {locales.map(({ label }) => (
+        <Item key={label} variants={langVariants} active={activeLocale === label}>
+          {label}
+        </Item>
+      ))}
+    </List>
+  );
+};
 
 export default LangList;

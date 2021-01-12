@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const List = styled.ul`
@@ -11,6 +11,12 @@ export const Item = styled(motion.li)`
   padding: 0 1rem;
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.font.family.secondary};
-  color: ${({ theme, active }) => (active ? theme.text : theme.grey)};
+  color: ${({ theme }) => theme.grey100};
   font-weight: ${({ theme }) => theme.font.weight.bold};
+
+  ${({ active }) =>
+    active &&
+    css`
+      color: ${({ theme }) => theme.text};
+    `}
 `;

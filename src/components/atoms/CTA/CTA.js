@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 import { usePageTransitionDispatch } from 'providers/PageTransitionProvider/PageTransitionProvider';
 import { usePageThemeDispatch } from 'providers/PageThemeProvider/PageThemeProvider';
+import { useLocaleState } from 'providers/LocaleProvider/LocaleProvider';
 import { Link } from './CTA.style';
+import locales from '../../../../config/locales'; // change this
+
+const { siteLanguage } = locales.find(({ default: isDefault }) => isDefault);
 
 const CTA = ({
   children = 'click me',
@@ -19,13 +23,10 @@ const CTA = ({
 }) => {
   const { exitAnimation, enterAnimation } = usePageTransitionDispatch();
   const changeTheme = usePageThemeDispatch();
+  const { activeLocale } = useLocaleState();
 
-  const handleExit = () => exitAnimation();
-
-  const handleEnter = () => {
-    enterAnimation();
-    changeTheme(pageTheme);
-  };
+  const isIndex = to === '/';
+  const path = siteLanguage === activeLocale ? to : `/${activeLocale}${isIndex ? '' : `${to}`}`;
 
   if (isButton) {
     return (
@@ -45,14 +46,17 @@ const CTA = ({
 
   return (
     <Link
-      to={to}
+      to={path}
       exit={{
-        trigger: () => handleExit(),
+        trigger: () => exitAnimation(),
         length: 1.2,
       }}
       entry={{
         delay: 1.2,
-        trigger: () => handleEnter(),
+        trigger: () => {
+          enterAnimation();
+          changeTheme(pageTheme);
+        },
       }}
       {...props}
     >
