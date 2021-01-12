@@ -1,32 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TechnologyItem from 'components/atoms/TechnologyItem/TechnologyItem';
 
 import { List } from './TechnologyList.style';
 
-const TechnologyList = () => (
+const TechnologyList = ({ technologies }) => (
   <List>
-    <TechnologyItem text="HTML5" />
-    <TechnologyItem text="CSS3" />
-    <TechnologyItem text="SCSS" />
-    <TechnologyItem text="RWD" />
-    <TechnologyItem text="Javascript (ES6+)" />
-    <TechnologyItem text="GIT" />
-    <TechnologyItem text="Github" />
-    <TechnologyItem text="JQuery" />
-    <TechnologyItem text="Bootstrap" />
-    <TechnologyItem text="React" />
-    <TechnologyItem text="React Hooks" />
-    <TechnologyItem text="Gatsby" />
-    <TechnologyItem text="GSAP" />
-    <TechnologyItem text="Redux" />
-    <TechnologyItem text="Firebase" />
-    <TechnologyItem text="Figma" />
-    <TechnologyItem text="styled-components" />
-    <TechnologyItem text="Jest & React TL" />
-    <TechnologyItem text="Styled Components" />
-    <TechnologyItem text="Components" />
+    {technologies.map(({ id, technologyName }) => (
+      <TechnologyItem key={id} text={technologyName} />
+    ))}
   </List>
 );
+
+TechnologyList.propTypes = {
+  technologies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default TechnologyList;

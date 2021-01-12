@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Content from 'components/atoms/Content/Content';
 import Headline from 'components/atoms/Headline/Headline';
@@ -7,15 +8,19 @@ import ContactForm from 'components/molecules/ContactForm/ContactForm';
 
 import { Wrapper, Text } from './Contact.style';
 
-const Contact = () => (
+const Contact = ({ contactSubtitle }) => (
   <Wrapper>
     <Content>
       <Headline text="contact" primary />
-      <Text>You can find me online in many places...</Text>
+      <Text>{contactSubtitle}</Text>
       <SocialList />
       <ContactForm />
     </Content>
   </Wrapper>
 );
+
+Contact.propTypes = {
+  contactSubtitle: PropTypes.string.isRequired,
+};
 
 export default Contact;

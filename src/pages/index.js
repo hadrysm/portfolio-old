@@ -16,15 +16,17 @@ const IndexPage = ({
       heroSubtitle,
       aboutImage: { fluid },
       aboutContent,
+      contactSubtitle,
     },
+    technologies: { nodes },
   },
 }) => (
   <>
     <SEO title="Home" />
     <Hero heroTitle={heroTitle} heroSubtitle={heroSubtitle} />
     <About aboutImage={fluid} aboutContent={aboutContent} />
-    <Technologies />
-    <Contact />
+    <Technologies technologies={nodes} />
+    <Contact contactSubtitle={contactSubtitle} />
   </>
 );
 
@@ -44,6 +46,13 @@ export const query = graphql`
           paragraphContent
         }
       }
+      contactSubtitle
+    }
+    technologies: allDatoCmsTechnology(filter: { locale: { eq: $locale } }) {
+      nodes {
+        id: originalId
+        technologyName
+      }
     }
   }
 `;
@@ -57,7 +66,9 @@ IndexPage.propTypes = {
         fluid: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.arrayOf(PropTypes.shape({}))]),
       }),
       aboutContent: PropTypes.arrayOf(PropTypes.object),
+      contactSubtitle: PropTypes.string,
     }),
+    technologies: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
   }).isRequired,
 };
 export default IndexPage;
