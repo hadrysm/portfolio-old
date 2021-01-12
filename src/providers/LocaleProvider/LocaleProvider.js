@@ -1,14 +1,27 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
+import { navigate } from 'gatsby';
 
 import { localeReducer } from './reducer';
 import { UPDATE_LOCALE } from './reducer/types';
+
+import locales from '../../../config/locales'; // change this
+
+const { siteLanguage } = locales.find(({ default: isDefault }) => isDefault);
 
 const LocaleContextState = createContext();
 const LocaleDispatchContext = createContext();
 
 const LocaleProvider = ({ children, locale = 'pl' }) => {
   const [state, dispatch] = useReducer(localeReducer, { activeLocale: locale });
+
+  useEffect(() => {
+    if (state.activeLocale === siteLanguage) {
+      navigate(`/`);
+    } else {
+      navigate(`/${state.activeLocale}`);
+    }
+  }, [state.activeLocale]);
 
   return (
     <LocaleContextState.Provider value={state}>
@@ -36,11 +49,11 @@ const useLocaleDispatch = () => {
     throw new Error('useLocaleDispatch must be used within a LocaleProvider');
   }
 
-  const updateLocale = localePath =>
+  const updateLocale = lang =>
     dispatch({
       type: UPDATE_LOCALE,
       payload: {
-        locale: localePath,
+        locale: lang,
       },
     });
 

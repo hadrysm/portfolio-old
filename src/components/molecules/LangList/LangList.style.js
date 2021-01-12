@@ -7,8 +7,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled(motion.li)`
-  margin-right: 0.5rem;
-  padding: 0 1rem;
+  margin-right: 2rem;
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.font.family.secondary};
   color: ${({ theme }) => theme.grey100};

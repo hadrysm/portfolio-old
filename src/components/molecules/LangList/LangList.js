@@ -1,9 +1,12 @@
 import React from 'react';
 
 import { useLocaleState } from 'providers/LocaleProvider/LocaleProvider';
+import CTA from 'components/atoms/CTA/CTA';
+
 import locales from '../../../../config/locales';
 
 import { List, Item } from './LangList.style';
+import { useLocaleDispatch } from '../../../providers/LocaleProvider/LocaleProvider';
 
 // add links and lang change handler
 
@@ -28,12 +31,23 @@ const langVariants = {
 
 const LangList = () => {
   const { activeLocale } = useLocaleState();
+  const { updateLocale } = useLocaleDispatch();
+
+  const handleClickLanguage = (e, lang) => {
+    e.preventDefault();
+    updateLocale(lang);
+  };
 
   return (
     <List>
-      {locales.map(({ label }) => (
-        <Item key={label} variants={langVariants} active={activeLocale === label}>
-          {label}
+      {locales.map(({ siteLanguage, label }) => (
+        <Item
+          key={siteLanguage}
+          onClick={e => handleClickLanguage(e, siteLanguage)}
+          variants={langVariants}
+          active={activeLocale === siteLanguage}
+        >
+          <CTA to="/">{label}</CTA>
         </Item>
       ))}
     </List>

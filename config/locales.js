@@ -8,7 +8,7 @@ module.exports = [
   },
   {
     path: 'en',
-    label: 'en',
+    label: 'eng',
     locale: 'en-GB',
     siteLanguage: 'en',
   },

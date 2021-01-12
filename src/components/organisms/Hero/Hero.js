@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ScrollDown from 'components/atoms/ScrollDown/ScrollDown';
+// import ScrollDown from 'components/atoms/ScrollDown/ScrollDown';
 
 import { Wrapper, InnerWrapper, Mask, Title, SubTitle } from './Hero.style';
 
@@ -27,7 +27,7 @@ const Hero = ({ heroTitle, heroSubtitle }) => (
       <Title>{heroTitle}</Title>
       <SubTitle>{heroSubtitle}</SubTitle>
     </InnerWrapper>
-    <ScrollDown />
+    {/* <ScrollDown /> */}
     <Mask variants={heroVariants} initial="hidden" animate="visible" transition={transition} />
   </Wrapper>
 );
