@@ -33,6 +33,9 @@ export const Mask = styled(motion.span)`
 
 export const Title = styled.h1`
   color: ${({ theme }) => theme.text};
+  text-align: center;
+  font-weight: ${({ theme }) => theme.font.weight.regular};
+  font-size: ${({ theme }) => theme.font.size.headers.xl};
 `;
 
 export const SubTitle = styled.h2`

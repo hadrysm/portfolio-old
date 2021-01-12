@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import SvgHeadline from 'components/SVG/SvgHeadline';
 import ScrollDown from 'components/atoms/ScrollDown/ScrollDown';
 
 import { Wrapper, InnerWrapper, Mask, Title, SubTitle } from './Hero.style';
@@ -16,7 +16,7 @@ const heroVariants = {
   },
 };
 
-const Hero = () => (
+const Hero = ({ heroTitle, heroSubtitle }) => (
   <Wrapper>
     <InnerWrapper
       variants={heroVariants}
@@ -24,14 +24,17 @@ const Hero = () => (
       animate="visible"
       transition={transition}
     >
-      <Title>
-        <SvgHeadline />
-      </Title>
-      <SubTitle>I create websites and web applications.🚀</SubTitle>
+      <Title>{heroTitle}</Title>
+      <SubTitle>{heroSubtitle}</SubTitle>
     </InnerWrapper>
     <ScrollDown />
     <Mask variants={heroVariants} initial="hidden" animate="visible" transition={transition} />
   </Wrapper>
 );
+
+Hero.propTypes = {
+  heroTitle: PropTypes.string.isRequired,
+  heroSubtitle: PropTypes.string.isRequired,
+};
 
 export default Hero;

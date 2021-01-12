@@ -26,6 +26,6 @@ export const ImgWrapper = styled.div`
   margin: 0 auto;
 
   ${({ theme }) => theme.mq.tablet} {
-    padding: 0 2rem;
+    margin-left: 3rem;
   }
 `;

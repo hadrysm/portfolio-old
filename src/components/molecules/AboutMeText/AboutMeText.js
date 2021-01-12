@@ -1,24 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 
 import { Wrapper } from './AboutMe.style';
 
-const AboutMeText = () => (
+const AboutMeText = ({ content }) => (
   <Wrapper>
-    <Paragraph>
-      Hi, my name is Mateusz Hadryś and I am Frontend Developer living in Opole.
-    </Paragraph>
-    <Paragraph>
-      I started to learn programming a year and a half ago and got so involved that since then I
-      spend every day learning. It definitely became my passion. I love it ❤.
-    </Paragraph>
-    <Paragraph>
-      I really enjoy creating websites and web applications using React 🚀️ , which is my favorite
-      technology so far.
-    </Paragraph>
-    <Paragraph>I am currently learning about Nextjs and improving myself in testing.</Paragraph>
+    {content.map(({ id, paragraphContent }) => (
+      <Paragraph key={id}>{paragraphContent}</Paragraph>
+    ))}
   </Wrapper>
 );
+
+AboutMeText.propTypes = {
+  content: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default AboutMeText;

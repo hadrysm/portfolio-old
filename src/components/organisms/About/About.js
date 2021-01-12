@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
 import Content from 'components/atoms/Content/Content';
 import Headline from 'components/atoms/Headline/Headline';
@@ -8,40 +8,26 @@ import AboutMeText from 'components/molecules/AboutMeText/AboutMeText';
 
 import { Grid, InnerWrapper, ImgWrapper } from './About.style';
 
-const query = graphql`
-  {
-    file(name: { eq: "me" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000, quality: 90) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-  }
-`;
+const About = ({ aboutImage, aboutContent }) => (
+  <Content as="section">
+    <Grid>
+      <InnerWrapper>
+        <Headline text="about me" primary />
+        <AboutMeText content={aboutContent} />
+      </InnerWrapper>
+      <InnerWrapper>
+        <ImgWrapper>
+          <Image fluid={aboutImage} />
+        </ImgWrapper>
+      </InnerWrapper>
+    </Grid>
+  </Content>
+);
 
-const About = () => {
-  const {
-    file: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery(query);
-
-  return (
-    <Content as="section">
-      <Grid>
-        <InnerWrapper>
-          <Headline text="about me" primary />
-          <AboutMeText />
-        </InnerWrapper>
-        <InnerWrapper>
-          <ImgWrapper>
-            <Image fluid={fluid} />
-          </ImgWrapper>
-        </InnerWrapper>
-      </Grid>
-    </Content>
-  );
+About.propTypes = {
+  aboutImage: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.arrayOf(PropTypes.shape({}))])
+    .isRequired,
+  aboutContent: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default About;
