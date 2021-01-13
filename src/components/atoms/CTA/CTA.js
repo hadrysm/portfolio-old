@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { usePageTransitionDispatch } from 'providers/PageTransitionProvider/PageTransitionProvider';
 import { usePageThemeDispatch } from 'providers/PageThemeProvider/PageThemeProvider';
 import { useLocaleState } from 'providers/LocaleProvider/LocaleProvider';
+import { pageTheme as pageThemes } from 'assets/styles/theme';
+import locales from 'config/locales';
 import { Link } from './CTA.style';
-import locales from '../../../../config/locales'; // change this
 
 const { siteLanguage } = locales.find(({ default: isDefault }) => isDefault);
 
@@ -16,9 +17,7 @@ const CTA = ({
   type = 'button',
   isButton = false,
   isHyperLink = false,
-  pageTheme = {
-    primary: '#FCBF49',
-  },
+  pageTheme = pageThemes.home,
   ...props
 }) => {
   const { exitAnimation, enterAnimation } = usePageTransitionDispatch();

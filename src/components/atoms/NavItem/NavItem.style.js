@@ -40,7 +40,7 @@ export const Text = styled.span`
     left: 0;
     width: 100%;
     height: 0.8rem;
-    background-color: ${({ theme, colorContext }) => theme[colorContext]};
+    background-color: ${({ colorContext: { primary } }) => primary};
     opacity: 0.6;
     transform-origin: left;
     z-index: -1;

@@ -1,7 +1,7 @@
 // const path = require('path');
 
 const { buildLocalePath } = require('./src/helpers/gatsby-node-helpers');
-const locales = require('./config/locales');
+const locales = require('./src/config/locales');
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   const { setWebpackConfig } = actions;

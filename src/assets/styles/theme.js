@@ -26,6 +26,12 @@ export const pageTheme = {
   home: {
     primary: colors.yellow,
   },
+  projects: {
+    primary: colors.red,
+  },
+  blog: {
+    primary: colors.grey400,
+  },
 };
 
 export const theme = {

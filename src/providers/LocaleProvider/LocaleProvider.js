@@ -2,10 +2,9 @@ import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 
+import locales from 'config/locales'; // change this
 import { localeReducer } from './reducer';
 import { UPDATE_LOCALE } from './reducer/types';
-
-import locales from '../../../config/locales'; // change this
 
 const { siteLanguage } = locales.find(({ default: isDefault }) => isDefault);
 
