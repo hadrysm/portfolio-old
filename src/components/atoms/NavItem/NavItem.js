@@ -20,10 +20,10 @@ const maskVariants = {
   },
 };
 
-const NavItem = ({ label = 'link', path = '/', colorContext, pageTheme }) => (
+const NavItem = ({ label = 'link', path = '/', color }) => (
   <Li>
-    <CTALink to={path} activeClassName="active" pageTheme={pageTheme}>
-      <Text colorContext={colorContext}>{label}</Text>
+    <CTALink to={path} activeClassName="active" pageTheme={color}>
+      <Text colorContext={color}>{label}</Text>
       <Mask variants={maskVariants} />
     </CTALink>
   </Li>
@@ -32,8 +32,7 @@ const NavItem = ({ label = 'link', path = '/', colorContext, pageTheme }) => (
 NavItem.propTypes = {
   label: PropTypes.string,
   path: PropTypes.string,
-  colorContext: PropTypes.string.isRequired,
-  pageTheme: PropTypes.objectOf(PropTypes.string).isRequired,
+  color: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default NavItem;

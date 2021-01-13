@@ -6,23 +6,28 @@ import Headline from 'components/atoms/Headline/Headline';
 import Image from 'components/atoms/Image/Image';
 import AboutMeText from 'components/molecules/AboutMeText/AboutMeText';
 
+import { useTranslations } from 'hooks/useTranslations';
 import { Grid, InnerWrapper, ImgWrapper } from './About.style';
 
-const About = ({ aboutImage, aboutContent }) => (
-  <Content as="section">
-    <Grid>
-      <InnerWrapper>
-        <Headline text="about me" primary />
-        <AboutMeText content={aboutContent} />
-      </InnerWrapper>
-      <InnerWrapper>
-        <ImgWrapper>
-          <Image fluid={aboutImage} />
-        </ImgWrapper>
-      </InnerWrapper>
-    </Grid>
-  </Content>
-);
+const About = ({ aboutImage, aboutContent }) => {
+  const { title } = useTranslations({ key: 'about' });
+
+  return (
+    <Content as="section">
+      <Grid>
+        <InnerWrapper>
+          <Headline text={title} primary />
+          <AboutMeText content={aboutContent} />
+        </InnerWrapper>
+        <InnerWrapper>
+          <ImgWrapper>
+            <Image fluid={aboutImage} />
+          </ImgWrapper>
+        </InnerWrapper>
+      </Grid>
+    </Content>
+  );
+};
 
 About.propTypes = {
   aboutImage: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.arrayOf(PropTypes.shape({}))])

@@ -2,50 +2,20 @@ import React from 'react';
 
 import NavItem from 'components/atoms/NavItem/NavItem';
 
+import { useTranslations } from 'hooks/useTranslations';
+
 import { List } from './NavList.style';
 
-const links = [
-  {
-    id: 1,
-    label: 'Home',
-    path: '/',
-    colorContext: 'yellow',
-    pageTheme: {
-      primary: '#FCBF49',
-    },
-  },
-  {
-    id: 2,
-    label: 'Projects',
-    path: '/projects',
-    colorContext: 'red',
-    pageTheme: {
-      primary: '#E63946',
-    },
-  },
-  {
-    id: 3,
-    label: 'Blog',
-    path: '/blog',
-    colorContext: 'grey400',
-    pageTheme: {
-      primary: '#3C404D',
-    },
-  },
-];
+const NavList = () => {
+  const navList = useTranslations({ key: 'menu' });
 
-const NavList = () => (
-  <List>
-    {links.map(({ id, label, path, colorContext, pageTheme }) => (
-      <NavItem
-        key={id}
-        label={label}
-        path={path}
-        colorContext={colorContext}
-        pageTheme={pageTheme}
-      />
-    ))}
-  </List>
-);
+  return (
+    <List>
+      {navList.map(({ label, path, color }) => (
+        <NavItem key={label} label={label} path={path} color={color} />
+      ))}
+    </List>
+  );
+};
 
 export default NavList;

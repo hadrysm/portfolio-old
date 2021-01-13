@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { useLocaleState } from 'providers/LocaleProvider/LocaleProvider';
+import { useLocaleState, useLocaleDispatch } from 'providers/LocaleProvider/LocaleProvider';
 import CTA from 'components/atoms/CTA/CTA';
 
-import locales from '../../../../config/locales';
+import locales from 'config/locales';
 
 import { List, Item } from './LangList.style';
-import { useLocaleDispatch } from '../../../providers/LocaleProvider/LocaleProvider';
 
 // add links and lang change handler
 

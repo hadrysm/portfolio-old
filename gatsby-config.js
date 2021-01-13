@@ -14,6 +14,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sharp',
     'gatsby-plugin-transition-link',
+    `gatsby-transformer-json`,
     {
       resolve: '@danbruegge/gatsby-plugin-stylelint',
       options: { files: ['**/*.{js,jsx}'] },
@@ -25,6 +26,7 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
+
     {
       resolve: `gatsby-source-datocms`,
       options: {
@@ -76,6 +78,7 @@ module.exports = {
         providers: path.join(__dirname, 'src/providers'),
         animations: path.join(__dirname, 'src/animations'),
         hooks: path.join(__dirname, 'src/hooks'),
+        config: path.join(__dirname, 'src/config'),
       },
     },
     {
