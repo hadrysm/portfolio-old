@@ -1,5 +1,5 @@
-exports.buildLocalePath = ({ locale: { path: localePath }, path }) => {
-  const result = `${localePath.toLowerCase()}${path}`;
+exports.buildLocalePath = ({ locale, path }) => {
+  const result = `${locale === 'pl' ? '' : locale}${path}`;
 
   return result === `/` ? result : result.replace(/\/$/, ``);
 };

@@ -27,7 +27,7 @@ export const i18n = {
   pl: {
     menu: [
       { label: 'Strona główna', path: '/', color: pageTheme.home },
-      { label: 'Projekty', path: '/projecty', color: pageTheme.projects },
+      { label: 'Projekty', path: '/projekty', color: pageTheme.projects },
       { label: 'Blog', path: '/blog', color: pageTheme.blog },
     ],
     about: {
