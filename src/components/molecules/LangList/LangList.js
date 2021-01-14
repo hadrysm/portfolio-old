@@ -40,13 +40,10 @@ const LangList = () => {
   return (
     <List>
       {locales.map(({ siteLanguage, label }) => (
-        <Item
-          key={siteLanguage}
-          onClick={e => handleClickLanguage(e, siteLanguage)}
-          variants={langVariants}
-          active={activeLocale === siteLanguage}
-        >
-          <CTA to="/">{label}</CTA>
+        <Item key={siteLanguage} variants={langVariants} active={activeLocale === siteLanguage}>
+          <CTA to="/" onClick={e => handleClickLanguage(e, siteLanguage)}>
+            {label}
+          </CTA>
         </Item>
       ))}
     </List>
