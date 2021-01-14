@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
+import Content from 'components/atoms/Content/Content';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 
-export const Wrapper = styled.div`
-  max-width: ${({ theme }) => theme.layout.maxContainerWidth};
+export const Wrapper = styled.section`
   margin: 5rem auto 0;
   min-height: calc(100vh - 5rem);
   position: relative;
@@ -22,16 +22,18 @@ export const Wrapper = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 6rem;
 
   ${({ theme }) => theme.mq.tablet} {
-    width: 50%;
+    width: 100%;
   }
 `;
 
 export const StyledParagraph = styled(Paragraph)`
   color: ${({ theme }) => theme.white};
+  max-width: 40rem;
+`;
+
+export const StyledContent = styled(Content)`
+  display: flex;
 `;

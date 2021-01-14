@@ -39,8 +39,8 @@ export const Text = styled.h3`
     css`
       font-size: ${({ theme }) => theme.font.size.headers.xl};
 
-      ${({ theme }) => theme.mq.phone} {
-        font-size: ${({ theme }) => theme.font.size.headers.xl};
+      ${({ theme }) => theme.mq.tablet} {
+        font-size: ${({ theme }) => theme.font.size.headers.xxl};
       }
     `}
 `;

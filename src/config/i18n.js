@@ -18,6 +18,9 @@ export const i18n = {
       email: 'Email adress',
       message: 'Your message',
     },
+    projects: {
+      title: 'Projects',
+    },
     buttons: {
       check: 'Check projects',
       send: 'Send',
@@ -40,6 +43,9 @@ export const i18n = {
       title: 'Kontakt',
       email: 'Adres email',
       message: 'Twoja wiadomość',
+    },
+    projects: {
+      title: 'Projekty',
     },
     buttons: {
       check: 'Zobacz projekty',

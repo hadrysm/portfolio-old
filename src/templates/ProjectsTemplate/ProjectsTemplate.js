@@ -3,31 +3,30 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Headline from 'components/atoms/Headline/Headline';
-import Content from 'components/atoms/Content/Content';
 import ScrollDown from 'components/atoms/ScrollDown/ScrollDown';
+import SvgProjects from 'components/SVG/SvgProjects';
 
-import { Wrapper, InnerWrapper, StyledParagraph } from './ProjectsTemplate.style';
+import { useTranslations } from 'hooks/useTranslations';
+
+import { Wrapper, InnerWrapper, StyledParagraph, StyledContent } from './ProjectsTemplate.style';
 
 const ProjectsTemplate = ({
   data: {
     projectPageContent: { paragraph },
   },
 }) => {
-  console.log(paragraph);
+  const { projects } = useTranslations();
   return (
     <Wrapper>
-      <InnerWrapper>
-        <Content>
-          <Headline text="projekty" isBig />
+      <StyledContent>
+        <InnerWrapper>
+          <Headline text={projects.title} isBig />
           <StyledParagraph>{paragraph}</StyledParagraph>
-        </Content>
-      </InnerWrapper>
-      <InnerWrapper>
-        <Content>
-          <Headline text="projekty" isBig />
-          <StyledParagraph>{paragraph}</StyledParagraph>
-        </Content>
-      </InnerWrapper>
+        </InnerWrapper>
+        <InnerWrapper>
+          <SvgProjects />
+        </InnerWrapper>
+      </StyledContent>
       <ScrollDown top={85} left={10} />
     </Wrapper>
   );

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   min-height: 100vh;
   position: relative;
   background-color: ${({ theme }) => theme.white};
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   place-items: center;
 `;
 
-export const InnerWrapper = styled(motion.section)`
+export const InnerWrapper = styled(motion.div)`
   position: relative;
   display: flex;
   flex-direction: column;
