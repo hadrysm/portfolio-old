@@ -10,13 +10,13 @@ import { useTranslations } from 'hooks/useTranslations';
 import { Grid, InnerWrapper, ImgWrapper } from './About.style';
 
 const About = ({ aboutImage, aboutContent }) => {
-  const { title } = useTranslations({ key: 'about' });
+  const { about } = useTranslations();
 
   return (
     <Content as="section">
       <Grid>
         <InnerWrapper>
-          <Headline text={title} primary />
+          <Headline text={about.title} primary />
           <AboutMeText content={aboutContent} />
         </InnerWrapper>
         <InnerWrapper>

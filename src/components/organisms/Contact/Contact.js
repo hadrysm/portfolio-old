@@ -11,11 +11,11 @@ import { useTranslations } from 'hooks/useTranslations';
 import { Wrapper, Text } from './Contact.style';
 
 const Contact = ({ contactSubtitle }) => {
-  const { title } = useTranslations({ key: 'contact' });
+  const { contact } = useTranslations();
   return (
     <Wrapper>
       <Content>
-        <Headline text={title} primary />
+        <Headline text={contact.title} primary />
         <Text>{contactSubtitle}</Text>
         <SocialList />
         <ContactForm />

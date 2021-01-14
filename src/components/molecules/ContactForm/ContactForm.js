@@ -8,15 +8,17 @@ import { useTranslations } from 'hooks/useTranslations';
 import { Form } from './ContactForm.style';
 
 const ContactForm = () => {
-  const { send } = useTranslations({ key: 'buttons' });
-  const { email, message } = useTranslations({ key: 'contact' });
+  const {
+    buttons,
+    contact: { email, message },
+  } = useTranslations();
 
   return (
     <Form>
       <Input label={email} name="email" onChange={() => {}} />
       <Input label={message} name="message" as="textarea" onChange={() => {}} />
       <CTA isButton type="submit">
-        {send}
+        {buttons.send}
       </CTA>
     </Form>
   );

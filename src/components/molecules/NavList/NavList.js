@@ -7,11 +7,10 @@ import { useTranslations } from 'hooks/useTranslations';
 import { List } from './NavList.style';
 
 const NavList = () => {
-  const navList = useTranslations({ key: 'menu' });
-
+  const { menu } = useTranslations();
   return (
     <List>
-      {navList.map(({ label, path, color }) => (
+      {menu.map(({ label, path, color }) => (
         <NavItem key={label} label={label} path={path} color={color} />
       ))}
     </List>
