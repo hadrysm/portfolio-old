@@ -61,7 +61,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "svgr": "svgr < svgr/chart.svg > src/components/SVG/cart.js --svgo-config svgr/svgo.json"
+    "svgr": "svgr < svgr/projects.svg > src/components/SVG/projects.js --svgo-config svgr/svgo.json"
   },
   "repository": {
     "type": "git",

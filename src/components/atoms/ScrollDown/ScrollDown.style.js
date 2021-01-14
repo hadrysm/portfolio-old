@@ -12,6 +12,7 @@ export const Wrapper = styled(motion.div)`
   color: ${({ theme }) => theme.white};
   font-size: ${({ theme }) => theme.font.size.body.xs};
   font-weight: ${({ theme }) => theme.font.weight.bold};
+  z-index: ${({ theme }) => theme.zIndex.level5};
 `;
 
 export const Text = styled.span`
