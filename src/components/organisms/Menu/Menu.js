@@ -30,6 +30,21 @@ const sidebarVariants = {
     },
   },
 };
+const pageOverlayVariants = {
+  open: {
+    opacity: 1,
+    transition: {
+      ...transition,
+    },
+  },
+  closed: {
+    opacity: 0,
+    transition: {
+      delay: 0.6,
+      ...transition,
+    },
+  },
+};
 
 const parentVariants = {
   open: {
@@ -48,17 +63,15 @@ const Menu = () => {
   const ref = useClickOutside(closeMenu);
 
   return (
-    <PageOverlay isActive={visibilityCSS}>
-      <Wrapper
-        ref={ref}
-        variants={sidebarVariants}
-        initial={false}
-        animate={isMenuOpen ? 'open' : 'closed'}
-        transition={transition}
-        onAnimationStart={() => isMenuOpen && setVisibilityCSS(true)}
-        onAnimationComplete={() => !isMenuOpen && setVisibilityCSS(false)}
-        isMenuOpen={visibilityCSS}
-      >
+    <PageOverlay
+      isActive={visibilityCSS}
+      initial={false}
+      animate={isMenuOpen ? 'open' : 'closed'}
+      onAnimationStart={() => isMenuOpen && setVisibilityCSS(true)}
+      onAnimationComplete={() => !isMenuOpen && setVisibilityCSS(false)}
+      variants={pageOverlayVariants}
+    >
+      <Wrapper ref={ref} variants={sidebarVariants} isMenuOpen={visibilityCSS}>
         <Nav variants={parentVariants}>
           <LangList />
           <NavList />
