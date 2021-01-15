@@ -4,4 +4,4 @@ import { Img } from './Image.style';
 
 const Image = ({ ...props }) => <Img {...props} />;
 
-export default Image;
+export { Image };

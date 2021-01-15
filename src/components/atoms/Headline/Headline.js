@@ -18,4 +18,4 @@ Headline.propTypes = {
   isBig: PropTypes.bool,
 };
 
-export default Headline;
+export { Headline };

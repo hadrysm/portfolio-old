@@ -35,4 +35,4 @@ NavItem.propTypes = {
   color: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
-export default NavItem;
+export { NavItem };

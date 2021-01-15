@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import ScrollDown from 'components/atoms/ScrollDown/ScrollDown';
+// import {ScrollDown} from 'components/atoms/ScrollDown/ScrollDown';
 
 import { Wrapper, InnerWrapper, Mask, Title, SubTitle } from './Hero.style';
 
@@ -37,4 +37,4 @@ Hero.propTypes = {
   heroSubtitle: PropTypes.string.isRequired,
 };
 
-export default Hero;
+export { Hero };

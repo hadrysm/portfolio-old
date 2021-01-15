@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CTA from 'components/atoms/CTA/CTA';
-import Input from 'components/atoms/Input/Input';
+import { CTA } from 'components/atoms/CTA/CTA';
+import { Input } from 'components/atoms/Input/Input';
 
 import { useTranslations } from 'hooks/useTranslations';
 
@@ -24,4 +24,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export { ContactForm };

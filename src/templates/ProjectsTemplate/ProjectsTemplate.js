@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Headline from 'components/atoms/Headline/Headline';
-import ScrollDown from 'components/atoms/ScrollDown/ScrollDown';
+import { Headline } from 'components/atoms/Headline/Headline';
+import { ScrollDown } from 'components/atoms/ScrollDown/ScrollDown';
 import SvgProjects from 'components/SVG/SvgProjects';
 
 import { useTranslations } from 'hooks/useTranslations';

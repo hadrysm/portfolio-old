@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import PageOverlay from 'components/atoms/PageOverlay/PageOverlay';
-import LangList from 'components/molecules/LangList/LangList';
-import NavList from 'components/molecules/NavList/NavList';
-import SocialList from 'components/molecules/SocialList/SocialList';
+import { PageOverlay } from 'components/atoms/PageOverlay/PageOverlay';
+import { LangList } from 'components/molecules/LangList/LangList';
+import { NavList } from 'components/molecules/NavList/NavList';
+import { SocialList } from 'components/molecules/SocialList/SocialList';
 
 import {
   useNavigationState,

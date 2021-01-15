@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import Content from 'components/atoms/Content/Content';
-import Paragraph from 'components/atoms/Paragraph/Paragraph';
+import { Content } from 'components/atoms/Content/Content';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 
 export const Wrapper = styled.section`
   margin: 5rem 0 auto;

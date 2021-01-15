@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useLocaleState, useLocaleDispatch } from 'providers/LocaleProvider/LocaleProvider';
-import CTA from 'components/atoms/CTA/CTA';
+import { CTA } from 'components/atoms/CTA/CTA';
 
 import locales from 'config/locales';
 
@@ -45,4 +45,4 @@ const LangList = () => {
   );
 };
 
-export default LangList;
+export { LangList };

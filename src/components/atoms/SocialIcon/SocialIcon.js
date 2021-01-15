@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CTA from 'components/atoms/CTA/CTA';
+import { CTA } from 'components/atoms/CTA/CTA';
 
 import { Wrapper } from './SocialIcon.style';
 
@@ -38,4 +38,4 @@ SocialIcon.propTypes = {
   href: PropTypes.string.isRequired,
 };
 
-export default SocialIcon;
+export { SocialIcon };

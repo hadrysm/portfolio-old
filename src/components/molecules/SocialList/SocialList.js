@@ -6,7 +6,7 @@ import {
   FaTwitter as TwitterIcon,
 } from 'react-icons/fa';
 
-import SocialIcon from 'components/atoms/SocialIcon/SocialIcon';
+import { SocialIcon } from 'components/atoms/SocialIcon/SocialIcon';
 
 import { List } from './SocialList.style';
 
@@ -41,4 +41,4 @@ const SocialList = () => (
   </List>
 );
 
-export default SocialList;
+export { SocialList };

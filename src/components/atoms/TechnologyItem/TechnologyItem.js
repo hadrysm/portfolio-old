@@ -13,4 +13,4 @@ TechnologyItem.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export default TechnologyItem;
+export { TechnologyItem };

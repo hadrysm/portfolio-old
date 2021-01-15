@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Paragraph from 'components/atoms/Paragraph/Paragraph';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 
 import { Wrapper } from './AboutMe.style';
 
@@ -17,4 +17,4 @@ AboutMeText.propTypes = {
   content: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default AboutMeText;
+export { AboutMeText };

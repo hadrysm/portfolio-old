@@ -6,7 +6,7 @@ import { PageThemeProvider } from 'providers/PageThemeProvider/PageThemeProvider
 import { PageTransitionProvider } from 'providers/PageTransitionProvider/PageTransitionProvider';
 import { LocaleProvider } from 'providers/LocaleProvider/LocaleProvider';
 
-import Layout from 'templates/Layout/Layout';
+import { Layout } from 'templates/Layout/Layout';
 
 export const wrapPageElement = ({ element, props }) => (
   <LocaleProvider locale={props.pageContext.locale}>

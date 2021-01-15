@@ -11,4 +11,4 @@ const PageOverlay = styled.div`
   cursor: pointer;
 `;
 
-export default PageOverlay;
+export { PageOverlay };

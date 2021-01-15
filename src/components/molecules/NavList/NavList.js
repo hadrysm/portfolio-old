@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavItem from 'components/atoms/NavItem/NavItem';
+import { NavItem } from 'components/atoms/NavItem/NavItem';
 
 import { useTranslations } from 'hooks/useTranslations';
 
@@ -17,4 +17,4 @@ const NavList = () => {
   );
 };
 
-export default NavList;
+export { NavList };

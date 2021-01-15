@@ -1,7 +1,7 @@
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import Logo from 'components/atoms/Logo/Logo';
+import { Logo } from 'components/atoms/Logo/Logo';
 
 import { usePageTransitionState } from 'providers/PageTransitionProvider/PageTransitionProvider';
 import { Wrapper, Box, LogoWrapper } from './TransitionBox.style';
@@ -87,4 +87,4 @@ const TransitionBox = () => {
   );
 };
 
-export default TransitionBox;
+export { TransitionBox };

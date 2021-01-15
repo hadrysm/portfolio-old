@@ -1,4 +1,4 @@
-import locales from 'config/locales';
+const locales = require('../config/locales');
 
 const { siteLanguage: defaultLang } = locales.find(({ default: isDefault }) => isDefault);
 

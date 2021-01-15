@@ -77,4 +77,4 @@ CTA.propTypes = {
   pageTheme: PropTypes.objectOf(PropTypes.string),
 };
 
-export default CTA;
+export { CTA };
