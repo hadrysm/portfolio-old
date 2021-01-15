@@ -13,7 +13,7 @@ const colors = {
   black: '#000000',
   main: '#434149',
   text: '#323136',
-  yellow: '#FCBF49',
+  yellow: '#fcb64d',
   red: '#E63946',
   grey: '#EEEEEE',
   grey100: ' #BCBCBC',

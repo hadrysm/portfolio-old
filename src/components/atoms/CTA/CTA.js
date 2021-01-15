@@ -8,7 +8,7 @@ import { pageTheme as pageThemes } from 'assets/styles/theme';
 import locales from 'config/locales';
 import { Link } from './CTA.style';
 
-const { siteLanguage } = locales.find(({ default: isDefault }) => isDefault);
+const { siteLanguage: defaultLang } = locales.find(({ default: isDefault }) => isDefault);
 
 const CTA = ({
   children = 'click me',
@@ -16,6 +16,7 @@ const CTA = ({
   href = '',
   type = 'button',
   isButton = false,
+  isLocalizedLink = false,
   isHyperLink = false,
   pageTheme = pageThemes.home,
   ...props
@@ -25,7 +26,8 @@ const CTA = ({
   const { activeLocale } = useLocaleState();
 
   const isIndex = to === '/';
-  const path = siteLanguage === activeLocale ? to : `/${activeLocale}${isIndex ? '' : `${to}`}`;
+  const isDefaultLang = defaultLang === activeLocale;
+  const path = isDefaultLang || isLocalizedLink ? to : `/${activeLocale}${isIndex ? '' : `${to}`}`;
 
   if (isButton) {
     return (
@@ -71,6 +73,7 @@ CTA.propTypes = {
   isButton: PropTypes.bool,
   type: PropTypes.string,
   isHyperLink: PropTypes.bool,
+  isLocalizedLink: PropTypes.bool,
   pageTheme: PropTypes.objectOf(PropTypes.string),
 };
 

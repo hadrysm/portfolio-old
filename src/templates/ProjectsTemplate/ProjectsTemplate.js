@@ -12,7 +12,7 @@ import { Wrapper, InnerWrapper, StyledParagraph, StyledContent } from './Project
 
 const ProjectsTemplate = ({
   data: {
-    projectPageContent: { paragraph },
+    projectPageContent: { heroParagraph },
   },
 }) => {
   const { projects } = useTranslations();
@@ -21,7 +21,7 @@ const ProjectsTemplate = ({
       <StyledContent>
         <InnerWrapper>
           <Headline text={projects.title} isBig />
-          <StyledParagraph>{paragraph}</StyledParagraph>
+          <StyledParagraph>{heroParagraph}</StyledParagraph>
         </InnerWrapper>
         <InnerWrapper>
           <SvgProjects />
@@ -35,7 +35,7 @@ const ProjectsTemplate = ({
 export const query = graphql`
   query ProjectsQuery($locale: String!) {
     projectPageContent: datoCmsProjectsPage(locale: { eq: $locale }) {
-      paragraph
+      heroParagraph
     }
   }
 `;
@@ -43,7 +43,7 @@ export const query = graphql`
 ProjectsTemplate.propTypes = {
   data: PropTypes.shape({
     projectPageContent: PropTypes.shape({
-      paragraph: PropTypes.string,
+      heroParagraph: PropTypes.string,
     }),
   }).isRequired,
 };

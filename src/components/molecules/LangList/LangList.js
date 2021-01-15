@@ -32,16 +32,11 @@ const LangList = () => {
   const { activeLocale } = useLocaleState();
   const { updateLocale } = useLocaleDispatch();
 
-  const handleClickLanguage = (e, lang) => {
-    e.preventDefault();
-    updateLocale(lang);
-  };
-
   return (
     <List>
-      {locales.map(({ siteLanguage, label }) => (
+      {locales.map(({ siteLanguage, label, path }) => (
         <Item key={siteLanguage} variants={langVariants} active={activeLocale === siteLanguage}>
-          <CTA to="/" onClick={e => handleClickLanguage(e, siteLanguage)}>
+          <CTA to={`/${path}`} isLocalizedLink onClick={() => updateLocale(siteLanguage)}>
             {label}
           </CTA>
         </Item>
