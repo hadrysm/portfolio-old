@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { CTA } from 'components/atoms/CTA/CTA';
+import { Button } from 'components/atoms/Button/Button';
 import { Input } from 'components/atoms/Input/Input';
 
 import { useTranslations } from 'hooks/useTranslations';
@@ -18,7 +19,7 @@ const ContactForm = () => {
       <Input label={email} name="email" onChange={() => {}} />
       <Input label={message} name="message" as="textarea" onChange={() => {}} />
       <CTA isButton type="submit">
-        {buttons.send}
+        <Button>{buttons.send}</Button>
       </CTA>
     </Form>
   );

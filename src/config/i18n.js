@@ -24,6 +24,7 @@ export const i18n = {
     buttons: {
       check: 'Check projects',
       send: 'Send',
+      more: 'See more',
     },
   },
 
@@ -50,6 +51,7 @@ export const i18n = {
     buttons: {
       check: 'Zobacz projekty',
       send: 'Wyślij',
+      more: 'Zobacz więcej',
     },
   },
 };

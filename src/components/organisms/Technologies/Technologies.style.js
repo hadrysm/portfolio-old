@@ -16,7 +16,3 @@ export const Flex = styled.div`
       flex-direction: column;
     `}
 `;
-
-export const Box = styled.div`
-  margin-top: 2rem;
-`;
