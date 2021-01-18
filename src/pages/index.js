@@ -51,7 +51,7 @@ export const query = graphql`
     technologies: allDatoCmsTechnology(filter: { locale: { eq: $locale } }) {
       nodes {
         id: originalId
-        technologyName
+        name
       }
     }
   }

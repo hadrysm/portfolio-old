@@ -7,8 +7,8 @@ import { List } from './TechnologyList.style';
 
 const TechnologyList = ({ technologies }) => (
   <List>
-    {technologies.map(({ id, technologyName }) => (
-      <TechnologyItem key={id} text={technologyName} />
+    {technologies.map(({ id, name }) => (
+      <TechnologyItem key={id} text={name} />
     ))}
   </List>
 );
