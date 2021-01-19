@@ -36,13 +36,22 @@ exports.onCreatePage = ({ page, actions }) => {
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const ProjectsTemplate = path.resolve(`src/templates/ProjectsTemplate/ProjectsTemplate.js`);
+  const ProjectTemplate = path.resolve(`src/templates/ProjectTemplate/ProjectTemplate.js`);
 
   const {
-    data: { projectsPages },
+    data: { projectsPages, projectPage },
   } = await graphql(`
     {
       projectsPages: allDatoCmsProjectsPage {
         nodes {
+          slug
+          locale
+        }
+      }
+
+      projectPage: allDatoCmsProject {
+        nodes {
+          id: originalId
           slug
           locale
         }
@@ -57,6 +66,19 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         component: ProjectsTemplate,
         context: {
           locale,
+        },
+      });
+    });
+  }
+
+  if (projectPage) {
+    projectPage.nodes.forEach(({ slug, locale, id }) => {
+      createPage({
+        path: buildLocalePath({ locale, path: `/${slug}` }),
+        component: ProjectTemplate,
+        context: {
+          locale,
+          id,
         },
       });
     });
