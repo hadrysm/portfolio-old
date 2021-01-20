@@ -5,7 +5,7 @@ import { Content } from 'components/atoms/Content/Content';
 
 import { Headline } from 'components/atoms/Headline/Headline';
 import { TechnologyList } from 'components/molecules/TechnologyList/TechnologyList';
-import { Image } from 'components/atoms/Image/Image';
+import { Slider } from 'components/molecules/Slider/Slider';
 
 import SvgChart from 'components/SVG/SvgChart';
 
@@ -23,7 +23,7 @@ const Technologies = ({ technologies, isProject = false, gallery = {} }) => {
           <Headline text={tech.title} />
           <Flex isProject={isProject}>
             <TechnologyList technologies={technologies} isProject={isProject} />
-            {isProject ? <Image fluid={gallery[0].fluid} /> : <SvgChart />}
+            {isProject ? <Slider images={gallery} /> : <SvgChart />}
           </Flex>
         </Flex>
       </Content>

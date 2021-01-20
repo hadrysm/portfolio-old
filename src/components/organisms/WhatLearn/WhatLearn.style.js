@@ -15,7 +15,7 @@ export const Heading = styled.h3`
 export const Grid = styled.div`
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   align-items: center;
   gap: 6rem;
 `;

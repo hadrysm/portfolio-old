@@ -12,7 +12,6 @@ const ProjectTemplate = ({
   },
 }) => (
   <>
-    {console.log(gallery)}
     <ProjectHero title={title} type={typeApp} aboutContent={aboutContent} image={svgImage} />
     <WhatLearn learnContent={learnContent} />
     <Technologies technologies={technologies} isProject gallery={gallery} />

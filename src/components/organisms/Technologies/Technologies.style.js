@@ -31,6 +31,7 @@ export const Flex = styled.div`
 
       ${({ theme }) => theme.mq.tablet} {
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
       }
     `}

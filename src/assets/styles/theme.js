@@ -43,6 +43,7 @@ export const theme = {
       secondary: `'Catamaran', sans-serif`,
     },
     weight: {
+      light: 300,
       regular: 400,
       semiBold: 600,
       bold: 700,

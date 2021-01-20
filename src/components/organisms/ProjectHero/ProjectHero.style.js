@@ -56,6 +56,7 @@ export const Text = styled(Paragraph)`
     css`
       font-style: italic;
       margin-bottom: 4rem;
+      font-weight: ${({ theme }) => theme.font.weight.light};
     `}
   ${({ theme }) => theme.mq.tablet} {
     max-width: 35rem;
