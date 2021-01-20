@@ -9,7 +9,7 @@ const PageOverlay = styled(motion.div)`
   height: 100vh;
   z-index: ${({ theme }) => theme.zIndex.level8};
   visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
-  backdrop-filter: grayscale(80%);
+  backdrop-filter: grayscale(100%);
   cursor: pointer;
 `;
 

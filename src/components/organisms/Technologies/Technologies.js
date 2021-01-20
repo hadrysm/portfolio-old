@@ -20,6 +20,7 @@ const Technologies = ({ technologies }) => {
       <Content>
         <Flex isColumn>
           <Headline text={tech.title} />
+
           <Flex>
             <TechnologyList technologies={technologies} />
             <SvgChart />

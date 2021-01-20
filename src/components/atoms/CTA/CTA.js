@@ -50,10 +50,10 @@ const CTA = ({
       to={path}
       exit={{
         trigger: () => exitAnimation(),
-        length: 1.2,
+        length: 1.3,
       }}
       entry={{
-        delay: 1.2,
+        delay: 1.15,
         trigger: () => {
           enterAnimation();
           changeTheme(pageTheme);

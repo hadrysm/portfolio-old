@@ -1,40 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import {ScrollDown} from 'components/atoms/ScrollDown/ScrollDown';
+import { Headline } from 'components/atoms/Headline/Headline';
+import { ScrollDown } from 'components/atoms/ScrollDown/ScrollDown';
 
-import { Wrapper, InnerWrapper, Mask, Title, SubTitle } from './Hero.style';
+import SvgProjects from 'components/SVG/SvgProjects';
 
-const transition = { duration: 0.8, ease: [0.6, 0.01, -0.05, 0.9] };
+import { Wrapper, InnerWrapper, Title, StyledParagraph, StyledContent } from './Hero.style';
 
-const heroVariants = {
-  hidden: {
-    x: '50%',
-  },
-  visible: {
-    x: '0',
-  },
+const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
+  if (secondary) {
+    return (
+      <Wrapper secondary>
+        <StyledContent>
+          <InnerWrapper>
+            <Headline text={heroTitle} isBig as="h2" />
+            <StyledParagraph>{heroSubtitle}</StyledParagraph>
+          </InnerWrapper>
+          <InnerWrapper secondary>
+            <SvgProjects />
+          </InnerWrapper>
+        </StyledContent>
+        <ScrollDown top={85} left={10} />
+      </Wrapper>
+    );
+  }
+  return (
+    <Wrapper>
+      <StyledContent>
+        <InnerWrapper withLine>
+          <Title>{heroTitle}</Title>
+          <StyledParagraph>{heroSubtitle}</StyledParagraph>
+        </InnerWrapper>
+      </StyledContent>
+      <ScrollDown top={85} left={10} />
+    </Wrapper>
+  );
 };
-
-const Hero = ({ heroTitle, heroSubtitle }) => (
-  <Wrapper>
-    <InnerWrapper
-      variants={heroVariants}
-      initial="hidden"
-      animate="visible"
-      transition={transition}
-    >
-      <Title>{heroTitle}</Title>
-      <SubTitle>{heroSubtitle}</SubTitle>
-    </InnerWrapper>
-    {/* <ScrollDown /> */}
-    <Mask variants={heroVariants} initial="hidden" animate="visible" transition={transition} />
-  </Wrapper>
-);
 
 Hero.propTypes = {
   heroTitle: PropTypes.string.isRequired,
   heroSubtitle: PropTypes.string.isRequired,
+  secondary: PropTypes.bool,
 };
 
 export { Hero };

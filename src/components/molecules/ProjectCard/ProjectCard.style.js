@@ -51,6 +51,7 @@ export const Mask = styled(motion.span)`
   right: 0;
   bottom: 0;
   background-color: ${({ theme, pageTheme }) => pageTheme || theme.primary};
+  opacity: 0.7;
 `;
 
 export const StyledParagraph = styled(Paragraph)`

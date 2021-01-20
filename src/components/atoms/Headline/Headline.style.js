@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   margin-bottom: 4rem;
   color: ${({ theme }) => theme.white};
+  align-self: flex-start;
 
   svg {
     fill: inherit;

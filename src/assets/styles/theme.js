@@ -13,7 +13,7 @@ const colors = {
   black: '#000000',
   main: '#434149',
   text: '#323136',
-  yellow: '#fcb64d',
+  violet: '#A400FF',
   red: '#E63946',
   grey: '#EEEEEE',
   grey100: ' #BCBCBC',
@@ -24,7 +24,7 @@ const colors = {
 
 export const pageTheme = {
   home: {
-    primary: colors.yellow,
+    primary: colors.violet,
   },
   projects: {
     primary: colors.red,

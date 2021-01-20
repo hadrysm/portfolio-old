@@ -1,46 +1,88 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import styled, { css } from 'styled-components';
+import { lighten } from 'polished';
+
+import { Content } from 'components/atoms/Content/Content';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 
 export const Wrapper = styled.section`
   min-height: 100vh;
   position: relative;
-  background-color: ${({ theme }) => theme.white};
-  z-index: ${({ theme }) => theme.zIndex.level2};
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+
+  ::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: ${({ theme }) => theme.primary};
+    background-image: linear-gradient(
+      40deg,
+      ${({ theme }) => theme.primary} 20%,
+      ${({ theme }) => lighten(0.1, theme.primary)} 70%
+    );
+
+    ${({ secondary }) =>
+      secondary &&
+      css`
+        height: 75%;
+      `}
+  }
 `;
 
-export const InnerWrapper = styled(motion.div)`
-  position: relative;
+export const Title = styled.h2`
+  color: ${({ theme }) => theme.white};
+  font-size: ${({ theme }) => theme.font.size.headers.xxl};
+  font-family: ${({ theme }) => theme.font.family.primary};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
+  letter-spacing: 1px;
+  text-transform: uppercase;
+`;
+
+export const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+
+  ${({ withLine }) =>
+    withLine &&
+    css`
+      ::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -1rem;
+        width: 2px;
+        height: 100%;
+        background-color: ${({ theme }) => theme.white};
+      }
+    `}
+
+  ${({ secondary }) =>
+    secondary &&
+    css`
+      ${({ theme }) => theme.mq.tablet} {
+        margin-top: 5rem;
+        padding: 0 3rem;
+        flex: 2;
+      }
+    `}
+`;
+
+export const StyledParagraph = styled(Paragraph)`
+  color: ${({ theme }) => theme.white};
+  max-width: 40rem;
+
+  ${({ theme }) => theme.mq.tablet} {
+    max-width: 35rem;
+  }
+`;
+
+export const StyledContent = styled(Content)`
+  display: flex;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  padding: 6rem 3rem;
-  z-index: ${({ theme }) => theme.zIndex.level4};
-`;
-
-export const Mask = styled(motion.span)`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.primary};
-`;
-
-export const Title = styled.h1`
-  color: ${({ theme }) => theme.text};
-  text-align: center;
-  font-weight: ${({ theme }) => theme.font.weight.regular};
-  font-size: ${({ theme }) => theme.font.size.headers.xl};
-`;
-
-export const SubTitle = styled.h2`
-  color: ${({ theme }) => theme.text};
-  text-align: center;
-  font-weight: ${({ theme }) => theme.font.weight.regular};
-  font-size: ${({ theme }) => theme.font.size.headers.xs};
+  justify-content: center;
 `;

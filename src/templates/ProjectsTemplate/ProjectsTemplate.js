@@ -3,20 +3,24 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import { ProjectsGrid } from 'components/organisms/ProjectsGrid/ProjectsGrid';
+import { Hero } from 'components/organisms/Hero/Hero';
 
-import { HeroProjects } from 'components/organisms/HeroProjects/HeroProjects';
+import { useTranslations } from 'hooks/useTranslations';
 
 const ProjectsTemplate = ({
   data: {
     projectPageContent: { heroParagraph },
     allProjects: { nodes },
   },
-}) => (
-  <>
-    <HeroProjects text={heroParagraph} />
-    <ProjectsGrid projects={nodes} />
-  </>
-);
+}) => {
+  const { projects } = useTranslations();
+  return (
+    <>
+      <Hero heroTitle={projects.title} heroSubtitle={heroParagraph} secondary />
+      <ProjectsGrid projects={nodes} />
+    </>
+  );
+};
 
 export const query = graphql`
   query ProjectsQuery($locale: String!) {
