@@ -21,10 +21,13 @@ export const i18n = {
     projects: {
       title: 'Projects',
     },
+    learn: {
+      title: 'What did I learn?',
+    },
     buttons: {
       check: 'Check projects',
       send: 'Send',
-      more: 'See more',
+      more: 'See more on GitHub',
     },
   },
 
@@ -48,10 +51,13 @@ export const i18n = {
     projects: {
       title: 'Projekty',
     },
+    learn: {
+      title: 'Czego się nauczyłem?',
+    },
     buttons: {
       check: 'Zobacz projekty',
       send: 'Wyślij',
-      more: 'Zobacz więcej',
+      more: 'Więcej na GitHub!',
     },
   },
 };

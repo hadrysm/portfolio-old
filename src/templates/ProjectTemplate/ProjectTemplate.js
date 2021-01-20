@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import { ProjectHero } from 'components/organisms/ProjectHero/ProjectHero';
+import { WhatLearn } from 'components/organisms/WhatLearn/WhatLearn';
 
 const ProjectTemplate = ({
   data: {
-    project: { title, aboutContent, typeApp, svgImage },
+    project: { title, aboutContent, typeApp, svgImage, learnContent },
   },
 }) => (
   <>
     <ProjectHero title={title} type={typeApp} aboutContent={aboutContent} image={svgImage} />
+    <WhatLearn learnContent={learnContent} />
   </>
 );
 
@@ -51,6 +53,7 @@ ProjectTemplate.propTypes = {
       aboutContent: PropTypes.string,
       typeApp: PropTypes.string,
       svgImage: PropTypes.objectOf(PropTypes.string),
+      learnContent: PropTypes.arrayOf(PropTypes.objectOf),
     }),
   }).isRequired,
 };
