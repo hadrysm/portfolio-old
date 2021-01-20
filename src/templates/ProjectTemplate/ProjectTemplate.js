@@ -1,11 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-const ProjectTemplate = props => {
-  console.log(props);
+import { ProjectHero } from 'components/organisms/ProjectHero/ProjectHero';
 
-  return <div>project</div>;
-};
+const ProjectTemplate = ({
+  data: {
+    project: { title, aboutContent, typeApp, svgImage },
+  },
+}) => (
+  <>
+    <ProjectHero title={title} type={typeApp} aboutContent={aboutContent} image={svgImage} />
+  </>
+);
 
 export const query = graphql`
   query ProjectQuery($locale: String!, $id: String!) {
@@ -36,5 +43,16 @@ export const query = graphql`
     }
   }
 `;
+
+ProjectTemplate.propTypes = {
+  data: PropTypes.shape({
+    project: PropTypes.shape({
+      title: PropTypes.string,
+      aboutContent: PropTypes.string,
+      typeApp: PropTypes.string,
+      svgImage: PropTypes.objectOf(PropTypes.string),
+    }),
+  }).isRequired,
+};
 
 export default ProjectTemplate;

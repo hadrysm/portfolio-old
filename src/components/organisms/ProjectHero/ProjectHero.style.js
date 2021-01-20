@@ -26,51 +26,40 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const Title = styled.h2`
-  color: ${({ theme }) => theme.white};
-  font-size: ${({ theme }) => theme.font.size.headers.xxl};
-  font-family: ${({ theme }) => theme.font.family.primary};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  letter-spacing: 1px;
-  text-transform: uppercase;
-`;
-
 export const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-
-  ${({ withLine }) =>
-    withLine &&
-    css`
-      ::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: -1rem;
-        width: 2px;
-        height: 100%;
-        background-color: ${({ theme }) => theme.white};
-      }
-    `}
-
-  ${({ secondary }) =>
-    secondary &&
-    css`
-      ${({ theme }) => theme.mq.tablet} {
-        max-width: 65rem;
-        flex: 1;
-      }
-    `}
 `;
 
-export const StyledParagraph = styled(Paragraph)`
-  color: ${({ theme }) => theme.white};
-  max-width: 40rem;
+export const Image = styled.img`
+  display: none;
 
   ${({ theme }) => theme.mq.tablet} {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+`;
+
+export const Text = styled(Paragraph)`
+  color: ${({ theme }) => theme.white};
+  max-width: 40rem;
+  margin: 0 0 2rem;
+  font-size: ${({ theme }) => theme.font.size.body.s};
+
+  ${({ isItalic }) =>
+    isItalic &&
+    css`
+      font-style: italic;
+      margin-bottom: 4rem;
+    `}
+  ${({ theme }) => theme.mq.tablet} {
     max-width: 35rem;
+    font-size: ${({ theme }) => theme.font.size.body.m};
   }
 `;
 

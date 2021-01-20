@@ -11,7 +11,7 @@ import { Wrapper, InnerWrapper, Title, StyledParagraph, StyledContent } from './
 const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
   if (secondary) {
     return (
-      <Wrapper secondary>
+      <Wrapper>
         <StyledContent>
           <InnerWrapper>
             <Headline text={heroTitle} isBig as="h2" />
