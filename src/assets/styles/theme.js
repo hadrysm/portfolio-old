@@ -13,7 +13,7 @@ const colors = {
   black: '#000000',
   main: '#434149',
   text: '#323136',
-  violet: '#A400FF',
+  violet: '#9c41ce',
   red: '#E63946',
   grey: '#EEEEEE',
   grey100: ' #BCBCBC',
@@ -68,7 +68,7 @@ export const theme = {
   },
 
   layout: {
-    maxContainerWidth: '140.4rem',
+    maxContainerWidth: '160.4rem',
     // mainSpacing: '2rem',
   },
 

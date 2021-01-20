@@ -5,8 +5,8 @@ import { TechnologyItem } from 'components/atoms/TechnologyItem/TechnologyItem';
 
 import { List } from './TechnologyList.style';
 
-const TechnologyList = ({ technologies }) => (
-  <List>
+const TechnologyList = ({ technologies, isProject = false }) => (
+  <List isProject={isProject}>
     {technologies.map(({ id, name }) => (
       <TechnologyItem key={id} text={name} />
     ))}
@@ -15,6 +15,7 @@ const TechnologyList = ({ technologies }) => (
 
 TechnologyList.propTypes = {
   technologies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isProject: PropTypes.bool,
 };
 
 export { TechnologyList };

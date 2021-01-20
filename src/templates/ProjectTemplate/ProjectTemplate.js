@@ -2,17 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import { Technologies } from 'components/organisms/Technologies/Technologies';
 import { ProjectHero } from 'components/organisms/ProjectHero/ProjectHero';
 import { WhatLearn } from 'components/organisms/WhatLearn/WhatLearn';
 
 const ProjectTemplate = ({
   data: {
-    project: { title, aboutContent, typeApp, svgImage, learnContent },
+    project: { title, aboutContent, typeApp, svgImage, learnContent, technologies, gallery },
   },
 }) => (
   <>
+    {console.log(gallery)}
     <ProjectHero title={title} type={typeApp} aboutContent={aboutContent} image={svgImage} />
     <WhatLearn learnContent={learnContent} />
+    <Technologies technologies={technologies} isProject gallery={gallery} />
   </>
 );
 
@@ -54,6 +57,8 @@ ProjectTemplate.propTypes = {
       typeApp: PropTypes.string,
       svgImage: PropTypes.objectOf(PropTypes.string),
       learnContent: PropTypes.arrayOf(PropTypes.objectOf),
+      technologies: PropTypes.arrayOf(PropTypes.object),
+      gallery: PropTypes.arrayOf(PropTypes.object),
     }),
   }).isRequired,
 };

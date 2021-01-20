@@ -5,6 +5,7 @@ import { Content } from 'components/atoms/Content/Content';
 
 import { Headline } from 'components/atoms/Headline/Headline';
 import { TechnologyList } from 'components/molecules/TechnologyList/TechnologyList';
+import { Image } from 'components/atoms/Image/Image';
 
 import SvgChart from 'components/SVG/SvgChart';
 
@@ -12,7 +13,7 @@ import { useTranslations } from 'hooks/useTranslations';
 
 import { Wrapper, Flex } from './Technologies.style';
 
-const Technologies = ({ technologies }) => {
+const Technologies = ({ technologies, isProject = false, gallery = {} }) => {
   const { technologies: tech } = useTranslations();
 
   return (
@@ -20,10 +21,9 @@ const Technologies = ({ technologies }) => {
       <Content>
         <Flex isColumn>
           <Headline text={tech.title} />
-
-          <Flex>
-            <TechnologyList technologies={technologies} />
-            <SvgChart />
+          <Flex isProject={isProject}>
+            <TechnologyList technologies={technologies} isProject={isProject} />
+            {isProject ? <Image fluid={gallery[0].fluid} /> : <SvgChart />}
           </Flex>
         </Flex>
       </Content>
@@ -33,6 +33,8 @@ const Technologies = ({ technologies }) => {
 
 Technologies.propTypes = {
   technologies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isProject: PropTypes.bool,
+  gallery: PropTypes.arrayOf(PropTypes.object, PropTypes.string),
 };
 
 export { Technologies };
