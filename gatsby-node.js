@@ -1,4 +1,4 @@
-// const path = require('path');
+const path = require('path');
 
 const { buildLocalePath } = require('./src/helpers/gatsby-node-helpers');
 const locales = require('./src/config/locales');
@@ -22,41 +22,65 @@ exports.onCreatePage = ({ page, actions }) => {
 
   deletePage(page);
 
-  locales.forEach(locale =>
+  locales.forEach(({ siteLanguage: locale }) =>
     createPage({
       ...page,
       path: buildLocalePath({ locale, path: page.path }),
       context: {
         ...page.context,
-        locale: locale.siteLanguage,
+        locale,
       },
     }),
   );
 };
 
-// exports.createPages = async ({ graphql, actions: { createPage } }) => {
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
+  const ProjectsTemplate = path.resolve(`src/templates/ProjectsTemplate/ProjectsTemplate.js`);
+  const ProjectTemplate = path.resolve(`src/templates/ProjectTemplate/ProjectTemplate.js`);
 
-//   const ProductsTemplate = path.resolve(`src/templates/ProductsTemplate/ProductsTemplate.js`);
+  const {
+    data: { projectsPages, projectPage },
+  } = await graphql(`
+    {
+      projectsPages: allDatoCmsProjectsPage {
+        nodes {
+          slug
+          locale
+        }
+      }
 
-//   const {
-//     data: { homePages },
-//   } = await graphql(`
-//     {
-//       homePages: allDatoCmsHomePage {
-//         nodes {
-//           slug
-//         }
-//       }
-//     }
-//   `);
+      projectPage: allDatoCmsProject {
+        nodes {
+          id: originalId
+          slug
+          locale
+        }
+      }
+    }
+  `);
 
-//   locales.forEach(locale => {
-//     createPage({
-//   path: buildLocalePath({ locale, path: '' }),
-//       component: homeTemplate,
-//       context: {
-//         locale: locale.path,
-//       },
-//     });
-//   });
-// };
+  if (projectsPages) {
+    projectsPages.nodes.forEach(({ slug, locale }) => {
+      createPage({
+        path: buildLocalePath({ locale, path: `/${slug}` }),
+        component: ProjectsTemplate,
+        context: {
+          locale,
+        },
+      });
+    });
+  }
+
+  if (projectPage) {
+    projectPage.nodes.forEach(({ slug, locale, id }) => {
+      createPage({
+        path: buildLocalePath({ locale, path: `/${slug}` }),
+        component: ProjectTemplate,
+        context: {
+          locale,
+          id,
+        },
+      });
+    });
+  }
+};

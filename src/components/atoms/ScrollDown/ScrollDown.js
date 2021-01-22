@@ -44,4 +44,4 @@ ScrollDown.propTypes = {
   left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-export default ScrollDown;
+export { ScrollDown };

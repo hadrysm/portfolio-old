@@ -36,4 +36,4 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
 };
 
-export default Input;
+export { Input };

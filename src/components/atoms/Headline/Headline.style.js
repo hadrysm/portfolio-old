@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 4rem;
   color: ${({ theme }) => theme.white};
+  align-self: flex-start;
 
   svg {
     fill: inherit;
@@ -34,4 +33,18 @@ export const Text = styled.h3`
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.font.size.headers.l};
   }
+
+  ${({ isBig }) =>
+    isBig &&
+    css`
+      font-size: ${({ theme }) => theme.font.size.headers.xl};
+
+      ${({ theme }) => theme.mq.phone} {
+        font-size: ${({ theme }) => theme.font.size.headers.xl};
+      }
+
+      ${({ theme }) => theme.mq.tablet} {
+        font-size: ${({ theme }) => theme.font.size.headers.xxl};
+      }
+    `}
 `;

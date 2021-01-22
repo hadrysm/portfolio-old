@@ -1,5 +1,9 @@
-exports.buildLocalePath = ({ locale: { path: localePath }, path }) => {
-  const result = `${localePath.toLowerCase()}${path}`;
+const locales = require('../config/locales');
+
+const { siteLanguage: defaultLang } = locales.find(({ default: isDefault }) => isDefault);
+
+exports.buildLocalePath = ({ locale, path }) => {
+  const result = `${locale === defaultLang ? '' : locale}${path}`;
 
   return result === `/` ? result : result.replace(/\/$/, ``);
 };

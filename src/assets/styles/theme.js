@@ -13,7 +13,7 @@ const colors = {
   black: '#000000',
   main: '#434149',
   text: '#323136',
-  yellow: '#FCBF49',
+  violet: '#9c41ce',
   red: '#E63946',
   grey: '#EEEEEE',
   grey100: ' #BCBCBC',
@@ -24,7 +24,7 @@ const colors = {
 
 export const pageTheme = {
   home: {
-    primary: colors.yellow,
+    primary: colors.violet,
   },
   projects: {
     primary: colors.red,
@@ -43,6 +43,7 @@ export const theme = {
       secondary: `'Catamaran', sans-serif`,
     },
     weight: {
+      light: 300,
       regular: 400,
       semiBold: 600,
       bold: 700,
@@ -54,7 +55,7 @@ export const theme = {
         m: '3.4rem',
         l: '4rem',
         xl: '5rem',
-        xxl: '8.6rem',
+        xxl: '7.6rem',
       },
       body: {
         xs: '1.4rem',
@@ -68,7 +69,7 @@ export const theme = {
   },
 
   layout: {
-    maxContainerWidth: '140.4rem',
+    maxContainerWidth: '160.4rem',
     // mainSpacing: '2rem',
   },
 

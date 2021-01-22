@@ -1,7 +1,7 @@
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import Logo from 'components/atoms/Logo/Logo';
+import { Logo } from 'components/atoms/Logo/Logo';
 
 import { usePageTransitionState } from 'providers/PageTransitionProvider/PageTransitionProvider';
 import { Wrapper, Box, LogoWrapper } from './TransitionBox.style';
@@ -50,7 +50,7 @@ const childVariantLogo = {
     transition: {
       ...transition,
       duration: 0.5,
-      delay: 0.8,
+      delay: 0.7,
     },
   },
   hidden: {
@@ -59,7 +59,7 @@ const childVariantLogo = {
     transition: {
       ...transition,
       duration: 0.5,
-      delay: 0.3,
+      delay: 0.2,
     },
   },
 };
@@ -79,7 +79,7 @@ const TransitionBox = () => {
         >
           <Box variants={childVariants} />
           <LogoWrapper variants={childVariantLogo}>
-            <Logo size="15rem" />
+            <Logo size="8rem" />
           </LogoWrapper>
         </Wrapper>
       )}
@@ -87,4 +87,4 @@ const TransitionBox = () => {
   );
 };
 
-export default TransitionBox;
+export { TransitionBox };

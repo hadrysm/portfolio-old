@@ -8,7 +8,7 @@ import { pageTheme as pageThemes } from 'assets/styles/theme';
 import locales from 'config/locales';
 import { Link } from './CTA.style';
 
-const { siteLanguage } = locales.find(({ default: isDefault }) => isDefault);
+const { siteLanguage: defaultLang } = locales.find(({ default: isDefault }) => isDefault);
 
 const CTA = ({
   children = 'click me',
@@ -16,6 +16,7 @@ const CTA = ({
   href = '',
   type = 'button',
   isButton = false,
+  isLocalizedLink = false,
   isHyperLink = false,
   pageTheme = pageThemes.home,
   ...props
@@ -25,7 +26,8 @@ const CTA = ({
   const { activeLocale } = useLocaleState();
 
   const isIndex = to === '/';
-  const path = siteLanguage === activeLocale ? to : `/${activeLocale}${isIndex ? '' : `${to}`}`;
+  const isDefaultLang = defaultLang === activeLocale;
+  const path = isDefaultLang || isLocalizedLink ? to : `/${activeLocale}${isIndex ? '' : `${to}`}`;
 
   if (isButton) {
     return (
@@ -48,10 +50,10 @@ const CTA = ({
       to={path}
       exit={{
         trigger: () => exitAnimation(),
-        length: 1.2,
+        length: 1.3,
       }}
       entry={{
-        delay: 1.2,
+        delay: 1.15,
         trigger: () => {
           enterAnimation();
           changeTheme(pageTheme);
@@ -71,7 +73,8 @@ CTA.propTypes = {
   isButton: PropTypes.bool,
   type: PropTypes.string,
   isHyperLink: PropTypes.bool,
+  isLocalizedLink: PropTypes.bool,
   pageTheme: PropTypes.objectOf(PropTypes.string),
 };
 
-export default CTA;
+export { CTA };

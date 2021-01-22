@@ -5,16 +5,20 @@ import SvgHeadlineIcon from 'components/SVG/SvgHeadlineIcon';
 
 import { Wrapper, Text } from './Headline.style';
 
-const Headline = ({ text = 'your text', primary = false }) => (
+const Headline = ({ text = 'your text', primary = false, isBig = false, as = 'h3' }) => (
   <Wrapper primary={primary}>
     <SvgHeadlineIcon />
-    <Text>{text}</Text>
+    <Text isBig={isBig} as={as}>
+      {text}
+    </Text>
   </Wrapper>
 );
 
 Headline.propTypes = {
   text: PropTypes.string,
   primary: PropTypes.bool,
+  isBig: PropTypes.bool,
+  as: PropTypes.string,
 };
 
-export default Headline;
+export { Headline };

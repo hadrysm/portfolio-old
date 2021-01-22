@@ -42,4 +42,4 @@ a {
 }
 `;
 
-export default GlobalStyled;
+export { GlobalStyled };

@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { usePageThemeState } from 'providers/PageThemeProvider/PageThemeProvider';
-import GlobalStyled from 'assets/styles/GlobalStyles';
+import { GlobalStyled } from 'assets/styles/GlobalStyles';
 import { theme } from 'assets/styles/theme';
 
 const SCThemeProvider = ({ children }) => {

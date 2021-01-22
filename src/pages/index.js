@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import SEO from 'components/seo';
+import { SEO } from 'components/seo';
 
-import Hero from 'components/organisms/Hero/Hero';
-import About from 'components/organisms/About/About';
-import Technologies from 'components/organisms/Technologies/Technologies';
-import Contact from 'components/organisms/Contact/Contact';
+import { Hero } from 'components/organisms/Hero/Hero';
+import { About } from 'components/organisms/About/About';
+import { Technologies } from 'components/organisms/Technologies/Technologies';
+import { Contact } from 'components/organisms/Contact/Contact';
 
 const IndexPage = ({
   data: {
@@ -51,7 +51,7 @@ export const query = graphql`
     technologies: allDatoCmsTechnology(filter: { locale: { eq: $locale } }) {
       nodes {
         id: originalId
-        technologyName
+        name
       }
     }
   }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CTA from 'components/atoms/CTA/CTA';
+import { CTA } from 'components/atoms/CTA/CTA';
 import { motion } from 'framer-motion';
 
 const ACTIVE_CLASS_NAME = '.active';

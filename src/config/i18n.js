@@ -18,16 +18,23 @@ export const i18n = {
       email: 'Email adress',
       message: 'Your message',
     },
+    projects: {
+      title: 'Projects',
+    },
+    learn: {
+      title: 'What did I learn?',
+    },
     buttons: {
       check: 'Check projects',
       send: 'Send',
+      more: 'See more on GitHub',
     },
   },
 
   pl: {
     menu: [
       { label: 'Strona główna', path: '/', color: pageTheme.home },
-      { label: 'Projekty', path: '/projecty', color: pageTheme.projects },
+      { label: 'Projekty', path: '/projekty', color: pageTheme.projects },
       { label: 'Blog', path: '/blog', color: pageTheme.blog },
     ],
     about: {
@@ -41,9 +48,16 @@ export const i18n = {
       email: 'Adres email',
       message: 'Twoja wiadomość',
     },
+    projects: {
+      title: 'Projekty',
+    },
+    learn: {
+      title: 'Czego się nauczyłem?',
+    },
     buttons: {
       check: 'Zobacz projekty',
       send: 'Wyślij',
+      more: 'Więcej na GitHub!',
     },
   },
 };
