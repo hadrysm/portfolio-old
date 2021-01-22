@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Button = styled.span`
+export const Button = styled.button`
   position: relative;
   padding: 2rem 1.5rem;
   background-color: transparent;

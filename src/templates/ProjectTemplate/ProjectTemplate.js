@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import { Technologies } from 'components/organisms/Technologies/Technologies';
 import { ProjectHero } from 'components/organisms/ProjectHero/ProjectHero';
 import { WhatLearn } from 'components/organisms/WhatLearn/WhatLearn';
+import { SummaryProject } from 'components/organisms/SummaryProject/SummaryProject';
 
 const ProjectTemplate = ({
   data: {
@@ -15,6 +16,7 @@ const ProjectTemplate = ({
     <ProjectHero title={title} type={typeApp} aboutContent={aboutContent} image={svgImage} />
     <WhatLearn learnContent={learnContent} />
     <Technologies technologies={technologies} isProject gallery={gallery} />
+    <SummaryProject />
   </>
 );
 

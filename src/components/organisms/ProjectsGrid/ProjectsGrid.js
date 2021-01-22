@@ -29,7 +29,7 @@ const ProjectsGrid = ({ projects }) => {
       </Grid>
       <InnerWrapper>
         <CTA isHyperLink href="https://github.com/hadrysm">
-          <Button>{buttons.more}</Button>
+          <Button as="span">{buttons.more}</Button>
         </CTA>
       </InnerWrapper>
     </Content>

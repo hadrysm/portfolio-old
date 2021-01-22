@@ -19,7 +19,7 @@ const ContactForm = () => {
       <Input label={email} name="email" onChange={() => {}} />
       <Input label={message} name="message" as="textarea" onChange={() => {}} />
       <CTA isButton type="submit">
-        <Button>{buttons.send}</Button>
+        <Button as="span">{buttons.send}</Button>
       </CTA>
     </Form>
   );
