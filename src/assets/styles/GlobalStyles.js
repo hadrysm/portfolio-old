@@ -21,6 +21,7 @@ body {
   font-family: ${({ theme }) => theme.font.family.primary};
   background-color: ${({ theme }) => theme.background};
   text-rendering: optimizeLegibility;
+  visibility: ${({ isVisibility }) => (isVisibility ? 'visible' : 'hidden')};
 }
 
 ul {
