@@ -9,14 +9,24 @@ import { SummaryProject } from 'components/organisms/SummaryProject/SummaryProje
 
 const ProjectTemplate = ({
   data: {
-    project: { title, aboutContent, typeApp, svgImage, learnContent, technologies, gallery },
+    project: {
+      title,
+      aboutContent,
+      typeApp,
+      svgImage,
+      learnContent,
+      technologies,
+      gallery,
+      codeLink,
+      liveLink,
+    },
   },
 }) => (
   <>
     <ProjectHero title={title} type={typeApp} aboutContent={aboutContent} image={svgImage} />
     <WhatLearn learnContent={learnContent} />
     <Technologies technologies={technologies} isProject gallery={gallery} />
-    <SummaryProject />
+    <SummaryProject codeLink={codeLink} liveLink={liveLink} />
   </>
 );
 
@@ -46,6 +56,8 @@ export const query = graphql`
         url
         alt
       }
+      codeLink
+      liveLink
     }
   }
 `;
@@ -60,6 +72,8 @@ ProjectTemplate.propTypes = {
       learnContent: PropTypes.arrayOf(PropTypes.objectOf),
       technologies: PropTypes.arrayOf(PropTypes.object),
       gallery: PropTypes.arrayOf(PropTypes.object),
+      codeLink: PropTypes.string,
+      liveLink: PropTypes.string,
     }),
   }).isRequired,
 };
