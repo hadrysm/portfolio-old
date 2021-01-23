@@ -16,7 +16,9 @@ const NotFound = () => {
         <Heading>{notFound.title}</Heading>
         <StyledParagraph>{notFound.text}</StyledParagraph>
         <CTA onClick={() => navigate(-1)}>
-          <Button secondary>{buttons.back}</Button>
+          <Button as="span" secondary>
+            {buttons.back}
+          </Button>
         </CTA>
       </Flex>
     </Wrapper>

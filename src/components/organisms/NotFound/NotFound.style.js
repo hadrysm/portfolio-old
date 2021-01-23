@@ -26,11 +26,13 @@ export const Flex = styled.div`
 
 export const Heading = styled.h2`
   text-transform: uppercase;
-  font-family: ${({ theme }) => theme.font.family.priamry};
   font-weight: ${({ theme }) => theme.font.weight.bold};
-  font-size: ${({ theme }) => theme.font.size.headers.xl};
+  font-size: ${({ theme }) => theme.font.size.headers.l};
   color: ${({ theme }) => theme.white};
-  margin-bottom: 3rem;
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.headers.xxl};
+  }
 `;
 
 export const StyledParagraph = styled(Paragraph)`

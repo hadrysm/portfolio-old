@@ -8,7 +8,6 @@ export const Wrapper = styled.section`
 
 export const Heading = styled.h3`
   color: ${({ theme }) => theme.primary};
-  font-family: ${({ theme }) => theme.font.family.primary};
   font-size: ${({ theme }) => theme.font.size.headers.s};
 `;
 

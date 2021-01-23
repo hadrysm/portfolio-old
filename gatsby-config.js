@@ -69,12 +69,12 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: 'Catamaran',
+              family: 'Poppins',
               variants: ['300', '400', '600', '700'],
               subsets: ['latin-ext'],
             },
             {
-              family: 'Montserrat',
+              family: 'Raleway',
               variants: ['300', '400', '500'],
               subsets: ['latin-ext'],
             },
