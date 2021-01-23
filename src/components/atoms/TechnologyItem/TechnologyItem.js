@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Item, Text } from './TechnologyItem.style';
+import { Item, StyledText } from './TechnologyItem.style';
 
 const TechnologyItem = ({ text }) => (
   <Item>
-    <Text>{text}</Text>
+    <StyledText color="white" isMedium>
+      {text}
+    </StyledText>
   </Item>
 );
 

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import SvgHeadlineIcon from 'components/SVG/SvgHeadlineIcon';
 
-import { Wrapper, Text } from './Headline.style';
+import { Wrapper, StyledText } from './Headline.style';
 
-const Headline = ({ text = 'your text', primary = false, isBig = false, as = 'h3' }) => (
+const Headline = ({ text = 'your text', primary = false, ...props }) => (
   <Wrapper primary={primary}>
     <SvgHeadlineIcon />
-    <Text isBig={isBig} as={as}>
+    <StyledText isTitle {...props}>
       {text}
-    </Text>
+    </StyledText>
   </Wrapper>
 );
 

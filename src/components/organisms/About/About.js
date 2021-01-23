@@ -16,7 +16,7 @@ const About = ({ aboutImage, aboutContent }) => {
     <Content as="section">
       <Grid>
         <InnerWrapper>
-          <Headline text={about.title} primary />
+          <Headline text={about.title} primary isMedium />
           <AboutMeText content={aboutContent} />
         </InnerWrapper>
         <InnerWrapper>

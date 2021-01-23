@@ -1,11 +1,12 @@
 import React from 'react';
+import { navigate } from 'gatsby';
 
 import { Button } from 'components/atoms/Button/Button';
 import { CTA } from 'components/atoms/CTA/CTA';
-import { navigate } from 'gatsby';
+import { Text } from 'components/atoms/Text/Text';
 
 import { useTranslations } from 'hooks/useTranslations';
-import { Wrapper, Flex, Heading, StyledParagraph } from './NotFound.style';
+import { Wrapper, Flex } from './NotFound.style';
 
 const NotFound = () => {
   const { notFound, buttons } = useTranslations();
@@ -13,8 +14,10 @@ const NotFound = () => {
   return (
     <Wrapper>
       <Flex>
-        <Heading>{notFound.title}</Heading>
-        <StyledParagraph>{notFound.text}</StyledParagraph>
+        <Text isMedium isTitle color="white">
+          {notFound.title}
+        </Text>
+        <Text color="white">{notFound.text}</Text>
         <CTA onClick={() => navigate(-1)}>
           <Button as="span" secondary>
             {buttons.back}

@@ -3,15 +3,9 @@ import PropTypes from 'prop-types';
 
 import { Image } from 'components/atoms/Image/Image';
 import { CTA } from 'components/atoms/CTA/CTA';
+import { Text } from 'components/atoms/Text/Text';
 
-import {
-  Wrapper,
-  InnerWrapper,
-  ImageWrapper,
-  Headline,
-  Mask,
-  StyledParagraph,
-} from './ProjectCard.style';
+import { Wrapper, InnerWrapper, ImageWrapper, Mask } from './ProjectCard.style';
 
 const transition = { duration: 0.8, ease: [0.6, 0.01, -0.05, 0.9] };
 
@@ -40,8 +34,12 @@ const ProjectCard = ({ title, typeApp, fluid, slug, pageTheme }) => (
         <Image fluid={fluid} />
       </ImageWrapper>
       <InnerWrapper>
-        <StyledParagraph>{typeApp}</StyledParagraph>
-        <Headline>{title}</Headline>
+        <Text isItalic isSmall color="white">
+          {typeApp}
+        </Text>
+        <Text isTitle isSmall isBold color="white">
+          {title}
+        </Text>
       </InnerWrapper>
       <Mask pageTheme={pageTheme} variants={maskVariants} />
     </CTA>

@@ -20,7 +20,7 @@ const Technologies = ({ technologies, isProject = false, gallery = {} }) => {
     <Wrapper>
       <Content>
         <Flex isColumn>
-          <Headline text={tech.title} />
+          <Headline text={tech.title} isMedium />
           <Flex isProject={isProject}>
             <TechnologyList technologies={technologies} isProject={isProject} />
             {isProject ? <Slider images={gallery} /> : <SvgChart />}

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { CTA } from 'components/atoms/CTA/CTA';
-import { motion } from 'framer-motion';
+
+import { Text } from 'components/atoms/Text/Text';
 
 const ACTIVE_CLASS_NAME = '.active';
 
@@ -12,26 +13,9 @@ export const Li = styled.li`
   overflow: hidden;
 `;
 
-export const Mask = styled(motion.span)`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.white};
-`;
-
-export const Text = styled.span`
+export const StyledText = styled(Text)`
   position: relative;
-  display: block;
   padding: 0.5rem;
-  font-family: ${({ theme }) => theme.font.family.secondary};
-  font-size: ${({ theme }) => theme.font.size.body.m};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-
-  ${({ theme }) => theme.mq.tablet} {
-    font-size: ${({ theme }) => theme.font.size.body.xxl};
-  }
 
   ::before {
     content: '';

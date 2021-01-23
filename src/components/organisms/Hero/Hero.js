@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import { Headline } from 'components/atoms/Headline/Headline';
 import { ScrollDown } from 'components/atoms/ScrollDown/ScrollDown';
+import { Text } from 'components/atoms/Text/Text';
 
 import SvgProjects from 'components/SVG/SvgProjects';
 
-import { Wrapper, InnerWrapper, Title, StyledParagraph, StyledContent } from './Hero.style';
+import { Wrapper, InnerWrapper, StyledText, StyledContent } from './Hero.style';
 
 const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
   if (secondary) {
@@ -14,8 +15,8 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
       <Wrapper>
         <StyledContent>
           <InnerWrapper>
-            <Headline text={heroTitle} isBig as="h2" />
-            <StyledParagraph>{heroSubtitle}</StyledParagraph>
+            <Headline text={heroTitle} />
+            <StyledText color="white">{heroSubtitle}</StyledText>
           </InnerWrapper>
           <InnerWrapper secondary>
             <SvgProjects />
@@ -29,8 +30,10 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
     <Wrapper>
       <StyledContent>
         <InnerWrapper withLine>
-          <Title>{heroTitle}</Title>
-          <StyledParagraph>{heroSubtitle}</StyledParagraph>
+          <Text isTitle color="white" isUpper>
+            {heroTitle}
+          </Text>
+          <StyledText color="white">{heroSubtitle}</StyledText>
         </InnerWrapper>
       </StyledContent>
       <ScrollDown top={85} left={10} />

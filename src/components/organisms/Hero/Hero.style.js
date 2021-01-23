@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
 
 import { Content } from 'components/atoms/Content/Content';
-import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
+import { Text } from 'components/atoms/Text/Text';
 
 export const Wrapper = styled.section`
   min-height: 100vh;
@@ -64,8 +64,7 @@ export const InnerWrapper = styled.div`
     `}
 `;
 
-export const StyledParagraph = styled(Paragraph)`
-  color: ${({ theme }) => theme.white};
+export const StyledText = styled(Text)`
   max-width: 40rem;
 
   ${({ theme }) => theme.mq.tablet} {

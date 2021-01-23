@@ -6,7 +6,7 @@ export const Wrapper = styled(motion.div)`
   top: 0;
   left: 0;
   height: 100%;
-  width: 70%;
+  width: 80%;
   max-width: ${({ theme }) => theme.layout.maxContainerWidth};
   background-color: ${({ theme }) => theme.white};
   visibility: ${({ isMenuOpen }) => (isMenuOpen ? 'visible' : 'hidden')};
@@ -16,5 +16,5 @@ export const Wrapper = styled(motion.div)`
 `;
 
 export const Nav = styled(motion.nav)`
-  padding: 4rem 20% 4rem 10%;
+  padding: 4rem 0 4rem 10%;
 `;

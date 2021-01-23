@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 
-import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
-
 export const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -22,19 +20,4 @@ export const Flex = styled.div`
   align-items: center;
   padding: 2rem;
   text-align: center;
-`;
-
-export const Heading = styled.h2`
-  text-transform: uppercase;
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  font-size: ${({ theme }) => theme.font.size.headers.l};
-  color: ${({ theme }) => theme.white};
-
-  ${({ theme }) => theme.mq.tablet} {
-    font-size: ${({ theme }) => theme.font.size.headers.xxl};
-  }
-`;
-
-export const StyledParagraph = styled(Paragraph)`
-  color: ${({ theme }) => theme.white};
 `;

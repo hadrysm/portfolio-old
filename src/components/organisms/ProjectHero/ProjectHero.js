@@ -2,17 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Headline } from 'components/atoms/Headline/Headline';
+import { Text } from 'components/atoms/Text/Text';
 import { ScrollDown } from 'components/atoms/ScrollDown/ScrollDown';
 
-import { Wrapper, InnerWrapper, StyledContent, Text, Image } from './ProjectHero.style';
+import { Wrapper, InnerWrapper, StyledContent, Image, StyledText } from './ProjectHero.style';
 
 const ProjectHero = ({ title, type, aboutContent, image: { url, alt } }) => (
   <Wrapper>
     <StyledContent>
       <InnerWrapper>
-        <Headline text={title} isBig as="h2" />
-        <Text isItalic>{type}</Text>
-        <Text>{aboutContent}</Text>
+        <Headline text={title} />
+        <StyledText isItalic isSmall color="white">
+          {type}
+        </StyledText>
+        <Text color="white">{aboutContent}</Text>
       </InnerWrapper>
       <InnerWrapper>
         <Image src={url} alt={alt} />

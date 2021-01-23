@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
-
 export const Wrapper = styled(motion.article)`
   width: 100%;
-  position: relative;
   padding-bottom: 70%;
+  position: relative;
   border-radius: 1rem;
   overflow: hidden;
 `;
@@ -17,11 +15,6 @@ export const InnerWrapper = styled.div`
   left: 4rem;
   right: 4rem;
   z-index: ${({ theme }) => theme.zIndex.level1};
-`;
-
-export const Headline = styled.h3`
-  font-size: ${({ theme }) => theme.font.size.headers.xs};
-  color: ${({ theme }) => theme.white};
 `;
 
 export const ImageWrapper = styled.div`
@@ -51,12 +44,4 @@ export const Mask = styled(motion.span)`
   bottom: 0;
   background-color: ${({ theme, pageTheme }) => pageTheme || theme.primary};
   opacity: 0.7;
-`;
-
-export const StyledParagraph = styled(Paragraph)`
-  font-size: ${({ theme }) => theme.font.size.body.xs};
-  font-style: italic;
-
-  color: ${({ theme }) => theme.white};
-  margin: 0 0 1rem 0;
 `;

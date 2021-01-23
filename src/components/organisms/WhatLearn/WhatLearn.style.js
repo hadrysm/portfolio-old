@@ -1,14 +1,7 @@
 import styled from 'styled-components';
 
-import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
-
 export const Wrapper = styled.section`
   margin: 4rem 0;
-`;
-
-export const Heading = styled.h3`
-  color: ${({ theme }) => theme.primary};
-  font-size: ${({ theme }) => theme.font.size.headers.s};
 `;
 
 export const Grid = styled.div`
@@ -17,8 +10,4 @@ export const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   align-items: center;
   gap: 6rem;
-`;
-
-export const StyledParagraph = styled(Paragraph)`
-  margin: 0;
 `;

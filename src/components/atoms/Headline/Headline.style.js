@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { Text } from 'components/atoms/Text/Text';
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,32 +20,25 @@ export const Wrapper = styled.div`
     `}
 `;
 
-export const Text = styled.h3`
+export const StyledText = styled(Text)`
   margin: 2rem 0;
   color: inherit;
-  font-size: ${({ theme }) => theme.font.size.headers.m};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  letter-spacing: 1px;
 
   ::first-letter {
     text-transform: uppercase;
   }
-
-  ${({ theme }) => theme.mq.phone} {
-    font-size: ${({ theme }) => theme.font.size.headers.l};
-  }
-
-  ${({ isBig }) =>
-    isBig &&
-    css`
-      font-size: ${({ theme }) => theme.font.size.headers.xl};
-
-      ${({ theme }) => theme.mq.phone} {
-        font-size: ${({ theme }) => theme.font.size.headers.xl};
-      }
-
-      ${({ theme }) => theme.mq.tablet} {
-        font-size: ${({ theme }) => theme.font.size.headers.xxl};
-      }
-    `}
 `;
+
+/* ${({ isBig }) =>
+  isBig &&
+  css`
+    font-size: ${({ theme }) => theme.font.size.headers.xl};
+
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.headers.xl};
+    }
+
+    ${({ theme }) => theme.mq.tablet} {
+      font-size: ${({ theme }) => theme.font.size.headers.xxl};
+    }
+  `} */

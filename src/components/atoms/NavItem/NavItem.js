@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Li, Mask, Text, CTALink } from './NavItem.style';
+import { Li, StyledText, CTALink } from './NavItem.style';
 
 const transition = { duration: 0.6, ease: [0.6, 0.01, -0.05, 0.9] };
 
-const maskVariants = {
+const textVariants = {
   open: {
     y: 0,
     transition: {
@@ -13,7 +13,7 @@ const maskVariants = {
     },
   },
   closed: {
-    y: '-100%',
+    y: '100%',
     transition: {
       ...transition,
     },
@@ -23,8 +23,9 @@ const maskVariants = {
 const NavItem = ({ label = 'link', path = '/', color }) => (
   <Li>
     <CTALink to={path} activeClassName="active" pageTheme={color}>
-      <Text colorContext={color}>{label}</Text>
-      <Mask variants={maskVariants} />
+      <StyledText isBig isBold colorContext={color} variants={textVariants}>
+        {label}
+      </StyledText>
     </CTALink>
   </Li>
 );

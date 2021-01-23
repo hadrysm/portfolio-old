@@ -5,7 +5,7 @@ import { CTA } from 'components/atoms/CTA/CTA';
 
 import locales from 'config/locales';
 
-import { List, Item } from './LangList.style';
+import { List, Item, StyledText } from './LangList.style';
 
 // add links and lang change handler
 
@@ -35,9 +35,17 @@ const LangList = () => {
   return (
     <List>
       {locales.map(({ siteLanguage, label, path }) => (
-        <Item key={siteLanguage} variants={langVariants} active={activeLocale === siteLanguage}>
+        <Item key={siteLanguage}>
           <CTA to={`/${path}`} isLocalizedLink onClick={() => updateLocale(siteLanguage)}>
-            {label}
+            <StyledText
+              isSmall
+              isBold
+              isUpper
+              active={activeLocale === siteLanguage}
+              variants={langVariants}
+            >
+              {label}
+            </StyledText>
           </CTA>
         </Item>
       ))}

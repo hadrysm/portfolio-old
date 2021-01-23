@@ -1,17 +1,18 @@
 import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+
+import { Text } from 'components/atoms/Text/Text';
 
 export const List = styled.ul`
   display: flex;
   align-items: center;
 `;
 
-export const Item = styled(motion.li)`
+export const Item = styled.li`
   margin-right: 2rem;
-  text-transform: uppercase;
-  font-family: ${({ theme }) => theme.font.family.secondary};
+`;
+
+export const StyledText = styled(Text)`
   color: ${({ theme }) => theme.grey100};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
 
   ${({ active }) =>
     active &&

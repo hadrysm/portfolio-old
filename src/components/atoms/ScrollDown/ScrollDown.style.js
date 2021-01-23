@@ -17,7 +17,6 @@ export const Wrapper = styled(motion.div)`
 
 export const Text = styled.span`
   color: inherit;
-  font-family: ${({ theme }) => theme.font.family.secondary};
   font-weight: inherit;
   font-size: inherit;
   letter-spacing: 1px;

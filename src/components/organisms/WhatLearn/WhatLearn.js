@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Content } from 'components/atoms/Content/Content';
+import { Text } from 'components/atoms/Text/Text';
 
 import { useTranslations } from 'hooks/useTranslations';
 
-import { Wrapper, Heading, Grid, StyledParagraph } from './WhatLearn.style';
+import { Wrapper, Grid } from './WhatLearn.style';
 
 const WhatLearn = ({ learnContent }) => {
   const { learn } = useTranslations();
@@ -13,10 +14,12 @@ const WhatLearn = ({ learnContent }) => {
   return (
     <Wrapper>
       <Content>
-        <Heading>{learn.title}</Heading>
+        <Text as="h3" isTitle isMedium color="primary">
+          {learn.title}
+        </Text>
         <Grid>
           {learnContent.map(({ id, paragraphContent }) => (
-            <StyledParagraph key={id}>{paragraphContent}</StyledParagraph>
+            <Text key={id}>{paragraphContent}</Text>
           ))}
         </Grid>
       </Content>

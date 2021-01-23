@@ -8,6 +8,7 @@ export const Grid = styled.div`
   ${({ theme }) => theme.mq.tablet} {
     grid-template-columns: 1.2fr 1.4fr;
     grid-template-rows: auto;
+    gap: 2rem;
   }
 `;
 

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Text } from 'components/atoms/Text/Text';
+
 export const Item = styled.li`
   margin-bottom: 1rem;
   height: 5rem;
@@ -9,18 +11,10 @@ export const Item = styled.li`
   }
 `;
 
-export const Text = styled.span`
+export const StyledText = styled(Text)`
   position: relative;
-  display: block;
-  padding: 1rem;
   margin-left: 1.5rem;
-  color: ${({ theme }) => theme.white};
-  font-family: ${({ theme }) => theme.font.family.secondary};
-  font-size: ${({ theme }) => theme.font.size.body.m};
-
-  ${({ theme }) => theme.mq.tablet} {
-    font-size: ${({ theme }) => theme.font.size.body.l};
-  }
+  padding-left: 1rem;
 
   ::before {
     content: '';

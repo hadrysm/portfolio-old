@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
-
-import { Wrapper } from './AboutMe.style';
+import { Wrapper, StyledText } from './AboutMe.style';
 
 const AboutMeText = ({ content }) => (
   <Wrapper>
     {content.map(({ id, paragraphContent }) => (
-      <Paragraph key={id}>{paragraphContent}</Paragraph>
+      <StyledText key={id}>{paragraphContent}</StyledText>
     ))}
   </Wrapper>
 );
