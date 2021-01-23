@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const Button = styled.button`
   position: relative;
   padding: 2rem 1.5rem;
+  border: none;
   background-color: transparent;
   font-family: ${({ theme }) => theme.font.family.primary};
   font-size: ${({ theme }) => theme.font.size.body.m};

@@ -28,6 +28,13 @@ export const i18n = {
       check: 'Check projects',
       send: 'Send',
       more: 'See more on GitHub',
+      back: 'Go back',
+      live: 'Check live',
+      code: '<Code />',
+    },
+    notFound: {
+      title: '404: Not Found',
+      text: 'The given address does not exist.',
     },
   },
 
@@ -58,6 +65,13 @@ export const i18n = {
       check: 'Zobacz projekty',
       send: 'Wyślij',
       more: 'Więcej na GitHub!',
+      back: 'Powrót',
+      live: 'Zobacz live',
+      code: 'Kod źródłowy',
+    },
+    notFound: {
+      title: '404: Nie znaleziono',
+      text: 'Podany adres nie istnieje.',
     },
   },
 };
