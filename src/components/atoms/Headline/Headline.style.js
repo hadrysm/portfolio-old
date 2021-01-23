@@ -22,7 +22,6 @@ export const Text = styled.h3`
   margin: 2rem 0;
   color: inherit;
   font-size: ${({ theme }) => theme.font.size.headers.m};
-  font-family: ${({ theme }) => theme.font.family.primary};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   letter-spacing: 1px;
 

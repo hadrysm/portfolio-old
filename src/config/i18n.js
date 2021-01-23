@@ -67,7 +67,7 @@ export const i18n = {
       more: 'Więcej na GitHub!',
       back: 'Powrót',
       live: 'Zobacz live',
-      code: 'Kod źródłowy',
+      code: '<Kod źródłowy />',
     },
     notFound: {
       title: '404: Nie znaleziono',

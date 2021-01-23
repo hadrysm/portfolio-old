@@ -14,7 +14,7 @@ const colors = {
   main: '#434149',
   text: '#323136',
   violet: '#9c41ce',
-  red: '#E63946',
+  red: '#f5423c',
   grey: '#EEEEEE',
   grey100: ' #BCBCBC',
   grey200: ' #9C9C9C',
@@ -39,8 +39,8 @@ export const theme = {
   ...pageTheme.home,
   font: {
     family: {
-      primary: `'Montserrat', sans-serif`,
-      secondary: `'Catamaran', sans-serif`,
+      primary: `'Poppins', sans-serif`,
+      secondary: `'Raleway', sans-serif`,
     },
     weight: {
       light: 300,

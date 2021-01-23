@@ -29,7 +29,6 @@ export const Wrapper = styled.section`
 export const Title = styled.h2`
   color: ${({ theme }) => theme.white};
   font-size: ${({ theme }) => theme.font.size.headers.xxl};
-  font-family: ${({ theme }) => theme.font.family.primary};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   letter-spacing: 1px;
   text-transform: uppercase;

@@ -5,7 +5,6 @@ export const Button = styled.button`
   padding: 2rem 1.5rem;
   border: none;
   background-color: transparent;
-  font-family: ${({ theme }) => theme.font.family.primary};
   font-size: ${({ theme }) => theme.font.size.body.m};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   z-index: ${({ theme }) => theme.zIndex.level1};

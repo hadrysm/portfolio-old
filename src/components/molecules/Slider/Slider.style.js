@@ -10,6 +10,7 @@ export const Wrapper = styled(motion.div)`
   min-height: 100%;
   border-radius: 1rem;
   overflow: hidden;
+  cursor: grab;
 `;
 
 export const Img = styled(Image)`

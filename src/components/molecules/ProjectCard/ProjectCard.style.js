@@ -20,7 +20,6 @@ export const InnerWrapper = styled.div`
 `;
 
 export const Headline = styled.h3`
-  font-family: ${({ theme }) => theme.font.family.primary};
   font-size: ${({ theme }) => theme.font.size.headers.xs};
   color: ${({ theme }) => theme.white};
 `;
