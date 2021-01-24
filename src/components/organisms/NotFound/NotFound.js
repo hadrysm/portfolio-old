@@ -2,11 +2,10 @@ import React from 'react';
 import { navigate } from 'gatsby';
 
 import { Button } from 'components/atoms/Button/Button';
-import { CTA } from 'components/atoms/CTA/CTA';
 import { Text } from 'components/atoms/Text/Text';
 
 import { useTranslations } from 'hooks/useTranslations';
-import { Wrapper, Flex } from './NotFound.style';
+import { Wrapper, Flex, StyledCTA } from './NotFound.style';
 
 const NotFound = () => {
   const { notFound, buttons } = useTranslations();
@@ -18,11 +17,11 @@ const NotFound = () => {
           {notFound.title}
         </Text>
         <Text color="white">{notFound.text}</Text>
-        <CTA onClick={() => navigate(-1)}>
+        <StyledCTA onClick={() => navigate(-1)}>
           <Button as="span" secondary>
             {buttons.back}
           </Button>
-        </CTA>
+        </StyledCTA>
       </Flex>
     </Wrapper>
   );

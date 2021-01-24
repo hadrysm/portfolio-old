@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 
+import { CTA } from 'components/atoms/CTA/CTA';
+
 export const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -20,4 +22,8 @@ export const Flex = styled.div`
   align-items: center;
   padding: 2rem;
   text-align: center;
+`;
+
+export const StyledCTA = styled(CTA)`
+  margin-top: 3rem;
 `;
