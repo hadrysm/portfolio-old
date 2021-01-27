@@ -11,6 +11,7 @@ import { SummaryProject } from 'components/organisms/SummaryProject/SummaryProje
 const ProjectTemplate = ({
   data: {
     project: {
+      locale,
       seo,
       title,
       aboutContent,
@@ -25,7 +26,7 @@ const ProjectTemplate = ({
   },
 }) => (
   <>
-    <SEO seo={seo} />
+    <SEO seo={seo} lang={locale} />
     <ProjectHero title={title} type={typeApp} aboutContent={aboutContent} image={svgImage} />
     <WhatLearn learnContent={learnContent} />
     <Technologies technologies={technologies} isProject gallery={gallery} />
@@ -36,6 +37,7 @@ const ProjectTemplate = ({
 export const query = graphql`
   query ProjectQuery($locale: String!, $id: String!) {
     project: datoCmsProject(locale: { eq: $locale }, originalId: { eq: $id }) {
+      locale
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -72,6 +74,7 @@ ProjectTemplate.propTypes = {
   data: PropTypes.shape({
     project: PropTypes.shape({
       seo: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
+      locale: PropTypes.string,
       title: PropTypes.string,
       aboutContent: PropTypes.string,
       typeApp: PropTypes.string,

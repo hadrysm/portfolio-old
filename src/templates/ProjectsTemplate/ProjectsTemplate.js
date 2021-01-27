@@ -10,14 +10,14 @@ import { useTranslations } from 'hooks/useTranslations';
 
 const ProjectsTemplate = ({
   data: {
-    projectPageContent: { heroParagraph, seo },
+    projectPageContent: { heroParagraph, seo, locale },
     allProjects: { nodes },
   },
 }) => {
   const { projects } = useTranslations();
   return (
     <>
-      <SEO seo={seo} />
+      <SEO seo={seo} lang={locale} />
       <Hero heroTitle={projects.title} heroSubtitle={heroParagraph} secondary />
       <ProjectsGrid projects={nodes} />
     </>
@@ -27,6 +27,7 @@ const ProjectsTemplate = ({
 export const query = graphql`
   query ProjectsQuery($locale: String!) {
     projectPageContent: datoCmsProjectsPage(locale: { eq: $locale }) {
+      locale
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -55,6 +56,7 @@ export const query = graphql`
 ProjectsTemplate.propTypes = {
   data: PropTypes.shape({
     projectPageContent: PropTypes.shape({
+      locale: PropTypes.string,
       seo: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
       heroParagraph: PropTypes.string,
     }),

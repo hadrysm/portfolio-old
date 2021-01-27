@@ -11,6 +11,7 @@ import { Wrapper, Flex, InnerWrapper, Img } from './BlogTemplate.style';
 const BlogTemplate = ({
   data: {
     blogPage: {
+      locale,
       seo,
       title,
       image: { url, alt },
@@ -18,7 +19,7 @@ const BlogTemplate = ({
   },
 }) => (
   <>
-    <SEO seo={seo} />
+    <SEO seo={seo} lang={locale} />
     <Wrapper>
       <Content>
         <Flex>
@@ -39,6 +40,7 @@ const BlogTemplate = ({
 export const query = graphql`
   query BlogQuery($locale: String!) {
     blogPage: datoCmsBlogPage(locale: { eq: $locale }) {
+      locale
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -54,6 +56,7 @@ export const query = graphql`
 BlogTemplate.propTypes = {
   data: PropTypes.shape({
     blogPage: PropTypes.shape({
+      locale: PropTypes.string,
       seo: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
       title: PropTypes.string,
       image: PropTypes.objectOf(PropTypes.string),

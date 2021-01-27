@@ -12,6 +12,7 @@ const IndexPage = ({
   data: {
     homePageContent: {
       seo,
+      locale,
       heroTitle,
       heroSubtitle,
       aboutImage: { fluid },
@@ -22,7 +23,7 @@ const IndexPage = ({
   },
 }) => (
   <>
-    <SEO seo={seo} />
+    <SEO seo={seo} lang={locale} />
     <Hero heroTitle={heroTitle} heroSubtitle={heroSubtitle} />
     <About aboutImage={fluid} aboutContent={aboutContent} />
     <Technologies technologies={nodes} />
@@ -33,6 +34,7 @@ const IndexPage = ({
 export const query = graphql`
   query HomeQuery($locale: String!) {
     homePageContent: datoCmsHomePage(locale: { eq: $locale }) {
+      locale
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
@@ -64,6 +66,7 @@ IndexPage.propTypes = {
   data: PropTypes.shape({
     homePageContent: PropTypes.shape({
       seo: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
+      locale: PropTypes.string,
       heroTitle: PropTypes.string,
       heroSubtitle: PropTypes.string,
       aboutImage: PropTypes.shape({

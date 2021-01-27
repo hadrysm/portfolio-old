@@ -13,7 +13,7 @@ const query = graphql`
   }
 `;
 
-const SEO = ({ seo, children, ...props }) => {
+const SEO = ({ seo, lang = 'pl', children, ...props }) => {
   const {
     datoCmsSite: { faviconMetaTags },
   } = useStaticQuery(query);
@@ -21,7 +21,14 @@ const SEO = ({ seo, children, ...props }) => {
   const url = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
-    <HelmetDatoCms seo={seo} favicon={faviconMetaTags} {...props}>
+    <HelmetDatoCms
+      seo={seo}
+      favicon={faviconMetaTags}
+      htmlAttributes={{
+        lang,
+      }}
+      {...props}
+    >
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Mateusz Hadryś" />
       <link rel="canonical" href={url} />
@@ -32,6 +39,7 @@ const SEO = ({ seo, children, ...props }) => {
 
 SEO.propTypes = {
   seo: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
+  lang: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
