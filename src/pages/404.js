@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SEO } from 'components/seo';
+import { SEO } from 'components/organisms/SEO/SEO';
 import { NotFound } from 'components/organisms/NotFound/NotFound';
 
 const NotFoundPage = () => (
