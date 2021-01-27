@@ -20,6 +20,9 @@ const SEO = ({ seo, children, ...props }) => {
 
   return (
     <HelmetDatoCms seo={seo} favicon={faviconMetaTags} {...props}>
+      <meta name="robots" content="index, follow" />
+      <meta name="author" content="Mateusz Hadryś" />
+      <link rel="canonical" href="" />
       {children}
     </HelmetDatoCms>
   );
