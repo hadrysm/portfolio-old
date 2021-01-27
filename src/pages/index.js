@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import { SEO } from 'components/seo';
-
+import { SEO } from 'components/organisms/SEO/SEO';
 import { Hero } from 'components/organisms/Hero/Hero';
 import { About } from 'components/organisms/About/About';
 import { Technologies } from 'components/organisms/Technologies/Technologies';
@@ -12,6 +11,7 @@ import { Contact } from 'components/organisms/Contact/Contact';
 const IndexPage = ({
   data: {
     homePageContent: {
+      seo,
       heroTitle,
       heroSubtitle,
       aboutImage: { fluid },
@@ -22,7 +22,7 @@ const IndexPage = ({
   },
 }) => (
   <>
-    <SEO title="Home" />
+    <SEO seo={seo} />
     <Hero heroTitle={heroTitle} heroSubtitle={heroSubtitle} />
     <About aboutImage={fluid} aboutContent={aboutContent} />
     <Technologies technologies={nodes} />
@@ -33,6 +33,9 @@ const IndexPage = ({
 export const query = graphql`
   query HomeQuery($locale: String!) {
     homePageContent: datoCmsHomePage(locale: { eq: $locale }) {
+      seo: seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       heroTitle
       heroSubtitle
       aboutImage {
@@ -60,6 +63,7 @@ export const query = graphql`
 IndexPage.propTypes = {
   data: PropTypes.shape({
     homePageContent: PropTypes.shape({
+      seo: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
       heroTitle: PropTypes.string,
       heroSubtitle: PropTypes.string,
       aboutImage: PropTypes.shape({

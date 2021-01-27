@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import { SEO } from 'components/organisms/SEO/SEO';
 import { Technologies } from 'components/organisms/Technologies/Technologies';
 import { ProjectHero } from 'components/organisms/ProjectHero/ProjectHero';
 import { WhatLearn } from 'components/organisms/WhatLearn/WhatLearn';
@@ -10,6 +11,7 @@ import { SummaryProject } from 'components/organisms/SummaryProject/SummaryProje
 const ProjectTemplate = ({
   data: {
     project: {
+      seo,
       title,
       aboutContent,
       typeApp,
@@ -23,6 +25,7 @@ const ProjectTemplate = ({
   },
 }) => (
   <>
+    <SEO seo={seo} />
     <ProjectHero title={title} type={typeApp} aboutContent={aboutContent} image={svgImage} />
     <WhatLearn learnContent={learnContent} />
     <Technologies technologies={technologies} isProject gallery={gallery} />
@@ -33,6 +36,9 @@ const ProjectTemplate = ({
 export const query = graphql`
   query ProjectQuery($locale: String!, $id: String!) {
     project: datoCmsProject(locale: { eq: $locale }, originalId: { eq: $id }) {
+      seo: seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       title
       typeApp
       aboutContent
@@ -65,6 +71,7 @@ export const query = graphql`
 ProjectTemplate.propTypes = {
   data: PropTypes.shape({
     project: PropTypes.shape({
+      seo: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)),
       title: PropTypes.string,
       aboutContent: PropTypes.string,
       typeApp: PropTypes.string,
