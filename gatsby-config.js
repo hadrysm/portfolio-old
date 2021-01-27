@@ -14,14 +14,6 @@ module.exports = {
       options: { files: ['**/*.{js,jsx}'] },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/src/assets/images`,
-      },
-    },
-
-    {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATO_CMS_API_KEY,
@@ -63,8 +55,5 @@ module.exports = {
         },
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };

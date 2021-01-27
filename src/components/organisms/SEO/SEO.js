@@ -18,8 +18,13 @@ const SEO = ({ seo, children, ...props }) => {
     datoCmsSite: { faviconMetaTags },
   } = useStaticQuery(query);
 
+  const url = typeof window !== 'undefined' ? window.location.href : '';
+
   return (
     <HelmetDatoCms seo={seo} favicon={faviconMetaTags} {...props}>
+      <meta name="robots" content="index, follow" />
+      <meta name="author" content="Mateusz Hadryś" />
+      <link rel="canonical" href={url} />
       {children}
     </HelmetDatoCms>
   );
