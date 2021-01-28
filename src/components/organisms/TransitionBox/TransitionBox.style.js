@@ -6,25 +6,19 @@ export const Wrapper = styled(motion.div)`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   pointer-events: none;
   z-index: ${({ theme }) => theme.zIndex.level11};
+  display: flex;
 `;
 
 export const Box = styled(motion.div)`
-  width: 100%;
-  height: 100%;
+  height: 110vh;
+  width: 30vw;
+  margin: 0;
+  padding: 0;
   background-color: ${({ theme }) => theme.primary};
   transform-origin: bottom center;
   will-change: background-color;
-  transition: background-color 500ms ease-in-out 0ms;
-`;
-
-export const LogoWrapper = styled(motion.figure)`
-  position: fixed;
-  top: calc(50% - 4rem);
-  left: calc(50% - 4rem);
-  width: 8rem;
-  height: 8rem;
-  transform-origin: center;
+  transition: background-color 600ms ease-in-out 0ms;
 `;

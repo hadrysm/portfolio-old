@@ -24,6 +24,10 @@ body {
   background-color: ${({ theme }) => theme.background};
   text-rendering: optimizeLegibility;
   visibility: ${({ isVisibility }) => (isVisibility ? 'visible' : 'hidden')};
+
+  &.no-scroll{
+    overflow: hidden;
+  }
 }
 
 ul {
@@ -40,9 +44,9 @@ a {
   text-decoration: none;
 }
 
-.no-scroll {
+/* .no-scroll {
   overflow: hidden;
-}
+} */
 
 
 ::-webkit-scrollbar {

@@ -21,7 +21,7 @@ const CTA = ({
   pageTheme = pageThemes.home,
   ...props
 }) => {
-  const { exitAnimation, enterAnimation } = usePageTransitionDispatch();
+  const { exitAnimation } = usePageTransitionDispatch();
   const changeTheme = usePageThemeDispatch();
   const { activeLocale } = useLocaleState();
 
@@ -50,14 +50,11 @@ const CTA = ({
       to={path}
       exit={{
         trigger: () => exitAnimation(),
-        length: 1.3,
+        length: 1.5,
       }}
       entry={{
-        delay: 1.15,
-        trigger: () => {
-          enterAnimation();
-          changeTheme(pageTheme);
-        },
+        delay: 1.6,
+        trigger: () => changeTheme(pageTheme),
       }}
       {...props}
     >
