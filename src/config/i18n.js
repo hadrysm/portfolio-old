@@ -21,6 +21,9 @@ export const i18n = {
     projects: {
       title: 'Projects',
     },
+    footer: {
+      text: `${new Date().getFullYear()} Mateusz Hadryś. - All rights reserved.`,
+    },
     learn: {
       title: 'What did I learn?',
     },
@@ -57,6 +60,9 @@ export const i18n = {
     },
     projects: {
       title: 'Projekty',
+    },
+    footer: {
+      text: `${new Date().getFullYear()} Mateusz Hadryś. - Wszelkie prawa zastrzeżone.`,
     },
     learn: {
       title: 'Czego się nauczyłem?',
