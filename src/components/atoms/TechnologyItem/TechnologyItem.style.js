@@ -15,6 +15,7 @@ export const StyledText = styled(Text)`
   position: relative;
   margin-left: 1.5rem;
   padding-left: 1rem;
+  padding-right: 1rem;
 
   ::before {
     content: '';
