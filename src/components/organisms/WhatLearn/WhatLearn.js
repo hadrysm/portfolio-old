@@ -9,13 +9,13 @@ import { useTranslations } from 'hooks/useTranslations';
 import { Wrapper, Grid } from './WhatLearn.style';
 
 const WhatLearn = ({ learnContent }) => {
-  const { learn } = useTranslations();
+  const { aboutProject } = useTranslations();
 
   return (
     <Wrapper>
       <Content>
         <Text as="h3" isTitle isMedium color="primary">
-          {learn.title}
+          {aboutProject.title}
         </Text>
         <Grid>
           {learnContent.map(({ id, paragraphContent }) => (

@@ -7,7 +7,11 @@ export const Wrapper = styled.section`
 export const Grid = styled.div`
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  align-items: center;
-  gap: 6rem;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
+  ${({ theme }) => theme.mq.tablet} {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem;
+  }
 `;

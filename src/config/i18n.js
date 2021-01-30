@@ -24,8 +24,8 @@ export const i18n = {
     footer: {
       text: `${new Date().getFullYear()} Mateusz Hadryś. - All rights reserved.`,
     },
-    learn: {
-      title: 'What did I learn?',
+    aboutProject: {
+      title: 'About the project',
     },
     buttons: {
       check: 'Check projects',
@@ -64,8 +64,8 @@ export const i18n = {
     footer: {
       text: `${new Date().getFullYear()} Mateusz Hadryś. - Wszelkie prawa zastrzeżone.`,
     },
-    learn: {
-      title: 'Czego się nauczyłem?',
+    aboutProject: {
+      title: 'O projekcie',
     },
     buttons: {
       check: 'Zobacz projekty',
