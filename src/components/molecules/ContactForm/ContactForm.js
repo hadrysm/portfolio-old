@@ -9,8 +9,9 @@ import { InfoWidget } from 'components/atoms/InfoWidget/InfoWidget';
 
 import { useTranslations } from 'hooks/useTranslations';
 import { validationSchema, handleSendMessage } from 'helpers/form';
+import { Spinner } from 'components/atoms/Spinner/Spinner';
 
-import { Form, StyledSpinner } from './ContactForm.style';
+import { Form, Wrapper } from './ContactForm.style';
 
 const CLOSE_INFO_WIDGET_TIMEOUT = 3000;
 const initialValues = { email: '', message: '' };
@@ -57,32 +58,34 @@ const ContactForm = () => {
 
   return (
     <AnimateSharedLayout>
-      <Form onSubmit={handleSubmit} autoComplete="off" layout>
-        <StyledSpinner isLoading={isSubmitting} layout />
-        <Input
-          label={form.email}
-          name="email"
-          onBlur={handleBlur}
-          onChange={handleChange}
-          value={values.email}
-          isError={errors.email && touched.email}
-          errorMessage={errors.email}
-        />
-        <Input
-          label={form.message}
-          name="message"
-          as="textarea"
-          onBlur={handleBlur}
-          onChange={handleChange}
-          value={values.message}
-          isError={errors.message && touched.message}
-          errorMessage={errors.message}
-        />
-        <CTA isButton type="submit" disabled={isSubmitting} layout>
-          <Button as="span">{buttons.send}</Button>
-        </CTA>
-      </Form>
-      <InfoWidget isVisible={isOpenInfoWidget} status={responseStatus} />
+      <Wrapper>
+        <Spinner isLoading={isSubmitting} />
+        <Form onSubmit={handleSubmit} autoComplete="off" layout>
+          <Input
+            label={form.email}
+            name="email"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={values.email}
+            isError={errors.email && touched.email}
+            errorMessage={errors.email}
+          />
+          <Input
+            label={form.message}
+            name="message"
+            as="textarea"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={values.message}
+            isError={errors.message && touched.message}
+            errorMessage={errors.message}
+          />
+          <CTA isButton type="submit" disabled={isSubmitting} layout>
+            <Button as="span">{buttons.send}</Button>
+          </CTA>
+        </Form>
+        <InfoWidget isVisible={isOpenInfoWidget} status={responseStatus} />
+      </Wrapper>
     </AnimateSharedLayout>
   );
 };
