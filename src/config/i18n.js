@@ -21,6 +21,10 @@ export const i18n = {
         emailMesssage: 'Invalid email',
         requiredMessage: 'Required',
         longMessage: 'Too Long!',
+        response: {
+          success: 'Message sent',
+          error: 'Something went wrong :(',
+        },
       },
     },
     projects: {
@@ -66,6 +70,10 @@ export const i18n = {
         emailMesssage: 'Niepoprawy adres email',
         requiredMessage: 'Wymagane pole',
         longMessage: 'Za długa wiadomość!',
+        response: {
+          success: 'Wiadomość wysłana',
+          error: 'Coś poszło nie tak :(',
+        },
       },
     },
     projects: {
