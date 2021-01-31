@@ -31,7 +31,7 @@ const CTA = ({
 
   if (isButton) {
     return (
-      <Link as="button" type={type} isButton {...props}>
+      <Link as="button" type={type} isButton role="button" {...props}>
         {children}
       </Link>
     );

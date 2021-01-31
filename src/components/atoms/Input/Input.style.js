@@ -8,7 +8,7 @@ export const Wrapper = styled(motion.div)`
   margin-bottom: 2rem;
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled(motion.input)`
   width: 100%;
   padding: 1rem 2rem 1rem 2rem;
   background-color: ${({ theme }) => theme.grey};

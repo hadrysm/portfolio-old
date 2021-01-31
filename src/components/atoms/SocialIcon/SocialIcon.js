@@ -25,9 +25,9 @@ const socialVariants = {
   },
 };
 
-const SocialIcon = ({ icon: Icon, href }) => (
+const SocialIcon = ({ icon: Icon, href, name }) => (
   <Wrapper variants={socialVariants}>
-    <CTA isHyperLink href={href}>
+    <CTA isHyperLink href={href} aria-label={name}>
       <Icon />
     </CTA>
   </Wrapper>
@@ -36,6 +36,7 @@ const SocialIcon = ({ icon: Icon, href }) => (
 SocialIcon.propTypes = {
   icon: PropTypes.elementType.isRequired,
   href: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export { SocialIcon };

@@ -19,7 +19,7 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
             <StyledText color="white">{heroSubtitle}</StyledText>
           </InnerWrapper>
           <InnerWrapper secondary>
-            <SvgProjects />
+            <SvgProjects role="img" />
           </InnerWrapper>
         </StyledContent>
         <ScrollDown top={85} left={10} />

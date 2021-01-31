@@ -8,7 +8,7 @@ import { pageTheme } from 'assets/styles/theme';
 import { Wrapper } from './Logo.styles';
 
 const Logo = ({ size = '5rem' }) => (
-  <CTA to="/" pageTheme={pageTheme.home}>
+  <CTA to="/" pageTheme={pageTheme.home} aria-label="logo">
     <Wrapper size={size}>
       <SvgLogo />
     </Wrapper>

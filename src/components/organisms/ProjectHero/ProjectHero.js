@@ -18,7 +18,7 @@ const ProjectHero = ({ title, type, aboutContent, image: { url, alt } }) => (
         <Text color="white">{aboutContent}</Text>
       </InnerWrapper>
       <InnerWrapper>
-        <Image src={url} alt={alt} />
+        <Image src={url} alt={alt} role="img" />
       </InnerWrapper>
     </StyledContent>
     <ScrollDown top={85} left={10} />

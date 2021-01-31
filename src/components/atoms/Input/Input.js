@@ -41,6 +41,7 @@ const Input = ({
       name={name}
       id={name}
       maxLength={maxLength}
+      layout
       {...props}
     />
     <AnimatePresence>

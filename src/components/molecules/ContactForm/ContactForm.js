@@ -78,7 +78,7 @@ const ContactForm = () => {
           isError={errors.message && touched.message}
           errorMessage={errors.message}
         />
-        <CTA isButton type="submit" disabled={isSubmitting}>
+        <CTA isButton type="submit" disabled={isSubmitting} layout>
           <Button as="span">{buttons.send}</Button>
         </CTA>
       </Form>

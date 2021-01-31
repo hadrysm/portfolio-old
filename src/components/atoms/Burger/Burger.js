@@ -47,6 +47,7 @@ const Burger = () => {
 
   return (
     <BurgerButton
+      aria-label="menu burger"
       type="button"
       onClick={toggleMenu}
       animate={isMenuOpen ? 'open' : 'closed'}
