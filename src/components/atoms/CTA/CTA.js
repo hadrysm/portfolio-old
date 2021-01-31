@@ -39,7 +39,7 @@ const CTA = ({
 
   if (isHyperLink) {
     return (
-      <Link as="a" isHyperLink href={href} target="_blank" rel="noopener noreferrer" {...props}>
+      <Link as="a" isHyperLink href={href} {...props}>
         {children}
       </Link>
     );
