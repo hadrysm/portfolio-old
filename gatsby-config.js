@@ -13,6 +13,12 @@ module.exports = {
       resolve: '@danbruegge/gatsby-plugin-stylelint',
       options: { files: ['**/*.{js,jsx}'] },
     },
+    // {
+    //   resolve: `gatsby-plugin-env-variables`,
+    //   options: {
+    //     allowList: ['DATO_CMS_API_KEY', 'EMAILJS_ID_SERVICE'],
+    //   },
+    // },
     {
       resolve: `gatsby-source-datocms`,
       options: {
