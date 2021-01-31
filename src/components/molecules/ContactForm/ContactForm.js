@@ -1,24 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import emailjs from 'emailjs-com';
 import { AnimateSharedLayout } from 'framer-motion';
 
 import { CTA } from 'components/atoms/CTA/CTA';
 import { Button } from 'components/atoms/Button/Button';
 import { Input } from 'components/atoms/Input/Input';
+import { InfoWidget } from 'components/atoms/InfoWidget/InfoWidget';
 
 import { useTranslations } from 'hooks/useTranslations';
+import { validationSchema, handleSendMessage } from 'helpers/form';
 
-import { Form } from './ContactForm.style';
+import { Form, StyledSpinner } from './ContactForm.style';
 
+const CLOSE_INFO_WIDGET_TIMEOUT = 3000;
 const initialValues = { email: '', message: '' };
-
-const validationSchema = ({ emailMesssage, requiredMessage, shortMessage }) =>
-  Yup.object().shape({
-    email: Yup.string().email(emailMesssage).required(requiredMessage),
-    message: Yup.string().max(100, shortMessage).required(requiredMessage),
-  });
 
 const ContactForm = () => {
   const {
@@ -26,27 +21,44 @@ const ContactForm = () => {
     contact: { form },
   } = useTranslations();
 
-  const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
+  const [isOpenInfoWidget, setIsOpenInfoWidget] = useState(false);
+  const [responseStatus, setResponseStatus] = useState(200);
+
+  const handleResponse = ({ status }) => {
+    setIsOpenInfoWidget(true);
+    setResponseStatus(status);
+    setTimeout(() => {
+      setIsOpenInfoWidget(false);
+    }, CLOSE_INFO_WIDGET_TIMEOUT);
+  };
+
+  const {
+    values,
+    errors,
+    touched,
+    isSubmitting,
+    handleChange,
+    handleSubmit,
+    handleBlur,
+    resetForm,
+  } = useFormik({
     initialValues,
     validationSchema: validationSchema(form),
     onSubmit: async data => {
       try {
-        const result = await emailjs.send(
-          process.env.GATSBY_EMAILJS_SERVICE_ID,
-          process.env.GATSBY_EMAILJS_TEMPLATE_ID,
-          data,
-          process.env.GATSBY_EMAILJS_USER_ID,
-        );
-        console.log(result);
+        const result = await handleSendMessage(data);
+        handleResponse(result);
+        resetForm();
       } catch (error) {
-        console.log(error);
+        handleResponse(error);
       }
     },
   });
 
   return (
     <AnimateSharedLayout>
-      <Form onSubmit={handleSubmit} autoComplete="off" method="POST" data-netlify layout>
+      <Form onSubmit={handleSubmit} autoComplete="off" layout>
+        <StyledSpinner isLoading={isSubmitting} layout />
         <Input
           label={form.email}
           name="email"
@@ -66,10 +78,11 @@ const ContactForm = () => {
           isError={errors.message && touched.message}
           errorMessage={errors.message}
         />
-        <CTA isButton type="submit">
+        <CTA isButton type="submit" disabled={isSubmitting}>
           <Button as="span">{buttons.send}</Button>
         </CTA>
       </Form>
+      <InfoWidget isVisible={isOpenInfoWidget} status={responseStatus} />
     </AnimateSharedLayout>
   );
 };

@@ -24,10 +24,10 @@ const Input = ({
   tag = 'input',
   type = 'text',
   maxLength = 200,
-  name,
-  label,
   isError = false,
   errorMessage = '',
+  name,
+  label,
   ...props
 }) => (
   <Wrapper>
@@ -64,8 +64,8 @@ Input.propTypes = {
   tag: PropTypes.string,
   type: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxLength: PropTypes.number,
-  isError: PropTypes.bool,
   errorMessage: PropTypes.string,
+  isError: PropTypes.bool,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
 };

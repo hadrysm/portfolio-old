@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import TransitionLink from 'gatsby-plugin-transition-link';
 
 export const Link = styled(TransitionLink)`
@@ -10,4 +10,13 @@ export const Link = styled(TransitionLink)`
   cursor: pointer;
   background-color: transparent;
   border: none;
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 0.6;
+      will-change: opacity;
+      transition: opacity 400ms ease-in 0ms;
+      cursor: not-allowed;
+    `}
 `;

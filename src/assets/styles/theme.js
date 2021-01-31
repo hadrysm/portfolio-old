@@ -15,6 +15,7 @@ const colors = {
   text: '#323136',
   violet: '#9c41ce',
   red: '#f5423c',
+  green: '#0cce6b',
   grey: '#EEEEEE',
   grey100: ' #BCBCBC',
   grey200: ' #9C9C9C',
