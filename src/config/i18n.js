@@ -15,8 +15,17 @@ export const i18n = {
     },
     contact: {
       title: 'Contact',
-      email: 'Email adress',
-      message: 'Your message',
+      form: {
+        email: 'Email adress',
+        message: 'Your message',
+        emailMesssage: 'Invalid email',
+        requiredMessage: 'Required',
+        longMessage: 'Too Long!',
+        response: {
+          success: 'Message sent',
+          error: 'Something went wrong :(',
+        },
+      },
     },
     projects: {
       title: 'Projects',
@@ -55,8 +64,17 @@ export const i18n = {
     },
     contact: {
       title: 'Kontakt',
-      email: 'Adres email',
-      message: 'Twoja wiadomość',
+      form: {
+        email: 'Adres email',
+        message: 'Twoja wiadomość',
+        emailMesssage: 'Niepoprawy adres email',
+        requiredMessage: 'Wymagane pole',
+        longMessage: 'Za długa wiadomość!',
+        response: {
+          success: 'Wiadomość wysłana',
+          error: 'Coś poszło nie tak :(',
+        },
+      },
     },
     projects: {
       title: 'Projekty',

@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Wrapper = styled.div`
+import { Text } from 'components/atoms/Text/Text';
+
+export const Wrapper = styled(motion.div)`
   width: 100%;
   margin-bottom: 2rem;
 `;
@@ -13,6 +16,7 @@ export const StyledInput = styled.input`
   border-radius: 0.5rem;
   border: 1px solid ${({ theme }) => theme.grey200};
   outline: none;
+  position: relative;
 
   ::placeholder {
     letter-spacing: 1px;
@@ -41,7 +45,7 @@ export const StyledInput = styled.input`
     `}
 `;
 
-export const Label = styled.label`
+export const Label = styled(motion.label)`
   font-size: ${({ theme }) => theme.font.size.body.s};
   font-family: ${({ theme }) => theme.font.family.secondary};
   display: block;
@@ -50,4 +54,8 @@ export const Label = styled.label`
   ::first-letter {
     text-transform: uppercase;
   }
+`;
+
+export const StyledText = styled(Text)`
+  margin-top: 1rem;
 `;
