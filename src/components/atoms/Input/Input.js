@@ -1,7 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { AnimatePresence } from 'framer-motion';
 
-import { Wrapper, StyledInput, Label } from './Input.style';
+import { Wrapper, StyledInput, Label, StyledText } from './Input.style';
+
+const errorMessageVariants = {
+  hidden: {
+    x: -20,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: {
+    x: 20,
+    opacity: 0,
+  },
+};
 
 const Input = ({
   value = '',
@@ -10,10 +26,14 @@ const Input = ({
   maxLength = 200,
   name,
   label,
+  isError = false,
+  errorMessage = '',
   ...props
 }) => (
   <Wrapper>
-    <Label htmlFor={name}>{label}</Label>
+    <Label htmlFor={name} layout>
+      {label}
+    </Label>
     <StyledInput
       value={value}
       as={tag}
@@ -23,7 +43,19 @@ const Input = ({
       maxLength={maxLength}
       {...props}
     />
-    {/* <InputLineBar  isError={isError} /> */}
+    <AnimatePresence>
+      {isError && (
+        <StyledText
+          layout
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={errorMessageVariants}
+        >
+          {errorMessage}
+        </StyledText>
+      )}
+    </AnimatePresence>
   </Wrapper>
 );
 
@@ -32,6 +64,8 @@ Input.propTypes = {
   tag: PropTypes.string,
   type: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxLength: PropTypes.number,
+  isError: PropTypes.bool,
+  errorMessage: PropTypes.string,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
 };

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Form = styled.form`
+export const Form = styled(motion.form)`
   max-width: 50rem;
   display: flex;
   flex-direction: column;
