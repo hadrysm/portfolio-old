@@ -9,7 +9,7 @@ import { Wrapper, Text, Flex } from './ScrollDown.style';
 
 const ScrollDown = ({ top = 85, left = 35 }) => (
   <Wrapper top={top} left={left}>
-    <Animated.FromDirection from="left" delay={0.5} duration={0.8}>
+    <Animated.FromDirection from="left" delay={0.6} duration={0.8}>
       <Flex>
         <motion.span variants={scrollDownArrowVariants} animate="animate">
           <ArrowIcon />

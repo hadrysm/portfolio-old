@@ -16,8 +16,12 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
       <Wrapper>
         <StyledContent>
           <InnerWrapper>
-            <Headline text={heroTitle} />
-            <StyledText color="white">{heroSubtitle}</StyledText>
+            <Animated.FromDirection from="bottom" delay={0.5}>
+              <Headline text={heroTitle} />
+            </Animated.FromDirection>
+            <StyledText color="white">
+              <Animated.Words delay={0.6}>{heroSubtitle}</Animated.Words>
+            </StyledText>
           </InnerWrapper>
           <InnerWrapper secondary>
             <SvgProjects role="img" />
@@ -31,14 +35,14 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
     <Wrapper>
       <StyledContent>
         <InnerWrapper withLine>
-          <Animated.FromDirection from="bottom" delay={0.4}>
+          <Animated.FromDirection from="bottom" delay={0.5}>
             <Text isTitle color="white" isUpper>
               {heroTitle}
             </Text>
           </Animated.FromDirection>
-          <Animated.FromDirection from="bottom" delay={0.45}>
-            <StyledText color="white">{heroSubtitle}</StyledText>
-          </Animated.FromDirection>
+          <StyledText color="white">
+            <Animated.Words delay={0.6}>{heroSubtitle}</Animated.Words>
+          </StyledText>
         </InnerWrapper>
       </StyledContent>
       <ScrollDown top={85} left={10} />

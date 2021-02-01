@@ -1,14 +1,20 @@
 import React from 'react';
 
+import { Animated } from 'animations';
+
 import { Logo } from 'components/atoms/Logo/Logo';
 import { Burger } from 'components/atoms/Burger/Burger';
 
-import { StyledHeader } from './Header.style';
+import { StyledHeader, InnerWrapper } from './Header.style';
 
 const Header = () => (
   <StyledHeader>
-    <Logo />
-    <Burger />
+    <Animated.FromDirection from="top" delay={0.3}>
+      <InnerWrapper>
+        <Logo />
+        <Burger />
+      </InnerWrapper>
+    </Animated.FromDirection>
   </StyledHeader>
 );
 
