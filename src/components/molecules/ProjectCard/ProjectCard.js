@@ -29,7 +29,7 @@ const maskVariants = {
 
 const ProjectCard = ({ title, typeApp, fluid, slug, pageTheme }) => (
   <Wrapper initial="hidden" whileHover="hover">
-    <CTA to={`/${slug}`} pageTheme={{ primary: pageTheme }}>
+    <CTA to={`/${slug}`}>
       <ImageWrapper>
         <Image fluid={fluid} />
       </ImageWrapper>

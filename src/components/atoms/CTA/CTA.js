@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { usePageTransitionDispatch } from 'providers/PageTransitionProvider/PageTransitionProvider';
-import { usePageThemeDispatch } from 'providers/PageThemeProvider/PageThemeProvider';
+
 import { useLocaleState } from 'providers/LocaleProvider/LocaleProvider';
-import { pageTheme as pageThemes } from 'assets/styles/theme';
+
 import locales from 'config/locales';
 import { Link } from './CTA.style';
 
@@ -18,11 +18,9 @@ const CTA = ({
   isButton = false,
   isLocalizedLink = false,
   isHyperLink = false,
-  pageTheme = pageThemes.home,
   ...props
 }) => {
   const { exitAnimation } = usePageTransitionDispatch();
-  const changeTheme = usePageThemeDispatch();
   const { activeLocale } = useLocaleState();
 
   const isIndex = to === '/';
@@ -54,7 +52,6 @@ const CTA = ({
       }}
       entry={{
         delay: 1.6,
-        trigger: () => changeTheme(pageTheme),
       }}
       {...props}
     >
@@ -71,7 +68,6 @@ CTA.propTypes = {
   type: PropTypes.string,
   isHyperLink: PropTypes.bool,
   isLocalizedLink: PropTypes.bool,
-  pageTheme: PropTypes.objectOf(PropTypes.string),
 };
 
 export { CTA };

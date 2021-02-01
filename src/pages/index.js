@@ -8,6 +8,10 @@ import { About } from 'components/organisms/About/About';
 import { Technologies } from 'components/organisms/Technologies/Technologies';
 import { Contact } from 'components/organisms/Contact/Contact';
 
+import { pageTheme } from 'assets/styles/theme';
+
+import { usePageThemeDispatch } from 'providers/PageThemeProvider/PageThemeProvider';
+
 const IndexPage = ({
   data: {
     homePageContent: {
@@ -21,15 +25,18 @@ const IndexPage = ({
     },
     technologies: { nodes },
   },
-}) => (
-  <>
-    <SEO seo={seo} lang={locale} />
-    <Hero heroTitle={heroTitle} heroSubtitle={heroSubtitle} />
-    <About aboutImage={fluid} aboutContent={aboutContent} />
-    <Technologies technologies={nodes} />
-    <Contact contactSubtitle={contactSubtitle} />
-  </>
-);
+}) => {
+  usePageThemeDispatch(pageTheme.home);
+  return (
+    <>
+      <SEO seo={seo} lang={locale} />
+      <Hero heroTitle={heroTitle} heroSubtitle={heroSubtitle} />
+      <About aboutImage={fluid} aboutContent={aboutContent} />
+      <Technologies technologies={nodes} />
+      <Contact contactSubtitle={contactSubtitle} />
+    </>
+  );
+};
 
 export const query = graphql`
   query HomeQuery($locale: String!) {
