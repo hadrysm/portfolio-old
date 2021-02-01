@@ -7,8 +7,8 @@ import { Content } from 'components/atoms/Content/Content';
 export const Wrapper = styled.section`
   min-height: 100vh;
   position: relative;
-  display: flex;
-  align-items: center;
+  display: grid;
+  place-items: center;
 
   ::after {
     content: '';
@@ -48,8 +48,6 @@ export const Image = styled.img`
 
 export const StyledContent = styled(Content)`
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 `;
 
 export const StyledText = styled(Text)`

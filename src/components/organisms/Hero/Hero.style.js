@@ -9,6 +9,7 @@ export const Wrapper = styled.section`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   ::after {
     content: '';
