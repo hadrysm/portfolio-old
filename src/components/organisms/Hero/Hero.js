@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Headline } from 'components/atoms/Headline/Headline';
 import { ScrollDown } from 'components/atoms/ScrollDown/ScrollDown';
 import { Text } from 'components/atoms/Text/Text';
+import { Animated } from 'animations';
 
 import SvgProjects from 'components/SVG/SvgProjects';
 
@@ -30,10 +31,14 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
     <Wrapper>
       <StyledContent>
         <InnerWrapper withLine>
-          <Text isTitle color="white" isUpper>
-            {heroTitle}
-          </Text>
-          <StyledText color="white">{heroSubtitle}</StyledText>
+          <Animated.FromDirection from="bottom" delay={0.4}>
+            <Text isTitle color="white" isUpper>
+              {heroTitle}
+            </Text>
+          </Animated.FromDirection>
+          <Animated.FromDirection from="bottom" delay={0.45}>
+            <StyledText color="white">{heroSubtitle}</StyledText>
+          </Animated.FromDirection>
         </InnerWrapper>
       </StyledContent>
       <ScrollDown top={85} left={10} />
