@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { pageTheme } from 'assets/styles/theme';
@@ -27,15 +27,15 @@ const usePageThemeState = () => {
   return pageColorsTheme;
 };
 
-const usePageThemeDispatch = () => {
+const usePageThemeDispatch = color => {
   const setPageTheme = useContext(PageThemeDispatchContext);
   if (setPageTheme === undefined) {
     throw new Error('usePageThemeDispatch must be used within a PageThemeProvider');
   }
 
-  const handleChangeTheme = ({ primary }) => setPageTheme({ primary });
-
-  return handleChangeTheme;
+  useEffect(() => {
+    setPageTheme({ primary: color.primary || color });
+  }, [setPageTheme]);
 };
 
 PageThemeProvider.propTypes = {

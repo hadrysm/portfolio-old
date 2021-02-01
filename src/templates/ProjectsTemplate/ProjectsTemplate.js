@@ -7,6 +7,8 @@ import { ProjectsGrid } from 'components/organisms/ProjectsGrid/ProjectsGrid';
 import { Hero } from 'components/organisms/Hero/Hero';
 
 import { useTranslations } from 'hooks/useTranslations';
+import { pageTheme } from 'assets/styles/theme';
+import { usePageThemeDispatch } from 'providers/PageThemeProvider/PageThemeProvider';
 
 const ProjectsTemplate = ({
   data: {
@@ -15,6 +17,8 @@ const ProjectsTemplate = ({
   },
 }) => {
   const { projects } = useTranslations();
+  usePageThemeDispatch(pageTheme.projects);
+
   return (
     <>
       <SEO seo={seo} lang={locale} />

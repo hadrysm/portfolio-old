@@ -22,7 +22,7 @@ const textVariants = {
 
 const NavItem = ({ label = 'link', path = '/', color }) => (
   <Li>
-    <CTALink to={path} activeClassName="active" pageTheme={color}>
+    <CTALink to={path} activeClassName="active">
       <StyledText isBig isBold colorContext={color} variants={textVariants}>
         {label}
       </StyledText>
