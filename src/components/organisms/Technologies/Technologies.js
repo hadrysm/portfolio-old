@@ -20,11 +20,11 @@ const Technologies = ({ technologies, isProject = false, gallery = {} }) => {
 
   return (
     <section ref={containerRef}>
-      <Animated.FromDirection from={isProject ? 'left' : 'right'} animate={controls} duration={1}>
+      <Animated.FromDirection from={isProject ? 'left' : 'right'} animate={controls} duration={0.9}>
         <Wrapper>
           <Content>
             <Flex isColumn>
-              <Animated.FromDirection from="top" delay={0.5} animate={controls} duration={1.1}>
+              <Animated.FromDirection from="bottom" delay={0.5} animate={controls} duration={1.1}>
                 <Headline text={tech.title} isMedium />
               </Animated.FromDirection>
               <Flex isProject={isProject}>

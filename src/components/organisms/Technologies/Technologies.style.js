@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { darken } from 'polished';
+import { lighten } from 'polished';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   background-image: linear-gradient(
     40deg,
     ${({ theme }) => theme.main} 20%,
-    ${({ theme }) => darken(0.1, theme.main)} 70%
+    ${({ theme }) => lighten(0.1, theme.main)} 70%
   );
 `;
 

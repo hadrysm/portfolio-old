@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Text } from 'components/atoms/Text/Text';
 
-export const Item = styled.li`
+export const Item = styled.div`
   display: flex;
   align-items: center;
   padding-bottom: 5rem;

@@ -8,7 +8,7 @@ import { Wrapper, StyledText } from './Headline.style';
 const Headline = ({ text = 'your text', primary = false, ...props }) => (
   <Wrapper primary={primary}>
     <SvgHeadlineIcon />
-    <StyledText isTitle role="heading" {...props}>
+    <StyledText isTitle {...props}>
       {text}
     </StyledText>
   </Wrapper>

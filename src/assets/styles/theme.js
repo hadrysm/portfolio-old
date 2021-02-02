@@ -11,7 +11,7 @@ const colors = {
   background: '#F9F9F9',
   white: '#FFFFFF',
   black: '#000000',
-  main: '#434149',
+  main: '#1c1b20',
   text: '#323136',
   violet: '#9c41ce',
   red: '#f5423c',
