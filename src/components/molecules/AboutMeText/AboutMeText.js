@@ -15,9 +15,9 @@ const AboutMeText = ({ content }) => {
         <Animated.FromDirection
           key={id}
           from="bottom"
-          custom={index}
           duration={1.6}
-          delay={0.2}
+          delay={0.3}
+          custom={index}
           animate={controls}
         >
           <StyledText>{paragraphContent}</StyledText>

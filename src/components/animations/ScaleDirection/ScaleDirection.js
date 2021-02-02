@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
 
-import { Wrapper } from './FromDirection.style';
+import { Wrapper, MotionWrapper } from './ScaleDirection.style';
 
 const transition = { ease: [0.7, 0, 0.3, 1] };
 // const transition = { ease: 'backIn' };
 
-const FromDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...props }) => {
+const ScaleDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...props }) => {
   const [isOverflow, setIsOverflow] = useState(true);
 
   const variants = {
     hidden: {
-      ...(from.includes('top') && { y: '-100%' }),
-      ...(from.includes('bottom') && { y: '100%' }),
-      ...(from.includes('left') && { x: '-100%' }),
-      ...(from.includes('right') && { x: '100%' }),
+      ...(typeof from === 'number' && { scale: from }),
+
+      ...(typeof from === 'string' && from.includes('top') && { scaleY: 0 }),
+      ...(typeof from === 'string' && from.includes('bottom') && { scaleY: 0 }),
+      ...(typeof from === 'string' && from.includes('left') && { scaleX: 0 }),
+      ...(typeof from === 'string' && from.includes('right') && { scaleX: 0 }),
     },
     visible: (i = 1) => ({
-      y: 0,
-      x: 0,
+      scaleY: 1,
+      scaleX: 1,
+      scale: 1,
       transition: {
         ...transition,
         duration,
@@ -30,7 +32,8 @@ const FromDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...p
 
   return (
     <Wrapper isOverflow={isOverflow}>
-      <motion.div
+      <MotionWrapper
+        from={from}
         variants={variants}
         initial="hidden"
         animate="visible"
@@ -38,17 +41,17 @@ const FromDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...p
         {...props}
       >
         {children}
-      </motion.div>
+      </MotionWrapper>
     </Wrapper>
   );
 };
 
-FromDirection.propTypes = {
+ScaleDirection.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   duration: PropTypes.number,
   delay: PropTypes.number,
   isOverflow: PropTypes.bool,
-  from: PropTypes.string,
+  from: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-export { FromDirection };
+export { ScaleDirection };

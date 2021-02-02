@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { Text } from 'components/atoms/Text/Text';
 
 export const Item = styled.li`
-  margin-bottom: 1rem;
-  height: 5rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: 5rem;
+  padding-left: 1rem;
 
   ::first-letter {
     text-transform: uppercase;
@@ -13,19 +15,17 @@ export const Item = styled.li`
 
 export const StyledText = styled(Text)`
   position: relative;
-  margin-left: 1.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 3rem;
+  transform: translateX(3rem);
 
   ::before {
     content: '';
-    position: absolute;
-    top: 50%;
-    left: -1.5rem;
     width: 1.5rem;
     height: 1.5rem;
+    position: absolute;
+    top: calc(50% - 1.5rem / 2);
+    left: -3rem;
     border-radius: 50%;
-    transform: translateY(-50%);
     background-color: ${({ theme }) => theme.primary};
   }
 `;

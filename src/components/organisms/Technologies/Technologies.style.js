@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.main};
   background-image: linear-gradient(
@@ -14,13 +14,15 @@ export const Wrapper = styled.section`
 export const Flex = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  margin: 3rem 0;
+  padding: 3rem 0;
 
   ${({ isColumn }) =>
     isColumn &&
     css`
       flex-direction: column;
+      align-items: flex-start;
     `}
 
   ${({ isProject }) =>
@@ -31,7 +33,7 @@ export const Flex = styled.div`
 
       ${({ theme }) => theme.mq.tablet} {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
       }
     `}
