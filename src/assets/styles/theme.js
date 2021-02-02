@@ -13,8 +13,9 @@ const colors = {
   black: '#000000',
   main: '#1c1b20',
   text: '#323136',
-  violet: '#9c41ce',
+  blue: '#5d5fe9',
   red: '#f5423c',
+  violet: '#7209b7',
   green: '#0cce6b',
   grey: '#EEEEEE',
   grey100: ' #BCBCBC',
@@ -25,13 +26,13 @@ const colors = {
 
 export const pageTheme = {
   home: {
-    primary: colors.violet,
+    primary: colors.blue,
   },
   projects: {
-    primary: colors.red,
+    primary: colors.violet,
   },
   blog: {
-    primary: colors.grey400,
+    primary: colors.main,
   },
 };
 

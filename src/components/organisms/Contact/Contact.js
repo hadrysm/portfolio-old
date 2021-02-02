@@ -20,7 +20,7 @@ const Contact = ({ contactSubtitle }) => {
   return (
     <Wrapper ref={containerRef}>
       <Content>
-        <Animated.FromDirection from="bottom" duration={1.1} animate={controls}>
+        <Animated.FromDirection from="bottom" duration={0.9} animate={controls}>
           <Headline text={contact.title} primary isMedium />
         </Animated.FromDirection>
         <Text isBold>
@@ -29,7 +29,7 @@ const Contact = ({ contactSubtitle }) => {
           </Animated.Words>
         </Text>
         <SocialList />
-        <Animated.FromDirection from="bottom" duration={1.1} delay={0.5} animate={controls}>
+        <Animated.FromDirection from="bottom" duration={0.9} delay={0.5} animate={controls}>
           <ContactForm />
         </Animated.FromDirection>
       </Content>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { Animated } from 'animations';
@@ -12,16 +12,17 @@ const AboutMeText = ({ content }) => {
   return (
     <Wrapper ref={ref}>
       {content.map(({ id, paragraphContent }, index) => (
-        <Animated.FromDirection
-          key={id}
-          from="bottom"
-          duration={1.6}
-          delay={0.3}
-          custom={index}
-          animate={controls}
-        >
-          <StyledText>{paragraphContent}</StyledText>
-        </Animated.FromDirection>
+        <Fragment key={id}>
+          <Animated.FromDirection
+            from="bottom"
+            duration={1.1}
+            delay={0.3}
+            custom={index}
+            animate={controls}
+          >
+            <StyledText>{paragraphContent}</StyledText>
+          </Animated.FromDirection>
+        </Fragment>
       ))}
     </Wrapper>
   );

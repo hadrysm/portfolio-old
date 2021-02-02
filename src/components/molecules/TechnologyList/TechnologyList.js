@@ -14,16 +14,17 @@ const TechnologyList = ({ technologies, isProject = false }) => {
   return (
     <List isProject={isProject} ref={containerRef}>
       {technologies.map(({ id, name }, index) => (
-        <Animated.FromDirection
-          key={id}
-          delay={0.2}
-          duration={0.9}
-          from="bottom"
-          custom={index}
-          animate={controls}
-        >
-          <TechnologyItem text={name} />
-        </Animated.FromDirection>
+        <li key={id}>
+          <Animated.FromDirection
+            duration={0.6}
+            from="bottom"
+            delay={0.2}
+            custom={index}
+            animate={controls}
+          >
+            <TechnologyItem text={name} />
+          </Animated.FromDirection>
+        </li>
       ))}
     </List>
   );

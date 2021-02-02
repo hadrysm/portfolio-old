@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 import { Wrapper } from './FromDirection.style';
 
-// const transition = { ease: [0.7, 0, 0.3, 1] };
-const transition = { ease: [0.6, 0.01, -0.05, 0.9] };
+const transition = { ease: [0.7, 0, 0.3, 1] };
+// const transition = { ease: [0.6, 0.01, -0.05, 0.9] };
 
 // const transition = { ease: 'backIn' };
 

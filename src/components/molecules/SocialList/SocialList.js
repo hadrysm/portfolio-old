@@ -47,7 +47,7 @@ const SocialList = () => {
     <List ref={containerRef}>
       {socialLinks.map(({ id, icon, href, name }, index) => (
         <li key={id}>
-          <Animated.FromDirection from="bottom" animate={controls} delay={index} custom={0.25}>
+          <Animated.FromDirection from="bottom" animate={controls} delay={0.2} custom={index}>
             <SocialIcon icon={icon} href={href} name={name} />
           </Animated.FromDirection>
         </li>

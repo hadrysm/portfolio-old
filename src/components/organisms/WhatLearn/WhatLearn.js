@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { Content } from 'components/atoms/Content/Content';
@@ -22,16 +22,17 @@ const WhatLearn = ({ learnContent }) => {
         </Text>
         <Grid>
           {learnContent.map(({ id, paragraphContent }, index) => (
-            <Animated.FromDirection
-              key={id}
-              from="bottom"
-              animate={controls}
-              duration={1.3}
-              delay={0.2}
-              custom={index}
-            >
-              <Text>{paragraphContent}</Text>
-            </Animated.FromDirection>
+            <Fragment key={id}>
+              <Animated.FromDirection
+                from="bottom"
+                animate={controls}
+                duration={0.9}
+                delay={0.2}
+                custom={index}
+              >
+                <Text>{paragraphContent}</Text>
+              </Animated.FromDirection>
+            </Fragment>
           ))}
         </Grid>
       </Content>

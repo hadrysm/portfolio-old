@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { Content } from 'components/atoms/Content/Content';
@@ -21,22 +21,23 @@ const ProjectsGrid = ({ projects }) => {
     <Content>
       <Grid ref={containerRef}>
         {projects.map(({ id, title, typeApp, cardImage, slug, pageTheme }, index) => (
-          <Animated.FromDirection
-            key={id}
-            from="bottom"
-            delay={0.2}
-            duration={1.3}
-            custom={index}
-            animate={controls}
-          >
-            <ProjectCard
-              title={title}
-              typeApp={typeApp}
-              fluid={cardImage.fluid}
-              slug={slug}
-              pageTheme={pageTheme.hex}
-            />
-          </Animated.FromDirection>
+          <Fragment key={id}>
+            <Animated.FromDirection
+              from="bottom"
+              delay={0.2}
+              duration={1}
+              custom={index}
+              animate={controls}
+            >
+              <ProjectCard
+                title={title}
+                typeApp={typeApp}
+                fluid={cardImage.fluid}
+                slug={slug}
+                pageTheme={pageTheme.hex}
+              />
+            </Animated.FromDirection>
+          </Fragment>
         ))}
       </Grid>
       <InnerWrapper>

@@ -16,7 +16,7 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
       <Wrapper>
         <StyledContent>
           <InnerWrapper>
-            <Animated.FromDirection from="bottom" delay={0.5}>
+            <Animated.FromDirection from="bottom" delay={0.5} duration={0.9}>
               <Headline text={heroTitle} />
             </Animated.FromDirection>
             <StyledText color="white">
@@ -35,13 +35,13 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
     <Wrapper>
       <StyledContent>
         <InnerWrapper withLine>
-          <Animated.FromDirection from="bottom" delay={0.5}>
+          <Animated.FromDirection from="bottom" delay={0.5} duration={0.9}>
             <Text isTitle color="white" isUpper>
               {heroTitle}
             </Text>
           </Animated.FromDirection>
           <StyledText color="white">
-            <Animated.Words delay={0.6}>{heroSubtitle}</Animated.Words>
+            <Animated.Words delay={0.3}>{heroSubtitle}</Animated.Words>
           </StyledText>
         </InnerWrapper>
       </StyledContent>

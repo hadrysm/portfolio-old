@@ -24,7 +24,7 @@ const Technologies = ({ technologies, isProject = false, gallery = {} }) => {
         <Wrapper>
           <Content>
             <Flex isColumn>
-              <Animated.FromDirection from="bottom" delay={0.5} animate={controls} duration={1.1}>
+              <Animated.FromDirection from="bottom" delay={0.5} animate={controls} duration={0.9}>
                 <Headline text={tech.title} isMedium />
               </Animated.FromDirection>
               <Flex isProject={isProject}>

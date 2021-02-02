@@ -21,14 +21,14 @@ const About = ({ aboutImage, aboutContent }) => {
     <Content as="section">
       <Grid>
         <InnerWrapper ref={headlineRef}>
-          <Animated.FromDirection from="bottom" animate={controls} duration={1.2}>
+          <Animated.FromDirection from="bottom" animate={controls} duration={1.1}>
             <Headline text={about.title} primary isMedium />
           </Animated.FromDirection>
           <AboutMeText content={aboutContent} />
         </InnerWrapper>
         <InnerWrapper ref={imageRef}>
           <ImgWrapper>
-            <Animated.FromDirection from="bottom" animate={controls2} duration={1.6}>
+            <Animated.FromDirection from="bottom" animate={controls2} duration={1.1}>
               <Image fluid={aboutImage} />
             </Animated.FromDirection>
           </ImgWrapper>

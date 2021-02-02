@@ -23,8 +23,8 @@ function SvgChart(props) {
 
   return (
     <Wrapper ref={containerRef}>
-      <Animated.FromDirection from="bottom" animate={controls} duration={1.1}>
-        <Animated.ScaleDirection from={1.3} animate={controls} duration={1.1}>
+      <Animated.FromDirection from="bottom" animate={controls} duration={0.9}>
+        <Animated.ScaleDirection from={1.3} animate={controls} duration={0.9}>
           <svg
             width="100%"
             height="100%"

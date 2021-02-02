@@ -9,7 +9,7 @@ import { StyledHeader, InnerWrapper } from './Header.style';
 
 const Header = () => (
   <StyledHeader>
-    <Animated.FromDirection from="top" delay={0.3}>
+    <Animated.FromDirection from="top" delay={0.3} duration={0.6}>
       <InnerWrapper>
         <Logo />
         <Burger />
