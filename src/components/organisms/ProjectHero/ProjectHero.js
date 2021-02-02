@@ -12,7 +12,7 @@ const ProjectHero = ({ title, type, aboutContent, image: { url, alt } }) => (
   <Wrapper>
     <StyledContent>
       <InnerWrapper>
-        <Animated.FromDirection from="bottom" delay={0.5}>
+        <Animated.FromDirection from="bottom" delay={0.5} duration={1.2}>
           <Headline text={title} />
         </Animated.FromDirection>
         <StyledText isItalic isSmall color="white">
@@ -23,7 +23,7 @@ const ProjectHero = ({ title, type, aboutContent, image: { url, alt } }) => (
         </Text>
       </InnerWrapper>
       <InnerWrapper>
-        <Animated.FromDirection from="bottom" delay={0.55} duration={1.2}>
+        <Animated.FromDirection from="bottom" delay={0.5} duration={1.2}>
           <Image src={url} alt={alt} role="img" />
         </Animated.FromDirection>
       </InnerWrapper>

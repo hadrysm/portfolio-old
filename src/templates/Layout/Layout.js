@@ -10,6 +10,7 @@ import { Main, Wrapper } from './Layout.style';
 
 const Layout = ({ children }) => {
   useEffect(() => {
+    // eslint-disable-next-line
     console.log(
       "%c['🥚', '🐤'].sort(); 😵",
       'display: inline-block ; font-size: 20px ; border: 3px solid #e7900e ; border-radius: 10px ; ' +

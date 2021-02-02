@@ -16,7 +16,7 @@ const Words = ({ children, separator = ' ', staggerChildren = 0.15, delay = 0, .
 
   const child = {
     hidden: {
-      y: '60%',
+      y: '100%',
       opacity: 0,
     },
     visible: {
@@ -39,7 +39,7 @@ const Words = ({ children, separator = ' ', staggerChildren = 0.15, delay = 0, .
     >
       {words.map((word, index) => (
         // eslint-disable-next-line
-        <Word key={`word-${index}`} aria-hidden variants={child} {...rest}>
+        <Word key={index} aria-hidden variants={child} {...rest}>
           {word}
           &nbsp;
         </Word>

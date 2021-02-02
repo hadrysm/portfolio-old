@@ -12,10 +12,10 @@ const FromDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...p
 
   const variants = {
     hidden: {
-      ...(from.includes('top') && { y: '-80%' }),
-      ...(from.includes('bottom') && { y: '80%' }),
-      ...(from.includes('left') && { x: '-80%' }),
-      ...(from.includes('right') && { x: '80%' }),
+      ...(from.includes('top') && { y: '-100%' }),
+      ...(from.includes('bottom') && { y: '100%' }),
+      ...(from.includes('left') && { x: '-100%' }),
+      ...(from.includes('right') && { x: '100%' }),
       opacity: 0,
     },
     visible: (i = 1) => ({
