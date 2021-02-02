@@ -26,12 +26,10 @@ const About = ({ aboutImage, aboutContent }) => {
           </Animated.FromDirection>
           <AboutMeText content={aboutContent} />
         </InnerWrapper>
-        <InnerWrapper>
-          <ImgWrapper ref={imageRef}>
+        <InnerWrapper ref={imageRef}>
+          <ImgWrapper>
             <Animated.FromDirection from="bottom" animate={controls2} duration={1.6}>
-              <Animated.ScaleDirection from={0.6} animate={controls2} duration={1.6}>
-                <Image fluid={aboutImage} />
-              </Animated.ScaleDirection>
+              <Image fluid={aboutImage} />
             </Animated.FromDirection>
           </ImgWrapper>
         </InnerWrapper>

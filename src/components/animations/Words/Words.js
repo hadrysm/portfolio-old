@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import { Wrapper, Word } from './Words.style';
 
-const Words = ({ children, separator = ' ', staggerChildren = 0.15, delay = 0, ...rest }) => {
+const Words = ({ children, separator = ' ', duration = 0.15, delay = 0, ...props }) => {
   const [isOverflow, setIsOverflow] = useState(true);
 
   const words = children.split(separator);
 
   const container = {
     visible: (i = 1) => ({
-      transition: { staggerChildren, delayChildren: i * delay },
+      transition: { staggerChildren: duration, delayChildren: i * delay },
     }),
   };
 
@@ -36,10 +36,11 @@ const Words = ({ children, separator = ' ', staggerChildren = 0.15, delay = 0, .
       animate="visible"
       variants={container}
       onAnimationComplete={() => setIsOverflow(false)}
+      {...props}
     >
       {words.map((word, index) => (
         // eslint-disable-next-line
-        <Word key={index} aria-hidden variants={child} {...rest}>
+        <Word key={index} aria-hidden variants={child}>
           {word}
           &nbsp;
         </Word>
@@ -51,7 +52,7 @@ const Words = ({ children, separator = ' ', staggerChildren = 0.15, delay = 0, .
 Words.propTypes = {
   children: PropTypes.string.isRequired,
   separator: PropTypes.string,
-  staggerChildren: PropTypes.number,
+  duration: PropTypes.number,
   delay: PropTypes.number,
 };
 

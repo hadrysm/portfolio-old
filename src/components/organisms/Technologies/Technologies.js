@@ -16,11 +16,11 @@ import { Wrapper, Flex } from './Technologies.style';
 
 const Technologies = ({ technologies, isProject = false, gallery = {} }) => {
   const { technologies: tech } = useTranslations();
-  const [containerRef, controls] = useObserverAnimation({ threshold: 0.2 });
+  const [containerRef, controls] = useObserverAnimation();
 
   return (
     <section ref={containerRef}>
-      <Animated.FromDirection from="right" animate={controls} duration={1}>
+      <Animated.FromDirection from={isProject ? 'left' : 'right'} animate={controls} duration={1}>
         <Wrapper>
           <Content>
             <Flex isColumn>

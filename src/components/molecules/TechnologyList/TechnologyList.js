@@ -17,7 +17,7 @@ const TechnologyList = ({ technologies, isProject = false }) => {
         <Animated.FromDirection
           key={id}
           delay={0.2}
-          duration={1}
+          duration={0.9}
           from="top"
           custom={index}
           animate={controls}
