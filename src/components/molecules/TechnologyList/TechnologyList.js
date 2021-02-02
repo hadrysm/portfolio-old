@@ -18,7 +18,7 @@ const TechnologyList = ({ technologies, isProject = false }) => {
           key={id}
           delay={0.2}
           duration={0.9}
-          from="top"
+          from="bottom"
           custom={index}
           animate={controls}
         >

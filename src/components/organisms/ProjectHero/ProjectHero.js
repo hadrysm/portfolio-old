@@ -16,10 +16,10 @@ const ProjectHero = ({ title, type, aboutContent, image: { url, alt } }) => (
           <Headline text={title} />
         </Animated.FromDirection>
         <StyledText isItalic isSmall color="white">
-          <Animated.Words delay={0.6}>{type}</Animated.Words>
+          <Animated.Words delay={0.8}>{type}</Animated.Words>
         </StyledText>
         <Text color="white">
-          <Animated.Words delay={0.7}>{aboutContent}</Animated.Words>
+          <Animated.Words delay={0.9}>{aboutContent}</Animated.Words>
         </Text>
       </InnerWrapper>
       <InnerWrapper>
