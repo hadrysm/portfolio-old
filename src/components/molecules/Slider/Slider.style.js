@@ -6,6 +6,7 @@ import { Image } from 'components/atoms/Image/Image';
 export const Wrapper = styled(motion.div)`
   width: 100%;
   height: 100%;
+  margin-left: auto;
   max-width: 100rem;
   min-height: 100%;
   border-radius: 1rem;

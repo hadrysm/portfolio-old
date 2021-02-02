@@ -5,23 +5,32 @@ import { Content } from 'components/atoms/Content/Content';
 import { Headline } from 'components/atoms/Headline/Headline';
 import { Image } from 'components/atoms/Image/Image';
 import { AboutMeText } from 'components/molecules/AboutMeText/AboutMeText';
+import { Animated } from 'animations';
 
 import { useTranslations } from 'hooks/useTranslations';
+import { useObserverAnimation } from 'hooks/useObserverAnimation';
 import { Grid, InnerWrapper, ImgWrapper } from './About.style';
 
 const About = ({ aboutImage, aboutContent }) => {
   const { about } = useTranslations();
 
+  const [headlineRef, controls] = useObserverAnimation();
+  const [imageRef, controls2] = useObserverAnimation();
+
   return (
     <Content as="section">
       <Grid>
-        <InnerWrapper>
-          <Headline text={about.title} primary isMedium />
+        <InnerWrapper ref={headlineRef}>
+          <Animated.FromDirection from="bottom" animate={controls} duration={1.2}>
+            <Headline text={about.title} primary isMedium />
+          </Animated.FromDirection>
           <AboutMeText content={aboutContent} />
         </InnerWrapper>
-        <InnerWrapper>
+        <InnerWrapper ref={imageRef}>
           <ImgWrapper>
-            <Image fluid={aboutImage} />
+            <Animated.FromDirection from="bottom" animate={controls2} duration={1.6}>
+              <Image fluid={aboutImage} />
+            </Animated.FromDirection>
           </ImgWrapper>
         </InnerWrapper>
       </Grid>

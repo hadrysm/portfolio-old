@@ -8,5 +8,5 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledText = styled(Text)`
-  margin: 2rem 0;
+  padding: 2rem 0;
 `;
