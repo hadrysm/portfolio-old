@@ -17,15 +17,17 @@ const CLOSE_INFO_WIDGET_TIMEOUT = 3000;
 const initialValues = { email: '', message: '' };
 
 const ContactForm = () => {
+  const [isOpenInfoWidget, setIsOpenInfoWidget] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [responseStatus, setResponseStatus] = useState(200);
+
   const {
     buttons,
     contact: { form },
   } = useTranslations();
 
-  const [isOpenInfoWidget, setIsOpenInfoWidget] = useState(false);
-  const [responseStatus, setResponseStatus] = useState(200);
-
-  const handleResponse = ({ status }) => {
+  const handleResponse = ({ status = 200 }) => {
+    setIsLoading(false);
     setIsOpenInfoWidget(true);
     setResponseStatus(status);
     setTimeout(() => {
@@ -33,19 +35,11 @@ const ContactForm = () => {
     }, CLOSE_INFO_WIDGET_TIMEOUT);
   };
 
-  const {
-    values,
-    errors,
-    touched,
-    isSubmitting,
-    handleChange,
-    handleSubmit,
-    handleBlur,
-    resetForm,
-  } = useFormik({
+  const { values, errors, touched, handleChange, handleSubmit, handleBlur, resetForm } = useFormik({
     initialValues,
     validationSchema: validationSchema(form),
     onSubmit: async data => {
+      setIsLoading(true);
       try {
         const result = await handleSendMessage(data);
         handleResponse(result);
@@ -58,8 +52,9 @@ const ContactForm = () => {
 
   return (
     <AnimateSharedLayout>
-      <Wrapper>
-        <Spinner isLoading={isSubmitting} />
+      <Wrapper layout>
+        <Spinner isLoading={isLoading} layout />
+        <InfoWidget isVisible={isOpenInfoWidget} status={responseStatus} layout />
         <Form onSubmit={handleSubmit} autoComplete="off" layout>
           <Input
             label={form.email}
@@ -80,11 +75,10 @@ const ContactForm = () => {
             isError={errors.message && touched.message}
             errorMessage={errors.message}
           />
-          <CTA isButton type="submit" disabled={isSubmitting} layout>
+          <CTA isButton type="submit" disabled={isLoading} layout>
             <Button as="span">{buttons.send}</Button>
           </CTA>
         </Form>
-        <InfoWidget isVisible={isOpenInfoWidget} status={responseStatus} />
       </Wrapper>
     </AnimateSharedLayout>
   );

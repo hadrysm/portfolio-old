@@ -3,32 +3,11 @@ import PropTypes from 'prop-types';
 import { AnimatePresence } from 'framer-motion';
 
 import { Text } from 'components/atoms/Text/Text';
+import { Animated } from 'animations';
 
 import { useTranslations } from 'hooks/useTranslations';
 
 import { Widget } from './InfoWidget.style';
-
-const transition = { duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] };
-
-const variants = {
-  initial: {
-    x: '-100%',
-  },
-
-  visible: {
-    x: 0,
-    transition: {
-      ...transition,
-    },
-  },
-
-  exit: {
-    x: '-100%',
-    transition: {
-      ...transition,
-    },
-  },
-};
 
 const InfoWidget = ({ status = 200, isVisible = false }) => {
   const {
@@ -42,11 +21,18 @@ const InfoWidget = ({ status = 200, isVisible = false }) => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <Widget status={status} initial="initial" animate="visible" exit="exit" variants={variants}>
-          <Text isMedium color="white">
-            {txt}
-          </Text>
-        </Widget>
+        <Animated.FromDirection
+          key="modal"
+          from="bottom"
+          duration={1}
+          exit={{ opacity: 0, y: '-100%' }}
+        >
+          <Widget status={status}>
+            <Text isMedium color="white">
+              {txt}
+            </Text>
+          </Widget>
+        </Animated.FromDirection>
       )}
     </AnimatePresence>
   );

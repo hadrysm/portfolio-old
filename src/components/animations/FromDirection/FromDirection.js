@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 import { Wrapper } from './FromDirection.style';
 
 const transition = { ease: [0.7, 0, 0.3, 1] };
-// const transition = { ease: [0.6, 0.01, -0.05, 0.9] };
-
-// const transition = { ease: 'backIn' };
 
 const FromDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...props }) => {
   const [isOverflow, setIsOverflow] = useState(true);
+
+  const ref = useRef(null);
 
   const variants = {
     hidden: {
@@ -38,7 +37,13 @@ const FromDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...p
         variants={variants}
         initial="hidden"
         animate="visible"
-        onAnimationComplete={() => setIsOverflow(false)}
+        onAnimationComplete={() => {
+          setIsOverflow(false);
+          if (ref.current !== null) {
+            ref.current.style.transform = '';
+          }
+        }}
+        ref={ref}
         {...props}
       >
         {children}
