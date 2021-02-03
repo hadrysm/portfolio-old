@@ -11,7 +11,14 @@ const { container, child } = spinnerVariants;
 const Spinner = ({ isLoading, ...props }) => (
   <AnimatePresence>
     {isLoading && (
-      <Wrapper initial="hidden" animate="animate" exit="exit" variants={container} {...props}>
+      <Wrapper
+        key="spiner"
+        initial="hidden"
+        animate="animate"
+        exit="exit"
+        variants={container}
+        {...props}
+      >
         <Circle variants={child} />
         <Circle variants={child} />
         <Circle variants={child} />

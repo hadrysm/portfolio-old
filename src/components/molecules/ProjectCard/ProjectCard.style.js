@@ -9,7 +9,7 @@ export const Wrapper = styled(motion.article)`
   overflow: hidden;
 `;
 
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled(motion.div)`
   position: absolute;
   bottom: 5rem;
   left: 4rem;
@@ -17,7 +17,7 @@ export const InnerWrapper = styled.div`
   z-index: ${({ theme }) => theme.zIndex.level1};
 `;
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
@@ -40,8 +40,8 @@ export const Mask = styled(motion.span)`
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: ${({ theme, pageTheme }) => pageTheme || theme.primary};
   opacity: 0.7;
 `;

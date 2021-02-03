@@ -4,36 +4,19 @@ import PropTypes from 'prop-types';
 import { Image } from 'components/atoms/Image/Image';
 import { CTA } from 'components/atoms/CTA/CTA';
 import { Text } from 'components/atoms/Text/Text';
+import { projectCardVariants } from 'animations';
 
 import { Wrapper, InnerWrapper, ImageWrapper, Mask } from './ProjectCard.style';
 
-const transition = { duration: 0.8, ease: [0.6, 0.01, -0.05, 0.9] };
-
-const maskVariants = {
-  hidden: {
-    y: '100%',
-    skewY: 20,
-    transition: {
-      ...transition,
-    },
-  },
-
-  hover: {
-    y: 0,
-    skewY: 0,
-    transition: {
-      ...transition,
-    },
-  },
-};
+const { mask, text, image } = projectCardVariants;
 
 const ProjectCard = ({ title, typeApp, fluid, slug, pageTheme }) => (
   <Wrapper initial="hidden" whileHover="hover">
     <CTA to={`/${slug}`}>
-      <ImageWrapper>
+      <ImageWrapper variants={image}>
         <Image fluid={fluid} />
       </ImageWrapper>
-      <InnerWrapper>
+      <InnerWrapper variants={text}>
         <Text isItalic isSmall color="white">
           {typeApp}
         </Text>
@@ -41,7 +24,7 @@ const ProjectCard = ({ title, typeApp, fluid, slug, pageTheme }) => (
           {title}
         </Text>
       </InnerWrapper>
-      <Mask pageTheme={pageTheme} variants={maskVariants} />
+      <Mask pageTheme={pageTheme} variants={mask} />
     </CTA>
   </Wrapper>
 );

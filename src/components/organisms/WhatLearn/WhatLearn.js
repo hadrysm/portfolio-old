@@ -15,11 +15,13 @@ const WhatLearn = ({ learnContent }) => {
   const [containerRef, controls] = useObserverAnimation();
 
   return (
-    <Wrapper ref={containerRef}>
-      <Content>
-        <Text as="h3" isTitle isMedium color="primary">
-          {aboutProject.title}
-        </Text>
+    <Wrapper>
+      <Content ref={containerRef}>
+        <Animated.FromDirection from="bottom" animate={controls} duration={0.9}>
+          <Text as="h3" isTitle isMedium color="primary">
+            {aboutProject.title}
+          </Text>
+        </Animated.FromDirection>
         <Grid>
           {learnContent.map(({ id, paragraphContent }, index) => (
             <Fragment key={id}>

@@ -24,7 +24,7 @@ const sliderVariants = {
   },
   exit: direction => ({
     zIndex: 0,
-    x: direction < 0 ? 90 : -90,
+    x: direction < 0 ? 30 : -30,
     opacity: 0,
     transition: {
       ...transition,

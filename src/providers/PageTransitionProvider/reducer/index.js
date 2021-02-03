@@ -1,9 +1,6 @@
 import { ENTER_ANIMATION, EXIT_ANIMATION } from './types';
 
-// setAnimatedFinish
-
 const transitionInitialState = {
-  // pageTransitionFinish: false,
   playTransition: true,
   canScroll: true,
 };

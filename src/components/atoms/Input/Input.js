@@ -2,59 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AnimatePresence } from 'framer-motion';
 
-import { Wrapper, StyledInput, Label, StyledText } from './Input.style';
+import { Animated } from 'animations';
 
-const errorMessageVariants = {
-  hidden: {
-    x: -20,
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: {
-    x: 20,
-    opacity: 0,
-  },
-};
+import { Wrapper, StyledInput, Label, StyledText } from './Input.style';
 
 const Input = ({
   value = '',
   tag = 'input',
   type = 'text',
-  maxLength = 200,
   isError = false,
   errorMessage = '',
   name,
   label,
   ...props
 }) => (
-  <Wrapper>
-    <Label htmlFor={name} layout>
-      {label}
-    </Label>
-    <StyledInput
-      value={value}
-      as={tag}
-      type={type}
-      name={name}
-      id={name}
-      maxLength={maxLength}
-      layout
-      {...props}
-    />
+  <Wrapper layout>
+    <Label htmlFor={name}>{label}</Label>
+    <StyledInput value={value} as={tag} type={type} name={name} id={name} {...props} />
     <AnimatePresence>
       {isError && (
-        <StyledText
-          layout
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={errorMessageVariants}
+        <Animated.FromDirection
+          key="errorMessage"
+          from="top"
+          delay={0.1}
+          duration={0.5}
+          exit={{ y: '-20%', opacity: 0, transition: { duration: 0.5 } }}
         >
-          {errorMessage}
-        </StyledText>
+          <StyledText>{errorMessage}</StyledText>
+        </Animated.FromDirection>
       )}
     </AnimatePresence>
   </Wrapper>
@@ -64,7 +39,6 @@ Input.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   tag: PropTypes.string,
   type: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  maxLength: PropTypes.number,
   errorMessage: PropTypes.string,
   isError: PropTypes.bool,
   name: PropTypes.string.isRequired,

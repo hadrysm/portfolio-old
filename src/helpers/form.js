@@ -1,10 +1,10 @@
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
 
-export const validationSchema = ({ emailMesssage, requiredMessage, longMessage }) =>
+export const validationSchema = ({ emailMesssage, requiredMessage }) =>
   Yup.object().shape({
     email: Yup.string().email(emailMesssage).required(requiredMessage),
-    message: Yup.string().max(500, longMessage).required(requiredMessage),
+    message: Yup.string().required(requiredMessage),
   });
 
 export const handleSendMessage = data =>
