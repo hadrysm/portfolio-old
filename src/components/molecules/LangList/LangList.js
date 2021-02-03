@@ -2,50 +2,36 @@ import React from 'react';
 
 import { useLocaleState, useLocaleDispatch } from 'providers/LocaleProvider/LocaleProvider';
 import { CTA } from 'components/atoms/CTA/CTA';
+import { Animated } from 'animations';
 
 import locales from 'config/locales';
+import { useObserverAnimation } from 'hooks/useObserverAnimation';
 
 import { List, Item, StyledText } from './LangList.style';
-
-// add links and lang change handler
-
-const transition = { duration: 0.3, ease: [0.6, 0.01, -0.05, 0.9] };
-
-const langVariants = {
-  open: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      ...transition,
-    },
-  },
-  closed: {
-    opacity: 0,
-    x: -120,
-    transition: {
-      ...transition,
-    },
-  },
-};
 
 const LangList = () => {
   const { activeLocale } = useLocaleState();
   const { updateLocale } = useLocaleDispatch();
+  const [containerRef, controls] = useObserverAnimation();
 
   return (
-    <List>
-      {locales.map(({ siteLanguage, label, path }) => (
+    <List ref={containerRef}>
+      {locales.map(({ siteLanguage, label, path }, index) => (
         <Item key={siteLanguage}>
           <CTA to={`/${path}`} isLocalizedLink onClick={() => updateLocale(siteLanguage)}>
-            <StyledText
-              isSmall
-              isBold
-              isUpper
-              active={activeLocale === siteLanguage}
-              variants={langVariants}
-            >
-              {label}
-            </StyledText>
+            <div>
+              <Animated.FromDirection
+                from="bottom"
+                animate={controls}
+                delay={0.2}
+                exit={{ opacity: 0, y: '100%' }}
+                custom={index}
+              >
+                <StyledText isSmall isBold isUpper active={activeLocale === siteLanguage}>
+                  {label}
+                </StyledText>
+              </Animated.FromDirection>
+            </div>
           </CTA>
         </Item>
       ))}

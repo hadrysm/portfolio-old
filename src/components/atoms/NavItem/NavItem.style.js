@@ -7,7 +7,7 @@ const ACTIVE_CLASS_NAME = '.active';
 
 export const CTALink = styled(CTA)``;
 
-export const Li = styled.li`
+export const Wrapper = styled.li`
   position: relative;
   margin-bottom: 1rem;
   overflow: hidden;
@@ -15,6 +15,7 @@ export const Li = styled.li`
 
 export const StyledText = styled(Text)`
   position: relative;
+  z-index: 1;
   padding: 0.5rem;
 
   ::before {

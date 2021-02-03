@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Wrapper, MotionWrapper } from './ScaleDirection.style';
 
 const transition = { ease: [0.7, 0, 0.3, 1] };
-// const transition = { ease: 'backIn' };
 
 const ScaleDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...props }) => {
   const [isOverflow, setIsOverflow] = useState(true);
+  const ref = useRef(null);
 
   const variants = {
     hidden: {
@@ -37,7 +37,12 @@ const ScaleDirection = ({ children, duration = 0.8, delay = 0, from = 'top', ...
         variants={variants}
         initial="hidden"
         animate="visible"
-        onAnimationComplete={() => setIsOverflow(false)}
+        onAnimationComplete={() => {
+          setIsOverflow(false);
+          if (ref.current !== null) {
+            ref.current.style.transform = '';
+          }
+        }}
         {...props}
       >
         {children}

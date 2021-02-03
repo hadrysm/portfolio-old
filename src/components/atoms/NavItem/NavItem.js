@@ -1,38 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Li, StyledText, CTALink } from './NavItem.style';
+import { Animated } from 'animations';
 
-const transition = { duration: 0.6, ease: [0.6, 0.01, -0.05, 0.9] };
+import { useObserverAnimation } from 'hooks/useObserverAnimation';
 
-const textVariants = {
-  open: {
-    y: 0,
-    transition: {
-      ...transition,
-    },
-  },
-  closed: {
-    y: '100%',
-    transition: {
-      ...transition,
-    },
-  },
+import { Wrapper, StyledText, CTALink } from './NavItem.style';
+
+const NavItem = ({ label = 'link', path = '/', color, index }) => {
+  const [containerRef, controls] = useObserverAnimation();
+
+  return (
+    <Wrapper ref={containerRef}>
+      <CTALink to={path} activeClassName="active">
+        <Animated.FromDirection
+          from="bottom"
+          animate={controls}
+          delay={0.2}
+          exit={{ opacity: 0, y: '100%' }}
+          custom={index}
+        >
+          <StyledText isBig isBold colorContext={color}>
+            {label}
+          </StyledText>
+        </Animated.FromDirection>
+      </CTALink>
+    </Wrapper>
+  );
 };
-
-const NavItem = ({ label = 'link', path = '/', color }) => (
-  <Li>
-    <CTALink to={path} activeClassName="active">
-      <StyledText isBig isBold colorContext={color} variants={textVariants}>
-        {label}
-      </StyledText>
-    </CTALink>
-  </Li>
-);
 
 NavItem.propTypes = {
   label: PropTypes.string,
   path: PropTypes.string,
+  index: PropTypes.number.isRequired,
   color: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 

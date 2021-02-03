@@ -8,10 +8,11 @@ import { List } from './NavList.style';
 
 const NavList = () => {
   const { menu } = useTranslations();
+
   return (
     <List>
-      {menu.map(({ label, path, color }) => (
-        <NavItem key={label} label={label} path={path} color={color} />
+      {menu.map(({ label, path, color }, index) => (
+        <NavItem key={label} label={label} path={path} color={color} index={index} />
       ))}
     </List>
   );

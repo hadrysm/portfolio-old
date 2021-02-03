@@ -7,9 +7,6 @@ import {
 } from 'react-icons/fa';
 
 import { SocialIcon } from 'components/atoms/SocialIcon/SocialIcon';
-import { Animated } from 'animations';
-
-import { useObserverAnimation } from 'hooks/useObserverAnimation';
 
 import { List } from './SocialList.style';
 
@@ -40,20 +37,12 @@ const socialLinks = [
   },
 ];
 
-const SocialList = () => {
-  const [containerRef, controls] = useObserverAnimation();
-
-  return (
-    <List ref={containerRef}>
-      {socialLinks.map(({ id, icon, href, name }, index) => (
-        <li key={id}>
-          <Animated.FromDirection from="bottom" animate={controls} delay={0.2} custom={index}>
-            <SocialIcon icon={icon} href={href} name={name} />
-          </Animated.FromDirection>
-        </li>
-      ))}
-    </List>
-  );
-};
+const SocialList = () => (
+  <List>
+    {socialLinks.map(({ id, icon, href, name }, index) => (
+      <SocialIcon key={id} icon={icon} href={href} name={name} index={index} />
+    ))}
+  </List>
+);
 
 export { SocialList };

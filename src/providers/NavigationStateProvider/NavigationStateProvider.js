@@ -5,7 +5,7 @@ const NavigationStateContext = createContext();
 const NavigationDispatchContext = createContext();
 
 const NavigationStateProvider = ({ children, location }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setIsOpen(false);
@@ -55,9 +55,11 @@ const useNavigationDispatch = () => {
   };
 };
 
+const useNavigation = () => [useNavigationState(), useNavigationDispatch()];
+
 NavigationStateProvider.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   location: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
 };
 
-export { NavigationStateProvider, useNavigationState, useNavigationDispatch };
+export { NavigationStateProvider, useNavigationState, useNavigationDispatch, useNavigation };
