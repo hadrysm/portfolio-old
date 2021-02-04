@@ -2,35 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AnimatePresence } from 'framer-motion';
 
-import { Wrapper, Img } from './Slider.style';
-import { useSlider } from '../../../hooks/useSlider';
+import { sliderVariants } from 'animations';
 
-const transition = { duration: 0.4, ease: [0.6, 0.01, -0.05, 0.9] };
-const sliderVariants = {
-  enter: direction => ({
-    x: direction > 0 ? 30 : -30,
-    opacity: 0,
-    transition: {
-      ...transition,
-    },
-  }),
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-    transition: {
-      ...transition,
-    },
-  },
-  exit: direction => ({
-    zIndex: 0,
-    x: direction < 0 ? 30 : -30,
-    opacity: 0,
-    transition: {
-      ...transition,
-    },
-  }),
-};
+import { useSlider } from 'hooks/useSlider';
+
+import { Wrapper, Img } from './Slider.style';
 
 const swipingThreshold = 10000;
 const nextSlideTime = 5000;

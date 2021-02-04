@@ -12,3 +12,5 @@ export { projectCardVariants } from './variants/projectCard';
 export { spinnerVariants } from './variants/spinner';
 export { scrollDownArrowVariants } from './variants/scrollDownArrow';
 export { pageOverlayVariants } from './variants/pageOverlay';
+export { sliderVariants } from './variants/slider';
+export { burgerVariants } from './variants/burger';

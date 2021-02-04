@@ -5,41 +5,12 @@ import {
   useNavigationDispatch,
 } from 'providers/NavigationStateProvider/NavigationStateProvider';
 
+import { burgerVariants } from 'animations';
 import { BurgerButton, Wrapper, Line } from './Burger.styles';
 
 const transition = { duration: 0.4, ease: [0.6, 0.01, -0.05, 0.9] };
 
-// const transition = { duration: 0.4, ease: [0.7, 0, 0.3, 1] }
-
-const firstLine = {
-  open: {
-    y: 4,
-  },
-  closed: {
-    scaleX: 0.8,
-  },
-  hover: {
-    scaleX: 1,
-  },
-};
-
-const secondLine = {
-  hover: {
-    x: 0,
-  },
-};
-
-const thirdLine = {
-  open: {
-    y: -4,
-  },
-  closed: {
-    scaleX: 0.6,
-  },
-  hover: {
-    scaleX: 1,
-  },
-};
+const { firstLine, secondLine, thirdLine } = burgerVariants;
 
 const Burger = () => {
   const isMenuOpen = useNavigationState();
