@@ -6,6 +6,8 @@ import { Custom } from './Custom/Custom';
 
 export const Animated = { FromDirection, ScaleDirection, Words, FadeIn, Custom };
 
+export { ChartsSvg } from './sequence/ChartsSvg/ChartsSvg';
+
 export { navigationVariants } from './variants/navigation';
 export { pageTransitionVariants } from './variants/pageTransition';
 export { projectCardVariants } from './variants/projectCard';

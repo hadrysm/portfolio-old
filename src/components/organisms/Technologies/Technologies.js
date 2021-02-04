@@ -5,9 +5,7 @@ import { Content } from 'components/atoms/Content/Content';
 import { Headline } from 'components/atoms/Headline/Headline';
 import { TechnologyList } from 'components/molecules/TechnologyList/TechnologyList';
 import { Slider } from 'components/molecules/Slider/Slider';
-import { Animated } from 'animations';
-
-import SvgChart from 'components/SVG/SvgChart';
+import { Animated, ChartsSvg } from 'animations';
 
 import { useTranslations } from 'hooks/useTranslations';
 import { useObserverAnimation } from 'hooks/useObserverAnimation';
@@ -29,7 +27,7 @@ const Technologies = ({ technologies, isProject = false, gallery = {} }) => {
               </Animated.FromDirection>
               <Flex isProject={isProject}>
                 <TechnologyList technologies={technologies} isProject={isProject} />
-                {isProject ? <Slider images={gallery} /> : <SvgChart />}
+                {isProject ? <Slider images={gallery} /> : <ChartsSvg />}
               </Flex>
             </Flex>
           </Content>
