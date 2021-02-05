@@ -31,7 +31,6 @@ const TransitionBox = () => {
           <Box variants={child} />
           <Box variants={child} />
           <Box variants={child} />
-          <Box variants={child} />
         </Wrapper>
       )}
     </AnimatePresence>

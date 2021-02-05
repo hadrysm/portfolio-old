@@ -35,7 +35,7 @@ const usePageThemeDispatch = color => {
 
   useEffect(() => {
     setPageTheme({ primary: color.primary || color });
-  }, [setPageTheme]);
+  }, [setPageTheme, color]);
 };
 
 PageThemeProvider.propTypes = {

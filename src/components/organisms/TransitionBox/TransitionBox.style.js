@@ -13,8 +13,9 @@ export const Wrapper = styled(motion.div)`
 `;
 
 export const Box = styled(motion.div)`
-  height: 110vh;
-  width: 30vw;
+  height: 100vh;
+  width: 100%;
+  min-width: 30vw;
   margin: 0;
   padding: 0;
   background-color: ${({ theme }) => theme.primary};

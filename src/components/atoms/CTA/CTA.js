@@ -51,7 +51,7 @@ const CTA = ({
         length: 1.6,
       }}
       entry={{
-        delay: 1.7,
+        delay: 1.5,
       }}
       {...props}
     >
