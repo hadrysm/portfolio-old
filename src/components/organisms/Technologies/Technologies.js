@@ -25,7 +25,7 @@ const Technologies = ({ technologies, isProject = false, gallery = {} }) => {
               <Animated.FromDirection from="bottom" delay={0.5} animate={controls} duration={0.9}>
                 <Headline text={tech.title} isMedium />
               </Animated.FromDirection>
-              <Flex isProject={isProject}>
+              <Flex>
                 <TechnologyList technologies={technologies} isProject={isProject} />
                 {isProject ? <Slider images={gallery} /> : <ChartsSvg />}
               </Flex>

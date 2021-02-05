@@ -16,3 +16,4 @@ export { scrollDownArrowVariants } from './variants/scrollDownArrow';
 export { pageOverlayVariants } from './variants/pageOverlay';
 export { sliderVariants } from './variants/slider';
 export { burgerVariants } from './variants/burger';
+export { chartVariants } from './variants/chart';

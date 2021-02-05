@@ -3,109 +3,21 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 import { Animated } from 'animations';
+import { chartVariants } from 'animations/variants/chart';
 import { useObserverAnimation } from 'hooks/useObserverAnimation';
 import { useSVGMorph } from 'hooks/useSVGMorph';
 
 import { Wrapper } from './ChartsSvg.style';
 
 const transition = { ease: [0.6, 0.01, -0.05, 0.9] };
-// const transition2 = { ease: [0.7, 0, 0.3, 1] };
-// const delay = 0.5;
 
-const treeVariants = {
-  hidden: {
-    opacity: 0,
-    y: '100%',
-  },
-
-  visible: {
-    opacity: 1,
-    y: 0,
-
-    transition: {
-      ...transition,
-      duration: 1.2,
-      delay: 0.5,
-    },
-  },
-};
-
-const characterVariants = {
-  hidden: {
-    opacity: 0,
-    x: '100%',
-  },
-
-  visible: {
-    opacity: 1,
-    x: 0,
-
-    transition: {
-      ...transition,
-      duration: 1.2,
-      delay: 1.5,
-    },
-  },
-};
-
-const parentVariants = {
-  visible: {
-    transition: {
-      ...transition,
-      staggerChildren: 0.5,
-      delayChildren: 0.4,
-    },
-  },
-};
-
-const bubleVariants = {
-  hidden: {
-    scale: 0,
-  },
-  visible: {
-    scale: 1,
-    transition: {
-      ...transition,
-      duration: 1,
-    },
-  },
-};
-
-const rectangleVariants = {
-  hidden: {
-    originY: '100%',
-    scaleY: 0,
-  },
-  visible: {
-    scaleY: 1,
-
-    transition: {
-      ...transition,
-      duration: 1,
-    },
-  },
-};
-
-const lineVariants = {
-  hidden: {
-    pathLength: 0,
-  },
-  visible: {
-    pathLength: 1,
-    transition: {
-      ...transition,
-      duration: 1.6,
-    },
-  },
-};
+const { tree, character, parentStagger, buble, rectangle, line } = chartVariants;
 
 const shapes = {
   one:
     'M610.463 389.987C596.578 401.498 576.819 406.262 557.711 409.27L554.495 409.761C534.536 412.735 514.356 414.319 494.107 415.282C483.272 415.807 472.438 416.177 461.604 416.508L453.113 416.758C442.088 417.085 431.043 417.406 419.977 417.721C409.142 418.029 398.308 418.318 387.473 418.588C373.598 418.926 359.722 419.207 345.846 419.431C335.012 419.602 324.177 419.72 313.343 419.784C299.464 419.864 285.588 419.837 271.716 419.705C260.874 419.594 250.04 419.404 239.213 419.135C225.329 418.778 211.454 418.255 197.586 417.568C188.173 417.108 178.766 416.555 169.365 415.909L165.082 415.607C124.727 412.701 83.6475 407.487 48.3329 391.007L47.3807 390.556C46.9074 390.334 46.4341 390.112 45.9608 389.878C39.4768 386.78 33.2658 383.141 27.394 379C16.953 371.557 8.33111 362.474 3.77495 351.698C-3.36437 334.796 0.410567 315.797 8.5649 299.271C16.7192 282.746 28.9621 267.827 39.5514 252.264C42.6534 247.705 45.5958 242.975 48.3329 238.126C65.4399 207.713 73.925 172.518 55.9912 143.211C53.624 139.474 51.068 135.86 48.3329 132.384C43.9593 126.685 39.5114 120.986 36.5063 114.678C29.4981 99.999 31.0036 83.49 33.5582 67.8076C36.9796 46.9566 43.2522 24.4986 62.8568 11.4718C83.197 -2.0566 112.068 -1.37278 137.312 3.49379C176.561 11.0102 212.788 26.7439 249.357 40.9333C285.926 55.1227 324.234 68.0983 364.442 69.4944C373.079 69.7898 381.726 69.4756 390.319 68.5541C401.774 67.3777 413.074 64.9997 424.031 61.4594C439.855 56.251 454.253 48.4155 464.928 37.5255C487.823 14.247 530.847 12.4861 561.868 26.5444C591.468 39.9588 610.611 68.349 609.197 96.705C607.589 128.269 583.936 154.22 562.261 180.838C559.632 184.064 557.038 187.301 554.512 190.56C553.101 192.38 551.718 194.203 550.36 196.031C547.982 199.256 545.684 202.499 543.518 205.781C532.444 222.609 524.614 242.821 532.238 260.988C536.515 271.16 544.675 278.922 554.512 285.697C576.551 300.873 606.973 311.084 620.659 332.329C632.451 350.638 628.083 375.353 610.463 389.987Z',
-
   two:
-    'M474.611 246.98C527.567 307.516 634.569 317.825 655.653 387.671C676.41 456.436 573.998 448.494 550.205 497.414C527.922 543.231 573.641 644.793 524.082 658.197C474.72 671.549 410.661 582.791 350.511 551.427C297.487 523.778 244.238 526.062 194.515 486.349C133.859 437.903 59.7702 375.871 45.5551 307.859C31.2501 239.417 92.7064 212.368 129.414 174.871C156.929 146.763 195.569 136.742 230.968 118.457C275.62 95.3928 302.144 21.4329 363.651 53.8788C426.96 87.2748 423.386 188.425 474.611 246.98Z',
-
+    'M273.043 3.20907C338.559 15.3774 348.072 80.4781 402.953 108.382C457.964 136.352 546.432 123.814 586.23 162.448C628.939 203.908 639.782 263.86 611.768 311.091C584.274 357.446 511.967 382.062 445.232 400.17C390.34 415.064 331.502 398.233 273.043 403C202.524 408.75 129.694 456.798 69.0995 430.84C9.55223 405.331 27.4491 340.83 15.3622 292.612C5.21697 252.14 -6.54296 212.971 4.36474 172.597C16.6272 127.208 32.3045 79.5106 81.2759 48.6366C132.722 16.2025 206.186 -9.20825 273.043 3.20907Z',
   three:
     'M318.862 0.0171021C380.548 0.891852 427.603 35.6093 478.292 60.8546C530.32 86.7669 595.724 106.024 617.436 148.72C639.371 191.856 622.017 241.715 590.605 281.718C562.427 317.603 500.959 328.234 456.219 354.035C408.057 381.809 380.579 440.477 318.862 438.428C256.518 436.358 230.207 379.733 190.438 345.211C161.547 320.133 144.448 291.891 119.014 264.952C79.5617 223.164 -7.99947 194.226 0.588899 144.126C8.804 96.2041 97.8905 82.0294 154.788 56.2671C207.336 32.4742 256.743 -0.863792 318.862 0.0171021Z',
 };
@@ -132,7 +44,7 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
               <motion.path id="prefix__Vector" opacity={0.1} d={d} fill="currentColor" />
             </g>
             <g id="prefix__tree">
-              <motion.g variants={treeVariants}>
+              <motion.g strokeDasharray="0 1" variants={tree}>
                 <path
                   id="prefix__Vector_2"
                   opacity={0.8}
@@ -189,43 +101,43 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
               </motion.g>
             </g>
             <g id="prefix__rectangles" fill="currentColor">
-              <motion.g variants={parentVariants}>
+              <motion.g variants={parentStagger}>
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangleVariants}
+                  variants={rectangle}
                   id="prefix__Vector_12"
                   d="M197.586 288.735v128.787c-9.413-.46-18.82-1.012-28.221-1.658l-4.283-.302V288.735a5.03 5.03 0 015.03-5.026h22.444a5.042 5.042 0 013.557 1.472 5.028 5.028 0 011.473 3.554z"
                 />
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangleVariants}
+                  variants={rectangle}
                   id="prefix__Vector_13"
                   d="M239.213 419.123V202.687a5.024 5.024 0 015.029-5.026h22.445a5.04 5.04 0 013.556 1.472 5.017 5.017 0 011.473 3.554v217l-32.503-.564z"
                 />
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangleVariants}
+                  variants={rectangle}
                   id="prefix__Vector_14"
                   d="M313.343 419.801V247.705a5.026 5.026 0 015.029-5.026h22.445a5.026 5.026 0 015.029 5.026v171.726l-32.503.37z"
                 />
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangleVariants}
+                  variants={rectangle}
                   id="prefix__Vector_15"
                   d="M419.977 120.058v297.663c-10.835.308-21.669.597-32.504.867v-298.53a5.033 5.033 0 015.03-5.027h22.444a5.033 5.033 0 015.03 5.027z"
                 />
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangleVariants}
+                  variants={rectangle}
                   id="prefix__Vector_16"
                   d="M494.107 179.892v235.351c-10.835.524-21.669.894-32.503 1.225V179.892c0-1.333.529-2.611 1.473-3.554a5.032 5.032 0 013.556-1.472h22.444a5.026 5.026 0 015.03 5.026z"
                 />
               </motion.g>
             </g>
             <g id="prefix__crutches">
-              <motion.g variants={parentVariants}>
+              <motion.g variants={parentStagger}>
                 <motion.path
-                  variants={lineVariants}
+                  variants={line}
                   id="prefix__Vector_17"
                   d="M181.619 213.628l74.13-82.629 74.131 41.599 74.13-127.647 74.13 60.974"
                   stroke="#F8F8F8"
@@ -234,25 +146,25 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
                   strokeLinecap="round"
                 />
                 <motion.path
-                  variants={bubleVariants}
+                  variants={buble}
                   id="prefix__Vector_18"
                   d="M181.334 229.584c8.818 0 15.967-7.144 15.967-15.956s-7.149-15.956-15.967-15.956c-8.818 0-15.966 7.144-15.966 15.956s7.148 15.956 15.966 15.956z"
                   fill="currentColor"
                 />
                 <motion.path
-                  variants={bubleVariants}
+                  variants={buble}
                   id="prefix__Vector_19"
                   d="M255.464 146.955c8.818 0 15.967-7.144 15.967-15.956s-7.149-15.956-15.967-15.956c-8.818 0-15.966 7.144-15.966 15.956s7.148 15.956 15.966 15.956z"
                   fill="currentColor"
                 />
                 <motion.path
-                  variants={bubleVariants}
+                  variants={buble}
                   id="prefix__Vector_20"
                   d="M329.595 188.554c8.818 0 15.966-7.143 15.966-15.956 0-8.812-7.148-15.956-15.966-15.956s-15.967 7.144-15.967 15.956c0 8.813 7.149 15.956 15.967 15.956z"
                   fill="currentColor"
                 />
                 <motion.path
-                  variants={bubleVariants}
+                  variants={buble}
                   id="prefix__Vector_21"
                   d="M403.725 60.907c8.818 0 15.967-7.144 15.967-15.956 0-8.813-7.149-15.956-15.967-15.956-8.818 0-15.967 7.143-15.967 15.956 0 8.812 7.149 15.956 15.967 15.956z"
                   fill="currentColor"
@@ -260,9 +172,8 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
               </motion.g>
             </g>
             <g id="prefix__character">
-              <motion.g variants={characterVariants}>
+              <motion.g variants={character}>
                 <path
-                  variants={bubleVariants}
                   id="prefix__Vector_22"
                   d="M546.283 196.532c8.818 0 15.967-7.143 15.967-15.956 0-8.812-7.149-15.956-15.967-15.956-8.818 0-15.966 7.144-15.966 15.956 0 8.813 7.148 15.956 15.966 15.956z"
                   fill="currentColor"

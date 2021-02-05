@@ -13,28 +13,26 @@ export const Wrapper = styled.div`
 
 export const Flex = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   padding: 3rem 0;
+
+  ${({ theme }) => theme.mq.bigTablet} {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
   ${({ isColumn }) =>
     isColumn &&
     css`
       flex-direction: column;
       align-items: flex-start;
-    `}
 
-  ${({ isProject }) =>
-    isProject &&
-    css`
-      flex-direction: column;
-      align-items: flex-start;
-
-      ${({ theme }) => theme.mq.tablet} {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+      ${({ theme }) => theme.mq.bigTablet} {
+        flex-direction: column;
       }
     `}
 `;
