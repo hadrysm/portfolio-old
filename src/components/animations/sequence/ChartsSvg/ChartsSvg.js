@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
-import { Animated } from 'animations';
-import { chartVariants } from 'animations/variants/chart';
+import { chartVariants } from 'animations';
 import { useObserverAnimation } from 'hooks/useObserverAnimation';
 import { useSVGMorph } from 'hooks/useSVGMorph';
 
 import { Wrapper } from './ChartsSvg.style';
 
 const transition = { ease: [0.6, 0.01, -0.05, 0.9] };
-
-const { tree, character, parentStagger, buble, rectangle, line } = chartVariants;
 
 const shapes = {
   one:
@@ -23,16 +20,38 @@ const shapes = {
 };
 
 const ChartsSvg = ({ size = '100%', ...props }) => {
-  const [containerRef, controls] = useObserverAnimation({ threshold: 0.7 });
+  const [containerRef, wrapperControls, inView] = useObserverAnimation({ threshold: 0.1 }, false);
 
   const d = useSVGMorph(shapes, {
     ...transition,
   });
 
+  const treeControls = useAnimation();
+  const characterControls = useAnimation();
+  const staggerRectangleControls = useAnimation();
+  const staggerArrowleControls = useAnimation();
+
+  useEffect(() => {
+    wrapperControls.set('hiddenY');
+    treeControls.set('hiddenY');
+    characterControls.set('hiddenX');
+
+    if (inView) {
+      (async () => {
+        await wrapperControls.start('visible');
+        await treeControls.start('visible');
+        staggerRectangleControls.start('visible');
+        staggerArrowleControls.start('visible');
+        await characterControls.start('visible');
+      })();
+    }
+  }, [inView]);
+
   return (
-    <Wrapper {...props} ref={containerRef}>
-      <Animated.FromDirection from="bottom" duration={1.1} animate={controls}>
+    <Wrapper {...props}>
+      <motion.div ref={containerRef} variants={chartVariants} animate={wrapperControls}>
         <svg
+          role="img"
           width={size}
           height={size}
           viewBox="0 0 628 437"
@@ -44,7 +63,7 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
               <motion.path id="prefix__Vector" opacity={0.1} d={d} fill="currentColor" />
             </g>
             <g id="prefix__tree">
-              <motion.g strokeDasharray="0 1" variants={tree}>
+              <motion.g strokeDasharray="0 1" variants={chartVariants} animate={treeControls}>
                 <path
                   id="prefix__Vector_2"
                   opacity={0.8}
@@ -101,43 +120,51 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
               </motion.g>
             </g>
             <g id="prefix__rectangles" fill="currentColor">
-              <motion.g variants={parentStagger}>
+              <motion.g
+                variants={chartVariants.stagger}
+                initial="hidden"
+                animate={staggerRectangleControls}
+              >
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangle}
+                  variants={chartVariants.rectangle}
                   id="prefix__Vector_12"
                   d="M197.586 288.735v128.787c-9.413-.46-18.82-1.012-28.221-1.658l-4.283-.302V288.735a5.03 5.03 0 015.03-5.026h22.444a5.042 5.042 0 013.557 1.472 5.028 5.028 0 011.473 3.554z"
                 />
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangle}
+                  variants={chartVariants.rectangle}
                   id="prefix__Vector_13"
                   d="M239.213 419.123V202.687a5.024 5.024 0 015.029-5.026h22.445a5.04 5.04 0 013.556 1.472 5.017 5.017 0 011.473 3.554v217l-32.503-.564z"
                 />
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangle}
+                  variants={chartVariants.rectangle}
                   id="prefix__Vector_14"
                   d="M313.343 419.801V247.705a5.026 5.026 0 015.029-5.026h22.445a5.026 5.026 0 015.029 5.026v171.726l-32.503.37z"
                 />
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangle}
+                  variants={chartVariants.rectangle}
                   id="prefix__Vector_15"
                   d="M419.977 120.058v297.663c-10.835.308-21.669.597-32.504.867v-298.53a5.033 5.033 0 015.03-5.027h22.444a5.033 5.033 0 015.03 5.027z"
                 />
                 <motion.path
                   strokeDasharray="0 1"
-                  variants={rectangle}
+                  variants={chartVariants.rectangle}
                   id="prefix__Vector_16"
                   d="M494.107 179.892v235.351c-10.835.524-21.669.894-32.503 1.225V179.892c0-1.333.529-2.611 1.473-3.554a5.032 5.032 0 013.556-1.472h22.444a5.026 5.026 0 015.03 5.026z"
                 />
               </motion.g>
             </g>
             <g id="prefix__crutches">
-              <motion.g variants={parentStagger}>
+              <motion.g
+                variants={chartVariants.stagger}
+                initial="hidden"
+                animate={staggerArrowleControls}
+              >
                 <motion.path
-                  variants={line}
+                  variants={chartVariants.line}
                   id="prefix__Vector_17"
                   d="M181.619 213.628l74.13-82.629 74.131 41.599 74.13-127.647 74.13 60.974"
                   stroke="#F8F8F8"
@@ -146,25 +173,25 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
                   strokeLinecap="round"
                 />
                 <motion.path
-                  variants={buble}
+                  variants={chartVariants.buble}
                   id="prefix__Vector_18"
                   d="M181.334 229.584c8.818 0 15.967-7.144 15.967-15.956s-7.149-15.956-15.967-15.956c-8.818 0-15.966 7.144-15.966 15.956s7.148 15.956 15.966 15.956z"
                   fill="currentColor"
                 />
                 <motion.path
-                  variants={buble}
+                  variants={chartVariants.buble}
                   id="prefix__Vector_19"
                   d="M255.464 146.955c8.818 0 15.967-7.144 15.967-15.956s-7.149-15.956-15.967-15.956c-8.818 0-15.966 7.144-15.966 15.956s7.148 15.956 15.966 15.956z"
                   fill="currentColor"
                 />
                 <motion.path
-                  variants={buble}
+                  variants={chartVariants.buble}
                   id="prefix__Vector_20"
                   d="M329.595 188.554c8.818 0 15.966-7.143 15.966-15.956 0-8.812-7.148-15.956-15.966-15.956s-15.967 7.144-15.967 15.956c0 8.813 7.149 15.956 15.967 15.956z"
                   fill="currentColor"
                 />
                 <motion.path
-                  variants={buble}
+                  variants={chartVariants.buble}
                   id="prefix__Vector_21"
                   d="M403.725 60.907c8.818 0 15.967-7.144 15.967-15.956 0-8.813-7.149-15.956-15.967-15.956-8.818 0-15.967 7.143-15.967 15.956 0 8.812 7.149 15.956 15.967 15.956z"
                   fill="currentColor"
@@ -172,7 +199,7 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
               </motion.g>
             </g>
             <g id="prefix__character">
-              <motion.g variants={character}>
+              <motion.g variants={chartVariants} animate={characterControls}>
                 <path
                   id="prefix__Vector_22"
                   d="M546.283 196.532c8.818 0 15.967-7.143 15.967-15.956 0-8.812-7.149-15.956-15.967-15.956-8.818 0-15.966 7.144-15.966 15.956 0 8.813 7.148 15.956 15.966 15.956z"
@@ -246,7 +273,7 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
             </linearGradient>
           </defs>
         </svg>
-      </Animated.FromDirection>
+      </motion.div>
     </Wrapper>
   );
 };

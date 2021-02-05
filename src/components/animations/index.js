@@ -7,6 +7,7 @@ import { Custom } from './Custom/Custom';
 export const Animated = { FromDirection, ScaleDirection, Words, FadeIn, Custom };
 
 export { ChartsSvg } from './sequence/ChartsSvg/ChartsSvg';
+export { RocketSvg } from './sequence/RocketSvg/RocketSvg';
 
 export { navigationVariants } from './variants/navigation';
 export { pageTransitionVariants } from './variants/pageTransition';
@@ -17,3 +18,4 @@ export { pageOverlayVariants } from './variants/pageOverlay';
 export { sliderVariants } from './variants/slider';
 export { burgerVariants } from './variants/burger';
 export { chartVariants } from './variants/chart';
+export { rocketVariants } from './variants/rocket';

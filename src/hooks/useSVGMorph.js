@@ -15,6 +15,7 @@ export const useSVGMorph = (d, config = {}) => {
     animate(0, 1, {
       ...config,
       duration: config.duration || DEFAULT_NEXT_SHAPE_TIMEOUT / ONE_SECOND_IN_MILISECOND,
+
       onUpdate: progress => value.set(interpolator(progress)),
     });
 

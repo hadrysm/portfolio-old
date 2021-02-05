@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import { Headline } from 'components/atoms/Headline/Headline';
 import { ScrollDown } from 'components/atoms/ScrollDown/ScrollDown';
 import { Text } from 'components/atoms/Text/Text';
-import { Animated } from 'animations';
-
-import SvgProjects from 'components/SVG/SvgProjects';
+import { Animated, RocketSvg } from 'animations';
 
 import { Wrapper, InnerWrapper, StyledText, StyledContent } from './Hero.style';
 
@@ -24,7 +22,7 @@ const Hero = ({ heroTitle, heroSubtitle, secondary = false }) => {
             </StyledText>
           </InnerWrapper>
           <InnerWrapper secondary>
-            <SvgProjects role="img" />
+            <RocketSvg />
           </InnerWrapper>
         </StyledContent>
         <ScrollDown top={85} left={10} />
