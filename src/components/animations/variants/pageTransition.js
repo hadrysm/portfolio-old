@@ -5,14 +5,15 @@ export const pageTransitionVariants = {
     visible: {
       transition: {
         ...transition,
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
         staggerDirection: -1,
       },
     },
     hidden: {
       transition: {
         ...transition,
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.5,
         staggerDirection: -1,
       },
     },
@@ -23,14 +24,14 @@ export const pageTransitionVariants = {
       scaleY: 1,
       transition: {
         ...transition,
-        duration: 1.1,
+        duration: 1,
       },
     },
     hidden: {
       scaleY: 0,
       transition: {
         ...transition,
-        duration: 1.1,
+        duration: 1,
       },
     },
   },

@@ -21,6 +21,7 @@ const CTA = ({
   ...props
 }) => {
   const { exitAnimation } = usePageTransitionDispatch();
+
   const { activeLocale } = useLocaleState();
 
   const isIndex = to === '/';
@@ -48,10 +49,10 @@ const CTA = ({
       to={path}
       exit={{
         trigger: () => exitAnimation(),
-        length: 1.6,
+        length: 1.35,
       }}
       entry={{
-        delay: 1.5,
+        delay: 1.4,
       }}
       {...props}
     >
