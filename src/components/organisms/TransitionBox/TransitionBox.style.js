@@ -15,11 +15,10 @@ export const Wrapper = styled(motion.div)`
 export const Box = styled(motion.div)`
   height: 100vh;
   width: 100%;
-  min-width: 30vw;
   margin: 0;
   padding: 0;
   background-color: ${({ theme }) => theme.primary};
   transform-origin: bottom center;
   will-change: background-color;
-  transition: background-color 600ms ease-in-out 0ms;
+  transition: background-color 400ms ease-in-out 0ms;
 `;

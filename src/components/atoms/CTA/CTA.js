@@ -48,10 +48,10 @@ const CTA = ({
       to={path}
       exit={{
         trigger: () => exitAnimation(),
-        length: 1.6,
+        length: 1.5,
       }}
       entry={{
-        delay: 1.5,
+        delay: 1.6,
       }}
       {...props}
     >

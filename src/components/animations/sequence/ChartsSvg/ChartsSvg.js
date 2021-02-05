@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import { chartVariants } from 'animations';
-import { useObserverAnimation } from 'hooks/useObserverAnimation';
+
 import { useSVGMorph } from 'hooks/useSVGMorph';
 
 import { Wrapper } from './ChartsSvg.style';
@@ -20,12 +21,14 @@ const shapes = {
 };
 
 const ChartsSvg = ({ size = '100%', ...props }) => {
-  const [containerRef, wrapperControls, inView] = useObserverAnimation({ threshold: 0.1 }, false);
+  // const [containerRef, wrapperControls, inView] = useObserverAnimation({ threshold: 0.1 }, false);
+  const [refView, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
   const d = useSVGMorph(shapes, {
     ...transition,
   });
 
+  const wrapperControls = useAnimation();
   const treeControls = useAnimation();
   const characterControls = useAnimation();
   const staggerRectangleControls = useAnimation();
@@ -39,7 +42,7 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
     if (inView) {
       (async () => {
         await wrapperControls.start('visible');
-        await treeControls.start('visible');
+        treeControls.start('visible');
         staggerRectangleControls.start('visible');
         staggerArrowleControls.start('visible');
         await characterControls.start('visible');
@@ -49,7 +52,7 @@ const ChartsSvg = ({ size = '100%', ...props }) => {
 
   return (
     <Wrapper {...props}>
-      <motion.div ref={containerRef} variants={chartVariants} animate={wrapperControls}>
+      <motion.div ref={refView} variants={chartVariants} animate={wrapperControls}>
         <svg
           role="img"
           width={size}
