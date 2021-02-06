@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   left: 0;
   right: 0;
   width: 100%;
-  z-index: ${({ theme }) => theme.zIndex.level7};
+  z-index: ${({ theme }) => theme.zIndex.level3};
 `;
 
 export const InnerWrapper = styled.div`

@@ -48,11 +48,9 @@ export const rocketVariants = {
   },
   buttonOn: {
     fill: '#0cce6b',
-    opacity: 1,
   },
 
   buttonOff: {
     fill: '#f5423c',
-    opacity: 1,
   },
 };

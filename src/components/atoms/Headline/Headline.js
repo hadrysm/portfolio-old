@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SvgHeadlineIcon from 'components/SVG/SvgHeadlineIcon';
+import { SvgHeadlineIcon } from 'components/SVG/SvgHeadlineIcon';
 
 import { Wrapper, StyledText } from './Headline.style';
 
