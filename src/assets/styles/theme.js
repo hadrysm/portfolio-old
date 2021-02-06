@@ -20,7 +20,6 @@ const colors = {
   grey: '#EEEEEE',
   grey100: ' #BCBCBC',
   grey200: ' #9C9C9C',
-  grey400: '#3C404D',
   secondary: '#2F3037',
 };
 
@@ -72,7 +71,6 @@ export const theme = {
 
   layout: {
     maxContainerWidth: '160.4rem',
-    // mainSpacing: '2rem',
   },
 
   mq: Object.keys(breakpoints).reduce((acc, breakpoint) => {

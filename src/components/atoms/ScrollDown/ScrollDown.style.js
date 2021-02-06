@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   position: absolute;
   top: ${({ top }) => `${top}%`};
   left: ${({ left }) => `${left}%`};
-  z-index: ${({ theme }) => theme.zIndex.level5};
+  z-index: ${({ theme }) => theme.zIndex.level1};
   transform: rotate(-90deg);
 `;
 

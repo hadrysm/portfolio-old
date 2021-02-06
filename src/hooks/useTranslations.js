@@ -1,4 +1,3 @@
-// {i18n[locale].text}
 import { i18n } from 'config/i18n';
 import { useLocaleState } from 'providers/LocaleProvider/LocaleProvider';
 

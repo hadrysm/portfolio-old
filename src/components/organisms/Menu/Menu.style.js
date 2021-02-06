@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   width: 70%;
-  max-width: 50rem;
-  z-index: ${({ theme }) => theme.zIndex.level9};
+  max-width: 65rem;
+  z-index: ${({ theme }) => theme.zIndex.level2};
   overflow: auto;
   cursor: default;
 `;
