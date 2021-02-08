@@ -12,6 +12,10 @@ export const BurgerButton = styled(motion.button)`
   align-items: center;
   cursor: pointer;
   outline: none;
+
+  :focus-visible {
+    outline: auto;
+  }
 `;
 
 export const Wrapper = styled.div`

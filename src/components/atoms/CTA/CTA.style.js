@@ -9,7 +9,10 @@ export const Link = styled(TransitionLink)`
   color: inherit;
   cursor: pointer;
   background-color: transparent;
-  border: none;
+
+  :focus-visible {
+    border: 1px solid black;
+  }
 
   ${({ disabled }) =>
     disabled &&
