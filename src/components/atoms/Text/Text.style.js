@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 
 const base = css`
   color: ${({ theme, color }) => theme[color] || theme.text};
@@ -23,7 +24,7 @@ const base = css`
     `}
 `;
 
-export const Txt = styled.p`
+export const Txt = styled(motion.p)`
   font-weight: ${({ theme }) => theme.font.weight.regular};
   font-family: ${({ theme }) => theme.font.family.secondary};
   font-size: ${({ theme }) => theme.font.size.body.s};

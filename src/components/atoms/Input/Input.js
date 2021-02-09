@@ -17,8 +17,10 @@ const Input = ({
   ...props
 }) => (
   <Wrapper layout>
-    <Label htmlFor={name}>{label}</Label>
-    <StyledInput value={value} as={tag} type={type} name={name} id={name} {...props} />
+    <Label htmlFor={name} layout>
+      {label}
+    </Label>
+    <StyledInput value={value} as={tag} type={type} name={name} id={name} layout {...props} />
     <AnimatePresence>
       {isError && (
         <Animated.FromDirection
@@ -28,7 +30,7 @@ const Input = ({
           duration={0.5}
           exit={{ y: '-20%', opacity: 0, transition: { duration: 0.5 } }}
         >
-          <StyledText>{errorMessage}</StyledText>
+          <StyledText layout>{errorMessage}</StyledText>
         </Animated.FromDirection>
       )}
     </AnimatePresence>
